@@ -5,16 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chia Pudding Recipe</title>
     <link rel="stylesheet" href="chia-pudding.css">
+    <script>
+        function updateServings() {
+            const servings = document.getElementById('servings').value;
+            document.getElementById('chia-seeds').textContent = (0.25 * servings) + ' cup chia seeds';
+            document.getElementById('almond-milk').textContent = servings + ' cup almond milk (or any milk of your choice)';
+            document.getElementById('maple-syrup').textContent = (1 * servings) + ' tablespoon maple syrup (or honey)';
+            document.getElementById('vanilla-extract').textContent = (0.5 * servings) + ' teaspoon vanilla extract';
+        }
+    </script>
 </head>
 <body>
     <h1>Chia Pudding Recipe</h1>
+    <div>
+        <label for="servings">Number of servings:</label>
+        <input type="number" id="servings" name="servings" value="1" min="1" onchange="updateServings()">
+    </div>
     <div class="ingredients">
         <h2>Ingredients</h2>
         <ul>
-            <li>1/4 cup chia seeds</li>
-            <li>1 cup almond milk (or any milk of your choice)</li>
-            <li>1 tablespoon maple syrup (or honey)</li>
-            <li>1/2 teaspoon vanilla extract</li>
+            <li id="chia-seeds">1/4 cup chia seeds</li>
+            <li id="almond-milk">1 cup almond milk (or any milk of your choice)</li>
+            <li id="maple-syrup">1 tablespoon maple syrup (or honey)</li>
+            <li id="vanilla-extract">1/2 teaspoon vanilla extract</li>
             <li>Fresh fruits and nuts for topping (optional)</li>
         </ul>
     </div>
