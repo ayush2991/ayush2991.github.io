@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Recipes</title>
+    <link rel="stylesheet" href="main-style.css"> 
 </head>
 <body>
+    <div class="profile-img-container">
+        <img src="images/bench.png" alt="profile" class="profile-img">
+    </div>
     <h1>Welcome to My Recipe Collection</h1>
     <div>
         <p>Here are some of my favorite recipes:</p>
-        <ol>
-            <li><a href="recipes/chia-pudding.html">Chia Pudding Recipe</a></li>
-            <li><a href="recipes/bran-muffin.html">Healthy Bran Muffins Recipe</a></li>
-        </ol>
+        <div class="recipe-grid">
+            <div class="recipe-item">
+                <a href="recipes/chia-pudding.html" target="_blank">
+                    <img src="images/banana-nut-chia-pudding.jpg" alt="Chia Pudding">
+                    <p>Chia Pudding Recipe</p>
+                </a>
+            </div>
+            <div class="recipe-item">
+                <a href="recipes/bran-muffin.html" target="_blank">
+                    <img src="images/bran-muffins.jpg" alt="Bran Muffin">
+                    <p>Healthy Bran Muffins Recipe</p>
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
