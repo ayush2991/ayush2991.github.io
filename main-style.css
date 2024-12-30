@@ -2,8 +2,6 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #212121; /* Material Design primary text color */
     background-color: #fafafa; /* Material Design background color */
-    margin: 0;
-    padding: 0;
 }
 
 a {
@@ -22,26 +20,14 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 240px; /* Adjust width to accommodate padding */
     height: 240px; /* Adjust height to accommodate padding */
     margin: 0 auto;
-    border-radius: 50%;
 }
 
 .profile-img {
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
-}
-
-h1, h2 {
-    color: #212121; /* Material Design primary text color */
-    font-weight: 500;
-}
-
-p {
-    color: #757575; /* Material Design secondary text color */
-    font-size: 16px;
 }
 
 .recipe-grid, .project-grid, .portfolio-grid {
@@ -57,17 +43,13 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #ffffff; /* Material Design card background color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Material Design shadow */
-    border-radius: 8px;
-    padding: 16px;
 }
 
 .recipe-item img, .project-item img, .portfolio-item img {
     width: 100%;
     height: auto;
     max-height: 80%; /* Ensure the image fits within the item */
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .recipe-item p, .project-item p, .portfolio-item p {
@@ -80,7 +62,6 @@ p {
 /* Responsive styles */
 @media (max-width: 600px) {
     .profile-img-container {
-        width: 180px;
         height: 180px;
     }
 
