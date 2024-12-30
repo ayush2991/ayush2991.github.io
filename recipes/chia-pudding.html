@@ -6,9 +6,25 @@
     <title>Chia Pudding Recipe</title>
     <link rel="stylesheet" href="style.css">
     <script src="chia-pudding.js" defer></script>
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 48%;
+            border-radius: 10%;
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
     <h1>Chia Pudding Recipe</h1>
+    <div class="image-container">
+        <img src="../images/chia-ingredients-1.jpeg" alt="Chia Pudding Image 1">
+        <img src="../images/chia-pudding-original.jpeg" alt="Chia Pudding Image 2">
+    </div>
     <div>
         <label for="servings">Number of servings:</label>
         <input type="number" id="servings" name="servings" value="1" min="1" onchange="updateServings()">
