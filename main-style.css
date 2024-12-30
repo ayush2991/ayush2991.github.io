@@ -1,4 +1,19 @@
-/* filepath: /Users/aayushagarwal/projects/ayush2991.github.io/main-style.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #212121; /* Material Design primary text color */
+    background-color: #fafafa; /* Material Design background color */
+}
+
+a {
+    color: #1e88e5; /* Material Design primary color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1565c0; /* Material Design primary dark color */
+    text-decoration: underline;
+}
+
 .profile-img-container {
     background-color: #f0f0f0; /* Nice background color */
     padding: 20px;
@@ -10,35 +25,60 @@
 }
 
 .profile-img {
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
 }
 
-.recipe-grid {
+.recipe-grid, .project-grid, .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 20px;
+    padding: 10px 0px;
 }
 
-.recipe-item {
+.recipe-item, .project-item, .portfolio-item {
     text-align: center;
-    height: 300px; /* Set a fixed height for all grid items */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.recipe-item img {
+.recipe-item img, .project-item img, .portfolio-item img {
     width: 100%;
     height: auto;
     max-height: 80%; /* Ensure the image fits within the item */
     border-radius: 10px;
 }
 
-.recipe-item p {
+.recipe-item p, .project-item p, .portfolio-item p {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
+    color: #212121; /* Material Design primary text color */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .profile-img-container {
+        height: 180px;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .recipe-grid, .project-grid, .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipe-item, .project-item, .portfolio-item {
+        height: auto;
+    }
+
+    .recipe-item img, .project-item img, .portfolio-item img {
+        max-height: 100%;
+    }
 }
