@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Teller</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="fortune-teller.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .image-container {
+            margin-bottom: 20px;
+        }
+        .dropdown-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .dropdown-container select {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 200px;
+        }
+        .fortune-box {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            width: 90%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 600px) {
+            .dropdown-container select {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Fortune Teller</h1>
+    <div class="image-container">
+        <img src="images/fortune-teller-2.jpeg" alt="Fortune Teller Image" width="300">
+    </div>
+    <div class="dropdown-container">
+        <select id="card1">
+            <option value="">Select Card 1</option>
+            <option value="Ten of Wands">Ten of Wands</option>
+            <option value="The Fool">The Fool</option>
+            <option value="The Magician">The Magician</option>
+            <!-- Add more options as needed -->
+        </select>
+        <select id="card2">
+            <option value="">Select Card 2</option>
+            <option value="Ten of Wands">Ten of Wands</option>
+            <option value="The Fool">The Fool</option>
+            <option value="The Magician">The Magician</option>
+            <!-- Add more options as needed -->
+        </select>
+        <select id="card3">
+            <option value="">Select Card 3</option>
+            <option value="Ten of Wands">Ten of Wands</option>
+            <option value="The Fool">The Fool</option>
+            <option value="The Magician">The Magician</option>
+            <!-- Add more options as needed -->
+        </select>
+    </div>
+    <div class="fortune-box" id="fortune-box">
+        Your fortune will appear here.
+    </div>
+</body>
+</html>
