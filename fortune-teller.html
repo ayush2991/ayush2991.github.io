@@ -8,77 +8,138 @@
     <script src="fortune-teller.js" defer></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            color: #212121; /* Material Design primary text color */
+            background-color: #fafafa; /* Material Design background color */
             margin: 0;
             padding: 0;
+            text-align: center;
         }
+
+        h1, h2 {
+            color: #212121; /* Material Design primary text color */
+            font-weight: 500;
+        }
+
+        p {
+            color: #757575; /* Material Design secondary text color */
+            font-size: 16px;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .image-container {
-            margin-bottom: 20px;
-        }
-        .dropdown-container {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             margin-bottom: 20px;
         }
-        .dropdown-container select {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
+
+        .image-container img {
             width: 100%;
-            max-width: 200px;
+            max-width: 400px;
+            border-radius: 10%;
+            background-color: #f0f0f0;
         }
-        .fortune-box {
-            margin-top: 20px;
-            padding: 20px;
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .input-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-container select {
+            width: 100%;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-            width: 90%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            border-radius: 4px;
         }
-        @media (min-width: 600px) {
-            .dropdown-container select {
-                width: auto;
+
+        .input-item {
+            flex: 1;
+            margin-right: 10px;
+            min-width: 100px;
+        }
+
+        .input-item:last-child {
+            margin-right: 0;
+        }
+
+        .fortune-box {
+            padding: 20px;
+            background-color: #ffffff; /* Material Design card background color */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Material Design shadow */
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .input-container {
+                flex-direction: column;
+            }
+
+            .input-item {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .input-item:last-child {
+                margin-bottom: 0;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Fortune Teller</h1>
-    <div class="image-container">
-        <img src="images/fortune-teller-2.jpeg" alt="Fortune Teller Image" width="300">
-    </div>
-    <div class="dropdown-container">
-        <select id="card1">
-            <option value="">Select Card 1</option>
-            <option value="Ten of Wands">Ten of Wands</option>
-            <option value="The Fool">The Fool</option>
-            <option value="The Magician">The Magician</option>
-            <!-- Add more options as needed -->
-        </select>
-        <select id="card2">
-            <option value="">Select Card 2</option>
-            <option value="Ten of Wands">Ten of Wands</option>
-            <option value="The Fool">The Fool</option>
-            <option value="The Magician">The Magician</option>
-            <!-- Add more options as needed -->
-        </select>
-        <select id="card3">
-            <option value="">Select Card 3</option>
-            <option value="Ten of Wands">Ten of Wands</option>
-            <option value="The Fool">The Fool</option>
-            <option value="The Magician">The Magician</option>
-            <!-- Add more options as needed -->
-        </select>
-    </div>
-    <div class="fortune-box" id="fortune-box">
-        Your fortune will appear here.
+    <div class="container">
+        <h1>Fortune Teller</h1>
+        <div class="image-container">
+            <img src="images/fortune-teller-2.jpeg" alt="Fortune Teller Image">
+        </div>
+        <div class="input-container">
+            <div class="input-item">
+                <label for="card1">Card 1:</label>
+                <select id="card1" name="card1">
+                    <option value="">Select a card</option>
+                    <option value="The Fool">The Fool</option>
+                    <option value="The Magician">The Magician</option>
+                    <option value="The High Priestess">The High Priestess</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="input-item">
+                <label for="card2">Card 2:</label>
+                <select id="card2" name="card2">
+                    <option value="">Select a card</option>
+                    <option value="The Fool">The Fool</option>
+                    <option value="The Magician">The Magician</option>
+                    <option value="The High Priestess">The High Priestess</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="input-item">
+                <label for="card3">Card 3:</label>
+                <select id="card3" name="card3">
+                    <option value="">Select a card</option>
+                    <option value="The Fool">The Fool</option>
+                    <option value="The Magician">The Magician</option>
+                    <option value="The High Priestess">The High Priestess</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+        </div>
+        <div class="fortune-box" id="fortune-box">
+            Your fortune will appear here.
+        </div>
     </div>
 </body>
 </html>
