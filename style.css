@@ -1,0 +1,86 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #212121; /* Material Design primary text color */
+    background-color: #fafafa; /* Material Design background color */
+}
+
+a {
+    color: #1e88e5; /* Material Design primary color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1565c0; /* Material Design primary dark color */
+    text-decoration: underline;
+}
+
+.profile-img-container {
+    background-color: #f0f0f0; /* Nice background color */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240px; /* Adjust height to accommodate padding */
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+}
+
+.project-grid, .certification-grid, .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    padding: 10px 0px;
+}
+
+.project-item, .certification-item, .article-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-item img, .certification-item img, .article-item img {
+    width: 100%;
+    height: auto;
+    max-height: 80%; /* Ensure the image fits within the item */
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #212121;
+}
+
+.project-item p, .certification-item p, .article-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #212121; /* Material Design primary text color */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .profile-img-container {
+        height: 180px;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .project-grid, .certification-grid, .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-item, .certification-item, .article-item {
+        height: auto;
+    }
+
+    .project-item img, .certification-item img, .article-item img {
+        max-height: 100%;
+    }
+}
