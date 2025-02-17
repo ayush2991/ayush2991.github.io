@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    color: #4CAF50;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+}
+
+.ingredients, .instructions {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ingredients ul, .instructions ol {
+    margin-left: 20px;
+}
+
+.ingredients li, .instructions li {
+    margin-bottom: 10px;
+}
+
+.instructions ol {
+    list-style-type: decimal;
+}

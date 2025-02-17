@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chia Pudding Recipe</title>
+    <link rel="stylesheet" href="recipe-styles.css">
+    <script src="chia-pudding.js" defer></script>
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 48%;
+            border-radius: 10%;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chia Pudding Recipe</h1>
+    <div>
+        <label for="servings">Number of servings:</label>
+        <input type="number" id="servings" name="servings" value="1" min="1" onchange="updateServings()">
+    </div>
+    <div class="ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+            <li id="chia-seeds">1/4 cup chia seeds</li>
+            <li id="almond-milk">1 cup almond milk (or any milk of your choice)</li>
+            <li id="maple-syrup">1 tablespoon maple syrup (or honey)</li>
+            <li id="vanilla-extract">1/2 teaspoon vanilla extract</li>
+            <li>Fresh fruits and nuts for topping (optional)</li>
+        </ul>
+    </div>
+    <div class="instructions">
+        <h2>Instructions</h2>
+        <ol>
+            <li>In a bowl, combine chia seeds, almond milk, maple syrup, and vanilla extract.</li>
+            <li>Stir well to combine.</li>
+            <li>Let the mixture sit for about 5 minutes, then stir again to prevent clumping.</li>
+            <li>Cover the bowl and refrigerate for at least 2 hours or overnight.</li>
+            <li>Before serving, stir the pudding again and top with fresh fruits and nuts if desired.</li>
+        </ol>
+    </div>
+</body>
+</html>
