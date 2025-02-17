@@ -30,7 +30,7 @@ a:hover {
     border-radius: 50%;
 }
 
-.project-grid, .certification-grid, .article-grid, .recipe-grid {
+.project-grid, .certification-grid, .article-grid, .recipe-grid, .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
@@ -38,14 +38,14 @@ a:hover {
     padding: 10px 0px;
 }
 
-.project-item, .certification-item, .article-item, .recipe-item {
+.project-item, .certification-item, .article-item, .recipe-item, .course-item {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.project-item img, .certification-item img, .article-item img, .recipe-item img {
+.project-item img, .certification-item img, .article-item img, .recipe-item img, .course-item img {
     width: 100%;
     height: auto;
     max-height: 80%; /* Ensure the image fits within the item */
@@ -54,7 +54,7 @@ a:hover {
     border-color: #212121;
 }
 
-.project-item p, .certification-item p, .article-item p, .recipe-item p {
+.project-item p, .certification-item p, .article-item p, .recipe-item p, .course-item p {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -72,15 +72,15 @@ a:hover {
         height: 150px;
     }
 
-    .project-grid, .certification-grid, .article-grid, .recipe-grid {
+    .project-grid, .certification-grid, .article-grid, .recipe-grid, .course-grid {
         grid-template-columns: 1fr;
     }
 
-    .project-item, .certification-item, .article-item, .recipe-item {
+    .project-item, .certification-item, .article-item, .recipe-item, .course-item {
         height: auto;
     }
 
-    .project-item img, .certification-item img, .article-item img, .recipe-item img {
+    .project-item img, .certification-item img, .article-item img, .recipe-item img, .course-item img {
         max-height: 100%;
     }
 }
