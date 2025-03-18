@@ -78,3 +78,10 @@ header {
     margin-right: 5px;
     cursor: pointer;
 }
+
+/* Disable hover effect on touch devices */
+@media (hover: none) {
+    .cell:hover {
+        background-color: unset;
+    }
+}
