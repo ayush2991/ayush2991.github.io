@@ -84,4 +84,8 @@ header {
     .cell:hover {
         background-color: unset;
     }
+    .cell:active {
+        background-color: unset;
+    }
 }
+
