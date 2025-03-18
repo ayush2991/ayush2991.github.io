@@ -47,8 +47,10 @@ header {
     background-color: lightcoral;
 }
 
-.cell:hover {
-    background-color: #ccc;
+@media (hover: hover) {
+    .cell:hover {
+        background-color: #ccc;
+    }
 }
 
 #status {
@@ -77,15 +79,5 @@ header {
 .radio-group input[type="radio"] {
     margin-right: 5px;
     cursor: pointer;
-}
-
-/* Disable hover effect on touch devices */
-@media (hover: none) {
-    .cell:hover {
-        background-color: unset;
-    }
-    .cell:active {
-        background-color: unset;
-    }
 }
 
