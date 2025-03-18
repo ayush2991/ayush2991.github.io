@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play TicTacToe</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Play TicTacToe</h1>
+        </header>
+        <main>
+            <div id="status"></div>
+            <div id="board">
+                <div class="cell" id="cell1"></div>
+                <div class="cell" id="cell2"></div>
+                <div class="cell" id="cell3"></div>
+                <div class="cell" id="cell4"></div>
+                <div class="cell" id="cell5"></div>
+                <div class="cell" id="cell6"></div>
+                <div class="cell" id="cell7"></div>
+                <div class="cell" id="cell8"></div>
+                <div class="cell" id="cell9"></div>
+            </div>
+            <button id="resetButton">Reset</button>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="mode" value="human" checked> Human vs Human
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="computer"> Human vs Computer
+                </label>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
