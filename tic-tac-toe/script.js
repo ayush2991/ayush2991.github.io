@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.querySelector('#resetButton');
     const modeRadios = document.querySelectorAll('input[name="mode"]');
     let currentPlayer = 'X';
-    let gameMode = 'human';
+    let gameMode = 'computer';
     const winningCombinations = [
         [0, 1, 2],
         [3, 4, 5],
