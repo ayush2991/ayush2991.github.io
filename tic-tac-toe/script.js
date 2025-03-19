@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Computer makes a move
     function computerMove() {
         const availableCells = [...cells].filter(cell => cell.textContent === '');
-        
+
         // Check if the computer can win
         const winningMove = findWinningMove('O');
         if (winningMove !== null) {
