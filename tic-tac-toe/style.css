@@ -1,3 +1,4 @@
+/* Light Theme (Default) */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -6,6 +7,9 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
 .container {
@@ -20,23 +24,25 @@ header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    border: 1px solid #333;
+    border: 2px solid #333; /* Dark border */
     width: 300px;
     height: 300px;
     margin: 0 auto;
     border-collapse: collapse;
+    background-color: #fff; /* White board background */
 }
 
 .cell {
     width: 100px;
     height: 100px;
-    border: 1px solid #333;
+    border: 1px solid #333; /* Dark border */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
     cursor: pointer;
     box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Smooth transitions */
 }
 
 .cell.x {
@@ -49,7 +55,7 @@ header {
 
 @media (hover: hover) {
     .cell:hover {
-        background-color: #ccc;
+        background-color: #ccc; /* Light gray hover */
     }
 }
 
@@ -64,11 +70,19 @@ header {
     font-size: 1.5em;
 }
 
-#resetButton {
+#resetButton, #themeToggleButton {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    background-color: #eee; /* Light gray button */
+    border: 1px solid #333; /* Dark border */
+    color: #333; /* Dark text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+#resetButton:hover, #themeToggleButton:hover {
+    background-color: #ddd; /* Slightly darker hover */
 }
 
 /* New styles for radio buttons */
@@ -87,3 +101,45 @@ header {
     cursor: pointer;
 }
 
+/* Dark Theme High Contrast */
+body.dark-theme {
+    background-color: #1e1e1e; /* VS Code dark background */
+    color: #d4d4d4; /* VS Code light gray text */
+}
+
+body.dark-theme #board {
+    background-color: #252526; /* Slightly lighter than body */
+    border-color: #c5c5c5; /* High contrast border */
+}
+
+body.dark-theme .cell {
+    border-color: #c5c5c5; /* High contrast border */
+}
+
+body.dark-theme .cell.x {
+    background-color: #007acc; /* VS Code blue */
+    color: #fff;
+}
+
+body.dark-theme .cell.o {
+    background-color: #ce9178; /* VS Code orange */
+    color: #fff;
+}
+
+body.dark-theme .cell:hover {
+    background-color: #3c3c3c; /* Darker hover */
+}
+
+body.dark-theme #resetButton, body.dark-theme #themeToggleButton {
+    background-color: #3c3c3c; /* Dark button */
+    border-color: #c5c5c5; /* High contrast border */
+    color: #d4d4d4; /* Light text */
+}
+
+body.dark-theme #resetButton:hover, body.dark-theme #themeToggleButton:hover {
+    background-color: #5a5a5a; /* Darker hover */
+}
+body.dark-theme .radio-group label,
+body.dark-theme .radio-group input[type="radio"]{
+    color: #d4d4d4;
+}

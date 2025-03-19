@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const themeToggleButton = document.getElementById('themeToggleButton');
+
+    themeToggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+    });
+
     const cells = document.querySelectorAll('.cell');
     const statusDisplay = document.querySelector('#status');
     const resetButton = document.querySelector('#resetButton');
