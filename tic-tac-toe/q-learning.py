@@ -2,10 +2,12 @@ import numpy as np
 from typing import List, Optional, Tuple
 import random
 
+
 class TicTacToe:
     """
     A class to represent the Tic Tac Toe game.
     """
+
     def __init__(self) -> None:
         self.board: np.ndarray = np.zeros(9, dtype=int)  # 0: empty, 1: X, -1: O
         self.current_player: int = 1  # 1 for X, -1 for O
@@ -36,12 +38,22 @@ class TicTacToe:
             Optional[int]: 1 if X wins, -1 if O wins, 0 if draw, None if game is ongoing.
         """
         winning_combinations = [
-            [0, 1, 2], [3, 4, 5], [6, 7, 8],  # Rows
-            [0, 3, 6], [1, 4, 7], [2, 5, 8],  # Columns
-            [0, 4, 8], [2, 4, 6]             # Diagonals
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],  # Rows
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],  # Columns
+            [0, 4, 8],
+            [2, 4, 6],  # Diagonals
         ]
         for combo in winning_combinations:
-            if self.board[combo[0]] == self.board[combo[1]] == self.board[combo[2]] != 0:
+            if (
+                self.board[combo[0]]
+                == self.board[combo[1]]
+                == self.board[combo[2]]
+                != 0
+            ):
                 return self.board[combo[0]]  # Return 1 if X wins, -1 if O wins
 
         if np.all(self.board != 0):  # Check if the board is full (draw)
@@ -79,7 +91,13 @@ class QLearningAgent:
     """
     A Q-learning agent for playing Tic Tac Toe.
     """
-    def __init__(self, learning_rate: float = 0.1, discount_factor: float = 0.9, exploration_rate: float = 0.1) -> None:
+
+    def __init__(
+        self,
+        learning_rate: float = 0.1,
+        discount_factor: float = 0.9,
+        exploration_rate: float = 0.1,
+    ) -> None:
         self.learning_rate: float = learning_rate
         self.discount_factor: float = discount_factor
         self.exploration_rate: float = exploration_rate
@@ -90,7 +108,9 @@ class QLearningAgent:
             self.q_table[(state, action)] = 0.0
         return self.q_table[(state, action)]
 
-    def choose_action(self, state: Tuple[int, ...], available_actions: List[int]) -> int:
+    def choose_action(
+        self, state: Tuple[int, ...], available_actions: List[int]
+    ) -> int:
         """
         Chooses an action based on the current state and exploration strategy.
 
@@ -103,9 +123,17 @@ class QLearningAgent:
         """
         if np.random.rand() < self.exploration_rate:
             return random.choice(available_actions)  # Explore
-        return max(available_actions, key=lambda action: self.q_table.get((state, action), 0))  # Exploit
+        return max(
+            available_actions, key=lambda action: self.q_table.get((state, action), 0)
+        )  # Exploit
 
-    def update_q_value(self, state: Tuple[int, ...], action: int, reward: float, next_state: Tuple[int, ...]) -> None:
+    def update_q_value(
+        self,
+        state: Tuple[int, ...],
+        action: int,
+        reward: float,
+        next_state: Tuple[int, ...],
+    ) -> None:
         """
         Updates the Q-value for a given state-action pair.
 
@@ -117,8 +145,7 @@ class QLearningAgent:
         """
         current_q = self.q_table.get((state, action), 0)
         max_next_q = max(
-            [self.q_table.get((next_state, a), 0) for a in range(9)],
-            default=0
+            [self.q_table.get((next_state, a), 0) for a in range(9)], default=0
         )
         self.q_table[(state, action)] = current_q + self.learning_rate * (
             reward + self.discount_factor * max_next_q - current_q
@@ -149,14 +176,23 @@ def train_agent(agent: QLearningAgent, episodes: int = 10000) -> None:
             # Check for winner
             winner = game.get_winner()
             if winner is not None:
-                reward = 1 if winner == game.current_player * -1 else -1 if winner == game.current_player else 0
+                moves_made = 9 - len(game.get_available_actions())
+                reward = (
+                    10 - moves_made
+                    if winner == game.current_player * -1
+                    else -10 + moves_made if winner == game.current_player else 0
+                )
                 if previous_state is not None:
-                    agent.update_q_value(previous_state, previous_action, reward, game.get_state())
+                    agent.update_q_value(
+                        previous_state, previous_action, reward, game.get_state()
+                    )
                 break
 
             # Update Q-value for the previous state-action pair
             if previous_state is not None:
-                agent.update_q_value(previous_state, previous_action, 0, state)  # Neutral reward for ongoing game
+                agent.update_q_value(
+                    previous_state, previous_action, 0, state
+                )  # Neutral reward for ongoing game
 
             # Save the current state and action for the next update
             previous_state = state
@@ -226,4 +262,3 @@ if __name__ == "__main__":
 
     # Play a game with the human
     play_game_with_human(agent)
-
