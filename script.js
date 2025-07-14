@@ -22,8 +22,6 @@ const TYPING_ROLES = [
     'Machine Learning Engineer @ Google',
     'Deep Learning Enthusiast',
     'NLP & Agentic AI Explorer',
-    'Quantitative Finance Fan',
-    'Quantum Physics Curious'
 ];
 const TYPING_TYPE_SPEED_MS = 60;
 const TYPING_DELETE_SPEED_MS = 30;

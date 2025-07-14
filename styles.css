@@ -362,37 +362,68 @@ footer.section-container .text-gray-600 {
     color: #EA4335;
 }
 
-/* Education section color improvements */
-.education-entry {
-    background: var(--color-background);
+/* Career Arc & Education Card Styles */
+.career-card, .education-entry {
+    background-color: var(--color-background);
     border-radius: 0.75rem;
-    padding: 1.25rem 1.5rem;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
     border: 1px solid var(--color-border);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
     margin-bottom: 0.5rem;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
-    transition: background 0.2s, border-color 0.2s;
 }
-.education-degree {
+.career-card:hover, .education-entry:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.18);
+}
+.career-title, .education-degree {
     color: var(--color-accent);
 }
-.education-school {
+.career-company, .education-school {
     color: var(--color-accent);
 }
-.education-years {
+.career-meta, .education-years {
+    color: var(--color-muted);
+}
+.career-desc, .education-desc {
     color: var(--color-muted);
 }
 
-/* Light theme overrides for education section */
+/* Light theme overrides for cards */
+[data-theme="light"] .career-card,
 [data-theme="light"] .education-entry {
     background: #fff;
     border-color: var(--color-border-light);
 }
+[data-theme="light"] .career-title,
 [data-theme="light"] .education-degree,
+[data-theme="light"] .career-company,
 [data-theme="light"] .education-school {
     color: var(--color-accent);
 }
-[data-theme="light"] .education-years {
+[data-theme="light"] .career-meta,
+[data-theme="light"] .education-years,
+[data-theme="light"] .career-desc,
+[data-theme="light"] .education-desc {
     color: var(--color-muted);
+}
+    color: var(--color-accent);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-radius: 0.25rem;
+    transition: background 0.15s, color 0.15s;
+}
+#toc-nav .toc-link:hover,
+#toc-nav .toc-link:focus {
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Hide TOC on small screens */
+@media (max-width: 768px) {
+    #toc-nav {
+        display: none !important;
+    }
 }
 
 

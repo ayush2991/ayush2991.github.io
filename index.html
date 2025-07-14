@@ -66,6 +66,16 @@
         </a>
     </div>
 
+    <!-- Add a sticky/floating Table of Contents for quick navigation -->
+    <nav id="toc-nav" class="hidden md:flex flex-col gap-3 fixed top-1/2 right-8 z-40 bg-[var(--color-background)] border border-[var(--color-border)] rounded-lg shadow-lg px-4 py-3 transition-all" style="transform: translateY(-50%);">
+        <a href="#about" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">About</a>
+        <a href="#projects" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Projects</a>
+        <a href="#certificates" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Certificates</a>
+        <a href="#blog" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Blog</a>
+        <a href="#career" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Career</a>
+        <a href="#contact" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Contact</a>
+    </nav>
+
     <!-- About Me Section -->
     <section id="about" class="section-container border-b-2 border-gray-800">
         <div class="max-w-5xl mx-auto">
@@ -287,15 +297,14 @@
     <section id="career" class="section-container border-b-2 border-gray-800">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl font-bold mb-12 text-center">Career Arc</h2>
-            <div class="space-y-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Google Search -->
-                <div class="flex items-start gap-6">
-                    <!-- Logo removed -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-1">Software Engineer</h3>
-                        <div class="text-rust font-semibold mb-1">Google</div>
-                        <div class="text-gray-400 mb-2 text-sm">Feb 2022 – Present · New York City, New York, United States</div>
-                        <ul class="list-disc ml-5 text-base">
+                <div class="career-card">
+                    <div class="p-6">
+                        <h3 class="career-title">Software Engineer</h3>
+                        <div class="career-company text-rust font-semibold mb-1">Google</div>
+                        <div class="career-meta text-gray-400 mb-2 text-sm">Feb 2022 – Present · New York City, NY</div>
+                        <ul class="list-disc ml-5 text-base career-desc">
                             <li>Architected and delivered generative AI solutions that power next-generation Google Search experiences.</li>
                             <li>Enhanced answer accuracy and trustworthiness for billions of users worldwide.</li>
                             <li>Championed initiatives to amplify diverse human perspectives in search results.</li>
@@ -303,85 +312,78 @@
                     </div>
                 </div>
                 <!-- Google Cloud -->
-                <div class="flex items-start gap-6">
-                    <!-- Logo removed -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-1">Machine Learning Engineer</h3>
-                        <div class="text-rust font-semibold mb-1">Google</div>
-                        <div class="text-gray-400 mb-2 text-sm">Mar 2019 – Feb 2022 · New York City, New York, United States</div>
-                        <ul class="list-disc ml-5 text-base">
+                <div class="career-card">
+                    <div class="p-6">
+                        <h3 class="career-title">Machine Learning Engineer</h3>
+                        <div class="career-company text-rust font-semibold mb-1">Google</div>
+                        <div class="career-meta text-gray-400 mb-2 text-sm">Mar 2019 – Feb 2022 · New York City, NY</div>
+                        <ul class="list-disc ml-5 text-base career-desc">
                             <li>Developed and deployed intelligent assistive features for Google Docs and Slides, impacting millions of enterprise users.</li>
                             <li>Led cross-functional efforts to launch new G Suite AI capabilities, streamlining business workflows.</li>
                         </ul>
                     </div>
                 </div>
                 <!-- Microsoft -->
-                <div class="flex items-start gap-6">
-                    <!-- Logo removed -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-1">Data Scientist</h3>
-                        <div class="text-rust font-semibold mb-1">Microsoft</div>
-                        <div class="text-gray-400 mb-2 text-sm">Mar 2017 – Mar 2019 · Bellevue, Washington, United States</div>
-                        <ul class="list-disc ml-5 text-base">
+                <div class="career-card">
+                    <div class="p-6">
+                        <h3 class="career-title">Data Scientist</h3>
+                        <div class="career-company text-rust font-semibold mb-1">Microsoft</div>
+                        <div class="career-meta text-gray-400 mb-2 text-sm">Mar 2017 – Mar 2019 · Bellevue, WA</div>
+                        <ul class="list-disc ml-5 text-base career-desc">
                             <li>Designed and implemented ML/NLP models to answer real-time news queries on Bing.com.</li>
                             <li>Improved search relevance and user engagement through data-driven experimentation.</li>
                         </ul>
                     </div>
                 </div>
-                <!-- Carnegie Mellon University - Research -->
-                <div class="flex items-start gap-6">
-                    <!-- Logo removed -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-1">Graduate Research Fellow</h3>
-                        <div class="text-rust font-semibold mb-1">Carnegie Mellon University</div>
-                        <div class="text-gray-400 mb-2 text-sm">May 2016 – Aug 2016 · Pittsburgh, Pennsylvania, United States</div>
-                        <ul class="list-disc ml-5 text-base">
+                <!-- CMU Research -->
+                <div class="career-card">
+                    <div class="p-6">
+                        <h3 class="career-title">Graduate Research Fellow</h3>
+                        <div class="career-company text-rust font-semibold mb-1">Carnegie Mellon University</div>
+                        <div class="career-meta text-gray-400 mb-2 text-sm">May 2016 – Aug 2016 · Pittsburgh, PA</div>
+                        <ul class="list-disc ml-5 text-base career-desc">
                             <li>Pioneered deep learning approaches for machine reading comprehension (SQuAD dataset).</li>
                             <li>Advanced the state-of-the-art in question answering systems.</li>
                         </ul>
                     </div>
                 </div>
                 <!-- Amazon -->
-                <div class="flex items-start gap-6">
-                    <!-- Logo removed -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-1">Software Development Engineer Intern</h3>
-                        <div class="text-rust font-semibold mb-1">Amazon</div>
-                        <div class="text-gray-400 mb-2 text-sm">May 2014 – Jul 2014 · Chennai, Tamil Nadu, India</div>
-                        <ul class="list-disc ml-5 text-base">
+                <div class="career-card">
+                    <div class="p-6">
+                        <h3 class="career-title">Software Development Engineer Intern</h3>
+                        <div class="career-company text-rust font-semibold mb-1">Amazon</div>
+                        <div class="career-meta text-gray-400 mb-2 text-sm">May 2014 – Jul 2014 · Chennai, India</div>
+                        <ul class="list-disc ml-5 text-base career-desc">
                             <li>Engineered seamless Kindle user experiences through robust C++ development.</li>
                         </ul>
                     </div>
                 </div>
-                <!-- Akamai Technologies -->
-                <div class="flex items-start gap-6">
-                    <!-- Logo removed -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-1">Software Engineer Intern</h3>
-                        <div class="text-rust font-semibold mb-1">Akamai Technologies</div>
-                        <div class="text-gray-400 mb-2 text-sm">Jun 2013 – Jul 2013 · 2 mos · Bengaluru, Karnataka, India</div>
-                        <ul class="list-disc ml-5 text-base">
+                <!-- Akamai -->
+                <div class="career-card">
+                    <div class="p-6">
+                        <h3 class="career-title">Software Engineer Intern</h3>
+                        <div class="career-company text-rust font-semibold mb-1">Akamai Technologies</div>
+                        <div class="career-meta text-gray-400 mb-2 text-sm">Jun 2013 – Jul 2013 · Bengaluru, India</div>
+                        <ul class="list-disc ml-5 text-base career-desc">
                             <li>Automated business processes and decision logic using jBPM and Drools (Java).</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <h2 class="text-4xl font-bold mb-12 mt-16 text-center">Education</h2>
-            <div class="space-y-10">
-                <!-- Carnegie Mellon University -->
-                <div class="flex items-start gap-6">
-                    <!-- Logo removed -->
-                    <div class="education-entry">
-                        <h3 class="text-2xl font-semibold mb-1 education-degree">Master’s Degree, Computational Data Science</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- CMU -->
+                <div class="education-entry">
+                    <div class="p-6">
+                        <h3 class="education-degree text-2xl font-semibold mb-1">Master’s Degree, Computational Data Science</h3>
                         <div class="education-school text-rust font-semibold mb-1">Carnegie Mellon University</div>
                         <div class="education-years text-gray-400 mb-2 text-sm">2015 – 2016</div>
                     </div>
                 </div>
                 <!-- IIT Madras -->
-                <div class="flex items-start gap-6">
-                    <!-- Logo removed -->
-                    <div class="education-entry">
-                        <h3 class="text-2xl font-semibold mb-1 education-degree">Bachelor of Technology - BTech, Computer Science and Engineering</h3>
+                <div class="education-entry">
+                    <div class="p-6">
+                        <h3 class="education-degree text-2xl font-semibold mb-1">Bachelor of Technology - BTech, Computer Science and Engineering</h3>
                         <div class="education-school text-rust font-semibold mb-1">Indian Institute of Technology, Madras</div>
                         <div class="education-years text-gray-400 mb-2 text-sm">2011 – 2015</div>
                     </div>
@@ -423,6 +425,14 @@
                 &copy; 2025 Your Name. All rights reserved.
                 <span class="material-icons align-middle" style="font-size:1.2em;color:#4285F4;">verified</span>
                 <span class="text-xs" style="color:#4285F4;">Google</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Only keep script.js -->
+    <script src="script.js"></script>
+</body>
+</html>
             </p>
         </div>
     </footer>
