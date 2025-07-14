@@ -1,0 +1,276 @@
+/* Custom Tailwind Configuration */
+:root {
+    --color-background-dark: #1a1a1a;
+    --color-background-light: #f7f7f7;
+    --color-text-light: #e0e0e0;
+    --color-text-dark: #222;
+    --color-accent-rust: #b34a2e;
+    --color-accent-dark-rust: #8a3a22;
+    --color-accent-light-rust: #e65100;
+    --color-border-gray: #333333;
+    --color-border-light: #e0e0e0;
+    --color-muted-dark: #a3a3a3;
+    --color-muted-light: #444;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-light);
+    --color-accent: var(--color-accent-rust);
+    --color-accent-hover: var(--color-accent-dark-rust);
+    --color-border: var(--color-border-gray);
+    --color-muted: var(--color-muted-dark);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-dark);
+    --color-accent: var(--color-accent-light-rust);
+    --color-accent-hover: #b34a2e;
+    --color-border: var(--color-border-light);
+    --color-muted: var(--color-muted-light);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fira Code', monospace;
+    color: var(--color-accent);
+}
+
+.text-rust {
+    color: var(--color-accent);
+}
+
+.bg-rust {
+    background-color: var(--color-accent);
+}
+
+.hover\:bg-dark-rust:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.border-gray-custom {
+    border-color: var(--color-border);
+}
+
+/* Custom scrollbar for a more "hacker" feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-hover);
+}
+
+/* Utility class for section containers */
+.section-container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+footer.section-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+/* Project Card Styles */
+.project-card {
+    background-color: var(--color-background);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px 0 rgba(0,0,0,0.08);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+.project-card:hover {
+    transform: scale(1.02);
+}
+.project-img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border);
+}
+.project-card-svg {
+    width: 100%;
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+}
+.project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: var(--color-accent);
+}
+.project-desc,
+.certificate-desc,
+.blog-desc,
+.text-gray-400,
+.text-gray-300,
+.text-gray-500,
+.text-gray-600 {
+    color: var(--color-muted) !important;
+}
+
+/* Certificate Card Styles */
+.certificate-card {
+    background-color: var(--color-background);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    margin-bottom: 0.5rem;
+}
+.certificate-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+}
+.certificate-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Blog Card Styles */
+.blog-card {
+    background-color: var(--color-background);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    margin-bottom: 0.5rem;
+}
+.blog-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+}
+.blog-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+#code-rain {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Fix background for .project-card, .certificate-card, .blog-card */
+.project-card,
+.certificate-card,
+.blog-card {
+    background-color: var(--color-background);
+}
+
+/* Fix border color for all cards and sections */
+.project-card,
+.certificate-card,
+.blog-card,
+.section-container,
+footer.section-container {
+    border-color: var(--color-border) !important;
+}
+
+/* Fix About Me section avatar border for both themes */
+#about .border-rust {
+    border-color: var(--color-accent) !important;
+}
+
+/* Fix About Me section background and text for light mode (already present, just ensure specificity) */
+[data-theme="light"] #about.section-container {
+    background-color: #f3f3f7;
+    color: #222;
+}
+[data-theme="light"] #about .text-gray-300,
+[data-theme="light"] #about .mb-4,
+[data-theme="light"] #about p {
+    color: #222 !important;
+}
+
+/* Fix section headings for both themes */
+.section-container h2,
+.section-container h3,
+.section-container h4,
+.section-container h5,
+.section-container h6 {
+    color: var(--color-accent);
+}
+
+/* Fix footer muted text */
+footer.section-container .text-gray-400,
+footer.section-container .text-gray-500,
+footer.section-container .text-gray-600 {
+    color: var(--color-muted) !important;
+}
+
+/* Badge for tech stack */
+.badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.2em 0.7em;
+    border-radius: 0.5em;
+    margin-right: 0.2em;
+    margin-bottom: 0.2em;
+    letter-spacing: 0.03em;
+}
+
+/* Testimonials */
+#testimonials blockquote {
+    border-left: 4px solid var(--color-accent);
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+/* Publications */
+#publications ul {
+    list-style: disc inside;
+}
+#publications li {
+    background: var(--color-background);
+    border-radius: 0.5em;
+    padding: 1em;
+    border: 1px solid var(--color-border);
+}
+
+/* Download Resume Button */
+.fixed.bottom-6.right-6 a {
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+}
+
+

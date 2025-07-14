@@ -3,1086 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aayush Agarwal - Data Scientist & AI Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #4285F4; /* Gemini Blue */
-            --secondary-color: #9B72CB; /* Gemini Purple */
-            --accent-color: #F8BBD0; /* Gemini Pink */
-            --dark-color: #202124; /* Gemini Text */
-            --darker-color: #1A1A1A;
-            --light-color: #F5F7FA; /* Gemini Background */
-            --text-color: #202124;
-            --text-light: #5F6368;
-            --card-bg: rgba(255, 255, 255, 0.98);
-            --gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            --accent-gradient: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-color) 100%);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--light-color);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient);
-            border-radius: 4px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--light-color);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            background: var(--gradient);
-            border-radius: 20px;
-            z-index: -1;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .skill-tag {
-            padding: 0.5rem 1rem;
-            background: var(--accent-gradient);
-            color: white;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            height: 200px;
-            background: var(--gradient);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image::before {
-            content: '🤖';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            opacity: 0.7;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-
-        .project-description {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            padding: 0.3rem 0.8rem;
-            background: rgba(102, 126, 234, 0.1);
-            color: var(--primary-color);
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .project-link.primary {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .project-link.secondary {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-
-        .project-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--dark-color);
-            color: white;
-        }
-
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .form-group {
-            position: relative;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        textarea.form-input {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            padding: 1rem 2rem;
-            background: var(--accent-gradient);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--darker-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .social-link {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--accent-gradient);
-            transform: translateY(-3px);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .social-links {
-                gap: 1rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-        }
-
-        /* Scroll Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: var(--accent-gradient);
-            z-index: 1001;
-            transition: width 0.1s ease;
-        }
-    </style>
+    <title>Aayush Agarwal Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter (for general text) and Fira Code (for code-like feel) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Portfolio of Aayush Agarwal, Machine Learning Engineer at Google. Projects, blog, certificates, and more.">
+    <meta property="og:title" content="Aayush Agarwal Portfolio">
+    <meta property="og:description" content="Portfolio of Aayush Agarwal, Machine Learning Engineer at Google.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://placehold.co/600x400/b34a2e/e0e0e0?text=Aayush+Agarwal">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico">
 </head>
-<body>
-    <div class="progress-bar"></div>
-    
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Aayush Agarwal</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<body class="antialiased" data-theme="dark">
 
-    <section id="home" class="hero">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        
-        <div class="hero-content">
-            <h1>Data Scientist & AI Engineer</h1>
-            <p class="subtitle">Transforming data into intelligent solutions through machine learning and artificial intelligence</p>
-            <a href="#projects" class="cta-button">View My Work</a>
-        </div>
-    </section>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="fixed top-6 right-6 z-50 px-3 py-2 rounded bg-rust text-white font-semibold shadow hover:bg-dark-rust transition" aria-label="Toggle theme">
+        🌙
+    </button>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
-            <div class="about-content fade-in">
-                <div class="about-image">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23f0f0f0'/><circle cx='150' cy='120' r='50' fill='%23667eea'/><rect x='100' y='180' width='100' height='80' rx='10' fill='%23764ba2'/><text x='150' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'>Your Photo Here</text></svg>" alt="Profile">
+    <!-- Header/Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center text-center p-8 overflow-hidden">
+        <!-- Code Rain Canvas -->
+        <canvas id="code-rain" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-90"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-up text-rust">
+                <span class="block">Aayush Agarwal</span>
+            </h1>
+            <p class="text-xl md:text-3xl font-light mb-8 animate-fade-in-up delay-200">
+                Machine Learning Engineer @ Google
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up delay-400">
+                <a href="#projects" class="px-6 py-3 bg-rust text-white font-semibold rounded-lg shadow-lg hover:bg-dark-rust transition duration-300 ease-in-out transform hover:scale-105">
+                    View Projects
+                </a>
+                <a href="#contact" class="px-6 py-3 border-2 border-rust text-rust font-semibold rounded-lg shadow-lg hover:bg-rust hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Download Resume Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="Aayush_Agarwal_Resume.pdf" download class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition" aria-label="Download Resume">
+            Download Resume
+        </a>
+    </div>
+
+    <!-- About Me Section -->
+    <section id="about" class="section-container border-b-2 border-gray-800">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-8 text-center">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <img src="https://placehold.co/300x300/b34a2e/e0e0e0?text=YOUR+PHOTO" alt="Your Photo" class="rounded-full border-4 border-rust shadow-xl mx-auto">
                 </div>
-                <div class="about-text">
-                    <p>I'm a passionate machine learning engineer with expertise in developing cutting-edge AI solutions. My journey in data science spans across various domains including computer vision, natural language processing, and predictive analytics.</p>
-                    <p>I believe in the power of data to drive meaningful insights and create intelligent systems that solve real-world problems. My approach combines theoretical knowledge with practical implementation to deliver robust and scalable ML solutions.</p>
-                    <div class="skills">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">Computer Vision</span>
-                        <span class="skill-tag">NLP</span>
-                        <span class="skill-tag">Deep Learning</span>
-                        <span class="skill-tag">MLOps</span>
-                    </div>
+                <div class="md:w-2/3 text-lg">
+                    <p class="mb-4">
+                        I am a Machine Learning Engineer at Google, passionate about building intelligent systems that push the boundaries of technology. My expertise spans various domains, including deep learning, natural language processing, and the exciting field of Agentic AI.
+                    </p>
+                    <p class="mb-4">
+                        Beyond core machine learning, I have a keen interest in quantitative finance, exploring the intersection of advanced algorithms and financial markets. I'm also fascinated by the fundamental principles of quantum physics and its potential implications for computation and beyond.
+                    </p>
+                    <p>
+                        I believe in continuous learning and enjoy tackling complex problems. This portfolio showcases some of my work and interests.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">AI-Powered Image Classification</h3>
-                        <p class="project-description">Advanced deep learning model for multi-class image recognition with 98% accuracy using convolutional neural networks and transfer learning techniques.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PyTorch</span>
-                            <span class="tech-tag">CNN</span>
-                            <span class="tech-tag">Transfer Learning</span>
-                            <span class="tech-tag">OpenCV</span>
+    <!-- Projects Section -->
+    <section id="projects" class="section-container border-b-2 border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Project Card Template -->
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/333333/e0e0e0?text=Deep+Learning+Project" alt="Neural Network for Image Recognition" class="project-img">
+                    <div class="p-6">
+                        <h3 class="project-title">Neural Network for Image Recognition</h3>
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <span class="badge">Python</span>
+                            <span class="badge">TensorFlow</span>
+                            <span class="badge">CNN</span>
                         </div>
-                        <div class="project-links">
-                            <a href="https://ayush2991-ai-powered-image-classification.streamlit.app/" class="project-link primary">Live Demo</a>
-                            <a href="https://github.com/ayush2991/ai-powered-image-classification" class="project-link secondary">GitHub</a>
+                        <p class="project-desc">Developed a convolutional neural network (CNN) for high-accuracy image classification on a large-scale dataset. Explored various architectures and optimization techniques.</p>
+                        <div class="flex gap-3 mt-4">
+                            <a href="#" class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition">GitHub</a>
+                            <a href="#" class="px-4 py-2 border-2 border-rust text-rust font-semibold rounded shadow hover:bg-rust hover:text-white transition">Live Demo</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Natural Language Sentiment Analyzer</h3>
-                        <p class="project-description">Real-time sentiment analysis system processing social media data using transformer models and achieving state-of-the-art performance.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">BERT</span>
-                            <span class="tech-tag">Transformers</span>
-                            <span class="tech-tag">PyTorch</span>
-                            <span class="tech-tag">NLTK</span>
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/333333/e0e0e0?text=NLP+Project" alt="Sentiment Analysis with Transformers" class="project-img">
+                    <div class="p-6">
+                        <h3 class="project-title">Sentiment Analysis with Transformers</h3>
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <span class="badge">Python</span>
+                            <span class="badge">PyTorch</span>
+                            <span class="badge">Transformers</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Predictive Analytics Dashboard</h3>
-                        <p class="project-description">Interactive dashboard for business intelligence featuring time series forecasting, anomaly detection, and automated insights generation.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Time Series</span>
-                            <span class="tech-tag">Prophet</span>
-                            <span class="tech-tag">Plotly</span>
-                            <span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link secondary">GitHub</a>
+                        <p class="project-desc">Implemented a sentiment analysis model using state-of-the-art Transformer architectures (e.g., BERT, GPT). Achieved significant improvements over traditional methods.</p>
+                        <div class="flex gap-3 mt-4">
+                            <a href="#" class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition">GitHub</a>
+                            <a href="#" class="px-4 py-2 border-2 border-rust text-rust font-semibold rounded shadow hover:bg-rust hover:text-white transition">Live Demo</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Autonomous Data Pipeline</h3>
-                        <p class="project-description">End-to-end MLOps pipeline with automated data preprocessing, model training, validation, and deployment using cloud infrastructure.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">MLflow</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">AWS</span>
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/333333/e0e0e0?text=Agentic+AI+Project" alt="Autonomous Decision-Making Agent" class="project-img">
+                    <div class="p-6">
+                        <h3 class="project-title">Autonomous Decision-Making Agent</h3>
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <span class="badge">Python</span>
+                            <span class="badge">OpenAI Gym</span>
+                            <span class="badge">RL</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Recommendation Engine</h3>
-                        <p class="project-description">Collaborative filtering system with deep learning enhancements, serving personalized recommendations for e-commerce platform.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Collaborative Filtering</span>
-                            <span class="tech-tag">Neural CF</span>
-                            <span class="tech-tag">Apache Spark</span>
-                            <span class="tech-tag">Redis</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link secondary">GitHub</a>
+                        <p class="project-desc">Designed and built an Agentic AI system capable of autonomous task execution and problem-solving in a simulated environment.</p>
+                        <div class="flex gap-3 mt-4">
+                            <a href="#" class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition">GitHub</a>
+                            <a href="#" class="px-4 py-2 border-2 border-rust text-rust font-semibold rounded shadow hover:bg-rust hover:text-white transition">Live Demo</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Computer Vision for Healthcare</h3>
-                        <p class="project-description">Medical image analysis system for early disease detection using advanced CNN architectures and attention mechanisms.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Medical Imaging</span>
-                            <span class="tech-tag">ResNet</span>
-                            <span class="tech-tag">Attention Mechanism</span>
-                            <span class="tech-tag">DICOM</span>
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/333333/e0e0e0?text=Quant+Finance+ML" alt="Algorithmic Trading Strategy with ML" class="project-img">
+                    <div class="p-6">
+                        <h3 class="project-title">Algorithmic Trading Strategy with ML</h3>
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <span class="badge">Python</span>
+                            <span class="badge">pandas</span>
+                            <span class="badge">TA-Lib</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link secondary">GitHub</a>
+                        <p class="project-desc">Developed a machine learning model to predict market movements and optimize an algorithmic trading strategy. Backtested for performance.</p>
+                        <div class="flex gap-3 mt-4">
+                            <a href="#" class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition">GitHub</a>
+                            <a href="#" class="px-4 py-2 border-2 border-rust text-rust font-semibold rounded shadow hover:bg-rust hover:text-white transition">Live Demo</a>
                         </div>
                     </div>
                 </div>
+
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/333333/e0e0e0?text=Quantum+ML" alt="Quantum Physics-Inspired Optimization Algorithm" class="project-img">
+                    <div class="p-6">
+                        <h3 class="project-title">Quantum Physics-Inspired Optimization Algorithm</h3>
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <span class="badge">Python</span>
+                            <span class="badge">Physics</span>
+                            <span class="badge">Optimization</span>
+                        </div>
+                        <p class="project-desc">Explored and implemented an optimization algorithm inspired by quantum physics principles for solving complex combinatorial problems.</p>
+                        <div class="flex gap-3 mt-4">
+                            <a href="#" class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition">GitHub</a>
+                            <a href="#" class="px-4 py-2 border-2 border-rust text-rust font-semibold rounded shadow hover:bg-rust hover:text-white transition">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/333333/e0e0e0?text=Custom+ML+App" alt="Real-time Anomaly Detection System" class="project-img">
+                    <div class="p-6">
+                        <h3 class="project-title">Real-time Anomaly Detection System</h3>
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <span class="badge">Python</span>
+                            <span class="badge">scikit-learn</span>
+                            <span class="badge">Streamlit</span>
+                        </div>
+                        <p class="project-desc">Built a real-time anomaly detection system for streaming data using unsupervised machine learning techniques.</p>
+                        <div class="flex gap-3 mt-4">
+                            <a href="#" class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition">GitHub</a>
+                            <a href="#" class="px-4 py-2 border-2 border-rust text-rust font-semibold rounded shadow hover:bg-rust hover:text-white transition">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content fade-in">
-                <h2 class="section-title">Let's Connect</h2>
-                <p>Interested in collaborating on machine learning projects or discussing AI solutions? I'd love to hear from you!</p>
-                
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-input" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-input" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+    <!-- Certificates Section -->
+    <section id="certificates" class="section-container border-b-2 border-gray-800">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Certificates & Courses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Certificate Card Template -->
+                <div class="certificate-card">
+                    <h3 class="certificate-title">Deep Learning Specialization</h3>
+                    <p class="text-gray-400 mb-3">Issued by <span class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
+                    <p class="certificate-desc">Comprehensive five-course specialization covering neural networks, CNNs, RNNs, and advanced topics in deep learning.</p>
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/YOUR_CERT_ID_1" target="_blank" rel="noopener noreferrer" class="certificate-link">View Certificate &rarr;</a>
+                </div>
+
+                <div class="certificate-card">
+                    <h3 class="certificate-title">Natural Language Processing Specialization</h3>
+                    <p class="text-gray-400 mb-3">Issued by <span class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
+                    <p class="certificate-desc">Four-course specialization focusing on NLP techniques, including sentiment analysis, machine translation, and question answering.</p>
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/YOUR_CERT_ID_2" target="_blank" rel="noopener noreferrer" class="certificate-link">View Certificate &rarr;</a>
+                </div>
+
+                <div class="certificate-card">
+                    <h3 class="certificate-title">Machine Learning Engineering for Production (MLOps)</h3>
+                    <p class="text-gray-400 mb-3">Issued by <span class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
+                    <p class="certificate-desc">Specialization on deploying, monitoring, and maintaining production ML systems.</p>
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/YOUR_CERT_ID_3" target="_blank" rel="noopener noreferrer" class="certificate-link">View Certificate &rarr;</a>
+                </div>
+
+                <div class="certificate-card">
+                    <h3 class="certificate-title">Introduction to Quantum Physics</h3>
+                    <p class="text-gray-400 mb-3">Issued by <span class="font-medium text-gray-300">IBM</span> on Coursera</p>
+                    <p class="certificate-desc">Fundamental concepts of quantum physics, qubits, superposition, entanglement, and quantum phenomena.</p>
+                    <a href="https://www.coursera.org/account/accomplishments/certificate/YOUR_CERT_ID_4" target="_blank" rel="noopener noreferrer" class="certificate-link">View Certificate &rarr;</a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#" class="social-link">📧</a>
-                <a href="#" class="social-link">💼</a>
-                <a href="#" class="social-link">🐙</a>
-                <a href="#" class="social-link">🐦</a>
+    <!-- Blog Section -->
+    <section id="blog" class="section-container border-b-2 border-gray-800">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Latest Blog Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Blog Card Template -->
+                <div class="blog-card">
+                    <h3 class="blog-title">The Future of Agentic AI in Enterprise</h3>
+                    <p class="text-gray-400 mb-3 text-sm">Published: July 12, 2025</p>
+                    <p class="blog-desc">Exploring the transformative potential of autonomous agents in automating complex business processes and decision-making.</p>
+                    <a href="#" class="blog-link">Read More &rarr;</a>
+                </div>
+
+                <div class="blog-card">
+                    <h3 class="blog-title">Demystifying Quantum Machine Learning</h3>
+                    <p class="text-gray-400 mb-3 text-sm">Published: June 28, 2025</p>
+                    <p class="blog-desc">A beginner's guide to the exciting intersection of quantum mechanics and machine learning, and its current limitations.</p>
+                    <a href="#" class="blog-link">Read More &rarr;</a>
+                </div>
+
+                <div class="blog-card">
+                    <h3 class="blog-title">Navigating the NLP Landscape: From RNNs to LLMs</h3>
+                    <p class="text-gray-400 mb-3 text-sm">Published: TBD</p>
+                    <p class="blog-desc">A look at the evolution of Natural Language Processing and the impact of large language models.</p>
+                    <a href="#" class="blog-link">Coming Soon &rarr;</a>
+                </div>
+
             </div>
-            <p>&copy; 2025 ML Portfolio. Crafted with passion for AI and data science.</p>
+            <div class="text-center mt-12">
+                <a href="#" class="px-6 py-3 border-2 border-rust text-rust font-semibold rounded-lg shadow-lg hover:bg-rust hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
+                    View All Posts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="section-container py-12 px-8 text-center border-t-2 border-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-rust">Get in Touch</h2>
+            <p class="mb-8">
+                Feel free to connect with me for collaborations, opportunities, or just a chat about ML, Quant Finance, or Quantum Physics!
+            </p>
+            <div class="flex flex-wrap justify-center gap-6 text-xl">
+                <a href="mailto:your.email@example.com" class="hover:text-rust transition duration-300">
+                    Email
+                </a>
+                <span>|</span>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300">
+                    LinkedIn
+                </a>
+                <span>|</span>
+                <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300">
+                    GitHub
+                </a>
+            </div>
+            <p class="mt-10 text-sm">&copy; 2025 Your Name. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Progress bar
-        window.addEventListener('scroll', () => {
-            const progressBar = document.querySelector('.progress-bar');
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            progressBar.style.width = scrolled + '%';
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Project card hover effects
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Contact form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success message
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Message Sent! ✓';
-            submitBtn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-            
-            // Reset form
-            this.reset();
-            
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.style.background = 'var(--accent-gradient)';
-            }, 3000);
-        });
-
-        // Add typing effect to hero subtitle
-        const subtitle = document.querySelector('.hero .subtitle');
-        const text = subtitle.textContent;
-        subtitle.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                subtitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        };
-        
-        // Start typing effect after page loads
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter, 1000);
-        });
-
-        // Add particle effect to hero section
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: absolute;
-                width: 4px;
-                height: 4px;
-                background: rgba(255, 255, 255, 0.6);
-                border-radius: 50%;
-                pointer-events: none;
-                animation: particleFloat 4s linear infinite;
-            `;
-            
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 4 + 's';
-            
-            document.querySelector('.hero').appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 4000);
-        }
-
-        // Add particle animation keyframes
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes particleFloat {
-                0% {
-                    transform: translateY(100vh) translateX(0);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 1;
-                }
-                90% {
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(-100px) translateX(${Math.random() * 200 - 100}px);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Create particles periodically
-        setInterval(createParticle, 300);
-
-        // Add dynamic background to hero section
-        const hero = document.querySelector('.hero');
-        let mouseX = 0;
-        let mouseY = 0;
-
-        hero.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX / window.innerWidth;
-            mouseY = e.clientY / window.innerHeight;
-            
-            const floatingElements = document.querySelectorAll('.floating-element');
-            floatingElements.forEach((element, index) => {
-                const speed = (index + 1) * 0.02;
-                const x = (mouseX - 0.5) * speed * 100;
-                const y = (mouseY - 0.5) * speed * 100;
-                element.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        });
-
-        // Add skill tag hover effects
-        document.querySelectorAll('.skill-tag').forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1) translateY(-2px)';
-                this.style.boxShadow = '0 5px 15px rgba(240, 147, 251, 0.3)';
-            });
-            
-            tag.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) translateY(0)';
-                this.style.boxShadow = 'none';
-            });
-        });
-
-        // Add tech tag hover effects
-        document.querySelectorAll('.tech-tag').forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                this.style.backgroundColor = 'var(--primary-color)';
-                this.style.color = 'white';
-                this.style.transform = 'scale(1.05)';
-            });
-            
-            tag.addEventListener('mouseleave', function() {
-                this.style.backgroundColor = 'rgba(102, 126, 234, 0.1)';
-                this.style.color = 'var(--primary-color)';
-                this.style.transform = 'scale(1)';
-            });
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Add scroll-based animations for project cards
-        const projectCards = document.querySelectorAll('.project-card');
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.animation = `fadeInUp 0.6s ease forwards`;
-                    }, index * 100);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        projectCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            cardObserver.observe(card);
-        });
-
-        // Add social link hover effects
-        document.querySelectorAll('.social-link').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.1)';
-                this.style.boxShadow = '0 10px 25px rgba(240, 147, 251, 0.4)';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-                this.style.boxShadow = 'none';
-            });
-        });
-
-        // Add form input focus effects
-        document.querySelectorAll('.form-input').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
-                this.style.borderLeft = '4px solid var(--accent-color)';
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'scale(1)';
-                this.style.borderLeft = 'none';
-            });
-        });
-
-        // Add performance optimization for scroll events
-        let ticking = false;
-        function updateScrollEffects() {
-            // Progress bar
-            const progressBar = document.querySelector('.progress-bar');
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            progressBar.style.width = scrolled + '%';
-            
-            // Navbar effect
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            ticking = false;
-        }
-
-        function requestScrollUpdate() {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollEffects);
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', requestScrollUpdate);
-
-        // Add easter egg - Konami code
-        let konamiCode = [];
-        const targetCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up Up Down Down Left Right Left Right B A
-        
-        document.addEventListener('keydown', (e) => {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > targetCode.length) {
-                konamiCode.shift();
-            }
-            
-            if (konamiCode.join(',') === targetCode.join(',')) {
-                // Easter egg activated!
-                document.body.style.filter = 'hue-rotate(180deg)';
-                setTimeout(() => {
-                    document.body.style.filter = 'none';
-                }, 3000);
-                
-                // Show message
-                const message = document.createElement('div');
-                message.textContent = '🎉 Easter egg activated! Color mode unlocked!';
-                message.style.cssText = `
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: var(--accent-gradient);
-                    color: white;
-                    padding: 1rem 2rem;
-                    border-radius: 25px;
-                    z-index: 10000;
-                    font-weight: bold;
-                    animation: fadeInUp 0.5s ease;
-                `;
-                document.body.appendChild(message);
-                
-                setTimeout(() => {
-                    message.remove();
-                }, 3000);
-                
-                konamiCode = [];
-            }
-        });
-    </script>
+    <!-- Only keep script.js -->
+    <script src="script.js"></script>
 </body>
 </html>
