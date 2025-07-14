@@ -69,11 +69,12 @@ if (themeToggle) {
 }
 
 // =====================
-// Code Rain Animation
+// Code Rain Animation (requestAnimationFrame version)
 // =====================
 
 /**
  * Initializes the Matrix-style code rain animation on the hero section canvas.
+ * Uses requestAnimationFrame for smoother animation.
  */
 function initCodeRain() {
     const canvas = document.getElementById('code-rain');
@@ -85,29 +86,42 @@ function initCodeRain() {
     let columns = Math.floor(width / CODE_RAIN_FONT_SIZE);
     let drops = Array(columns).fill(1);
 
+    let lastRainTime = 0;
+
     /**
      * Draws one frame of the code rain animation.
+     * @param {DOMHighResTimeStamp} currentTime
      */
-    function draw() {
-        const theme = document.body.getAttribute('data-theme');
-        ctx.fillStyle = theme === 'dark'
-            ? 'rgba(26,26,26,0.15)'
-            : 'rgba(243,243,247,0.15)';
+    function draw(currentTime = 0) {
+        // Throttle to desired interval
+        if (currentTime - lastRainTime < CODE_RAIN_INTERVAL_MS) {
+            requestAnimationFrame(draw);
+            return;
+        }
+        lastRainTime = currentTime;
+
+        // Fetch CSS variables for background and accent color
+        const computedStyle = getComputedStyle(document.body);
+        const backgroundColor = computedStyle.getPropertyValue('--color-background').trim();
+        const accentColor = computedStyle.getPropertyValue('--color-accent').trim();
+
+        // Use RGBA fallback for background overlay
+        ctx.fillStyle = backgroundColor ? backgroundColor + '26' : 'rgba(26,26,26,0.15)';
         ctx.fillRect(0, 0, width, height);
+
         ctx.font = `${CODE_RAIN_FONT_SIZE}px Fira Code, monospace`;
-        ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--color-accent');
+        ctx.fillStyle = accentColor || '#b34a2e';
         for (let i = 0; i < drops.length; i++) {
             const text = CODE_RAIN_CHARS[Math.floor(Math.random() * CODE_RAIN_CHARS.length)];
             ctx.fillText(text, i * CODE_RAIN_FONT_SIZE, drops[i] * CODE_RAIN_FONT_SIZE);
-            // Reset drop randomly after reaching bottom
             if (drops[i] * CODE_RAIN_FONT_SIZE > height && Math.random() > 0.975) drops[i] = 0;
             drops[i]++;
         }
+        requestAnimationFrame(draw);
     }
 
-    setInterval(draw, CODE_RAIN_INTERVAL_MS);
+    requestAnimationFrame(draw);
 
-    // Responsive: update canvas size and columns on window resize
     window.addEventListener('resize', () => {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
@@ -187,19 +201,27 @@ function initTypingAnimation() {
 initTypingAnimation();
 
 // =====================
-// Smooth Scroll for Anchor Links
+// Smooth Scroll for Anchor Links (with accessibility)
 // =====================
 
 /**
  * Enables smooth scrolling for all anchor links targeting IDs.
+ * After scrolling, focuses the target section for accessibility.
  */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    if (!target.hasAttribute('tabindex')) {
+                        target.setAttribute('tabindex', '-1');
+                    }
+                    target.focus();
+                }, 500);
             }
         });
     });
@@ -211,10 +233,11 @@ initSmoothScroll();
 // =====================
 
 /**
- * Sets all images to lazy-load for performance optimization.
+ * Sets all images with class 'lazy-img' to lazy-load for performance optimization.
+ * Excludes images with class 'no-lazy'.
  */
 function enableLazyLoadImages() {
-    document.querySelectorAll('img').forEach(img => {
+    document.querySelectorAll('img:not(.no-lazy)').forEach(img => {
         img.setAttribute('loading', 'lazy');
     });
 }

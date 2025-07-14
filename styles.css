@@ -34,31 +34,42 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: var(--color-background);
     color: var(--color-text);
     line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fira Code', monospace;
+    font-family: 'Fira Code', monospace, sans-serif;
     color: var(--color-accent);
+}
+
+/* Tailwind color overrides for custom variables */
+.text-gray-400,
+.text-gray-300,
+.text-gray-500,
+.text-gray-600 {
+    color: var(--color-muted);
 }
 
 .text-rust {
     color: var(--color-accent);
 }
-
 .bg-rust {
     background-color: var(--color-accent);
 }
-
 .hover\:bg-dark-rust:hover {
     background-color: var(--color-accent-hover);
 }
 
-.border-gray-custom {
-    border-color: var(--color-border);
+/* Consistent hover effects for all cards */
+.project-card:hover,
+.certificate-card:hover,
+.blog-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.18);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
 }
 
 /* Custom scrollbar for a more "hacker" feel */
@@ -74,6 +85,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent-hover);
+}
+/* Firefox scrollbar styling */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) var(--color-background);
 }
 
 /* Utility class for section containers */
@@ -130,12 +146,8 @@ footer.section-container {
 }
 .project-desc,
 .certificate-desc,
-.blog-desc,
-.text-gray-400,
-.text-gray-300,
-.text-gray-500,
-.text-gray-600 {
-    color: var(--color-muted) !important;
+.blog-desc {
+    color: var(--color-muted);
 }
 
 /* Certificate Card Styles */
@@ -271,6 +283,64 @@ footer.section-container .text-gray-600 {
 /* Download Resume Button */
 .fixed.bottom-6.right-6 a {
     box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+}
+
+/* Project Button Styles for Light/Dark Mode */
+.project-btn-filled {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background-color: var(--color-accent);
+    color: #fff !important;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+    border: none;
+    transition: background 0.2s, color 0.2s;
+}
+.project-btn-filled:hover,
+.project-btn-filled:focus {
+    background-color: var(--color-accent-hover);
+    color: #fff !important;
+}
+
+.project-btn-outline {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background: transparent;
+    color: var(--color-accent) !important;
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.project-btn-outline:hover,
+.project-btn-outline:focus {
+    background-color: var(--color-accent);
+    color: #fff !important;
+    border-color: var(--color-accent-hover);
+}
+
+/* Light theme overrides for buttons */
+[data-theme="light"] .project-btn-filled {
+    background-color: var(--color-accent);
+    color: #fff !important;
+}
+[data-theme="light"] .project-btn-filled:hover,
+[data-theme="light"] .project-btn-filled:focus {
+    background-color: var(--color-accent-hover);
+    color: #fff !important;
+}
+[data-theme="light"] .project-btn-outline {
+    color: var(--color-accent) !important;
+    border-color: var(--color-accent);
+    background: transparent;
+}
+[data-theme="light"] .project-btn-outline:hover,
+[data-theme="light"] .project-btn-outline:focus {
+    background-color: var(--color-accent);
+    color: #fff !important;
+    border-color: var(--color-accent-hover);
 }
 
 
