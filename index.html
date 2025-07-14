@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter (for general text) and Fira Code (for code-like feel) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Google Material Icons for subtle branding -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <meta name="description" content="Portfolio of Aayush Agarwal, Machine Learning Engineer at Google. Projects, blog, certificates, and more.">
@@ -19,6 +21,12 @@
     <link rel="icon" href="favicon.ico">
 </head>
 <body class="antialiased" data-theme="dark">
+
+    <!-- Subtle Google Bar (top left) -->
+    <div class="fixed top-6 left-6 z-50 flex items-center gap-2 select-none">
+        <span class="material-icons" style="color:#4285F4;font-size:2rem;">apps</span>
+        <span class="font-bold text-lg" style="color:#4285F4;letter-spacing:0.02em;">Google</span>
+    </div>
 
     <!-- Theme Toggle Button -->
     <button id="theme-toggle" class="fixed top-6 right-6 z-50 px-3 py-2 rounded bg-rust text-white font-semibold shadow hover:bg-dark-rust transition" aria-label="Toggle theme">
@@ -32,8 +40,10 @@
         <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-90"></div>
 
         <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-up text-rust">
+            <!-- Subtle Google colored underline under name -->
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-up text-rust relative inline-block">
                 <span class="block">Aayush Agarwal</span>
+                <span class="block h-1 w-32 mx-auto mt-2 rounded-full google-underline"></span>
             </h1>
             <p class="text-xl md:text-3xl font-light mb-8 animate-fade-in-up delay-200">
                 Machine Learning Engineer @ Google
@@ -62,7 +72,7 @@
             <h2 class="text-4xl font-bold mb-8 text-center">About Me</h2>
             <div class="flex flex-col md:flex-row items-center md:space-x-12">
                 <div class="md:w-1/3 mb-8 md:mb-0">
-                    <img src="https://placehold.co/300x300/b34a2e/e0e0e0?text=YOUR+PHOTO" alt="Your Photo" class="rounded-full border-4 border-rust shadow-xl mx-auto">
+                    <img src="./profile.png" alt="Your Photo" class="rounded-full border-4 border-rust shadow-xl mx-auto">
                 </div>
                 <div class="md:w-2/3 text-lg">
                     <p class="mb-4">
@@ -70,6 +80,9 @@
                     </p>
                     <p class="mb-4">
                         Beyond core machine learning, I have a keen interest in quantitative finance, exploring the intersection of advanced algorithms and financial markets. I'm also fascinated by the fundamental principles of quantum physics and its potential implications for computation and beyond.
+                    </p>
+                    <p class="mb-4">
+                        My broader interests include game theory, reinforcement learning, computer vision, search & ranking systems, and generative AI.
                     </p>
                     <p>
                         I believe in continuous learning and enjoy tackling complex problems. This portfolio showcases some of my work and interests.
@@ -79,6 +92,7 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="section-container border-b-2 border-gray-800">
     <div class="max-w-6xl mx-auto">
         <h2 class="text-4xl font-bold mb-12 text-center">My Projects</h2>
@@ -269,6 +283,119 @@
         </div>
     </section>
 
+    <!-- Career Arc Section -->
+    <section id="career" class="section-container border-b-2 border-gray-800">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Career Arc</h2>
+            <div class="space-y-10">
+                <!-- Google Search -->
+                <div class="flex items-start gap-6">
+                    <!-- Logo removed -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-1">Software Engineer</h3>
+                        <div class="text-rust font-semibold mb-1">Google</div>
+                        <div class="text-gray-400 mb-2 text-sm">Feb 2022 – Present · New York City, New York, United States</div>
+                        <ul class="list-disc ml-5 text-base">
+                            <li>Architected and delivered generative AI solutions that power next-generation Google Search experiences.</li>
+                            <li>Enhanced answer accuracy and trustworthiness for billions of users worldwide.</li>
+                            <li>Championed initiatives to amplify diverse human perspectives in search results.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Google Cloud -->
+                <div class="flex items-start gap-6">
+                    <!-- Logo removed -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-1">Machine Learning Engineer</h3>
+                        <div class="text-rust font-semibold mb-1">Google</div>
+                        <div class="text-gray-400 mb-2 text-sm">Mar 2019 – Feb 2022 · New York City, New York, United States</div>
+                        <ul class="list-disc ml-5 text-base">
+                            <li>Developed and deployed intelligent assistive features for Google Docs and Slides, impacting millions of enterprise users.</li>
+                            <li>Led cross-functional efforts to launch new G Suite AI capabilities, streamlining business workflows.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Microsoft -->
+                <div class="flex items-start gap-6">
+                    <!-- Logo removed -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-1">Data Scientist</h3>
+                        <div class="text-rust font-semibold mb-1">Microsoft</div>
+                        <div class="text-gray-400 mb-2 text-sm">Mar 2017 – Mar 2019 · Bellevue, Washington, United States</div>
+                        <ul class="list-disc ml-5 text-base">
+                            <li>Designed and implemented ML/NLP models to answer real-time news queries on Bing.com.</li>
+                            <li>Improved search relevance and user engagement through data-driven experimentation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Carnegie Mellon University - Research -->
+                <div class="flex items-start gap-6">
+                    <!-- Logo removed -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-1">Graduate Research Fellow</h3>
+                        <div class="text-rust font-semibold mb-1">Carnegie Mellon University</div>
+                        <div class="text-gray-400 mb-2 text-sm">May 2016 – Aug 2016 · Pittsburgh, Pennsylvania, United States</div>
+                        <ul class="list-disc ml-5 text-base">
+                            <li>Pioneered deep learning approaches for machine reading comprehension (SQuAD dataset).</li>
+                            <li>Advanced the state-of-the-art in question answering systems.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Amazon -->
+                <div class="flex items-start gap-6">
+                    <!-- Logo removed -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-1">Software Development Engineer Intern</h3>
+                        <div class="text-rust font-semibold mb-1">Amazon</div>
+                        <div class="text-gray-400 mb-2 text-sm">May 2014 – Jul 2014 · Chennai, Tamil Nadu, India</div>
+                        <ul class="list-disc ml-5 text-base">
+                            <li>Engineered seamless Kindle user experiences through robust C++ development.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Akamai Technologies -->
+                <div class="flex items-start gap-6">
+                    <!-- Logo removed -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-1">Software Engineer Intern</h3>
+                        <div class="text-rust font-semibold mb-1">Akamai Technologies</div>
+                        <div class="text-gray-400 mb-2 text-sm">Jun 2013 – Jul 2013 · 2 mos · Bengaluru, Karnataka, India</div>
+                        <ul class="list-disc ml-5 text-base">
+                            <li>Automated business processes and decision logic using jBPM and Drools (Java).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <h2 class="text-4xl font-bold mb-12 mt-16 text-center">Education</h2>
+            <div class="space-y-10">
+                <!-- Carnegie Mellon University -->
+                <div class="flex items-start gap-6">
+                    <!-- Logo removed -->
+                    <div class="education-entry">
+                        <h3 class="text-2xl font-semibold mb-1 education-degree">Master’s Degree, Computational Data Science</h3>
+                        <div class="education-school text-rust font-semibold mb-1">Carnegie Mellon University</div>
+                        <div class="education-years text-gray-400 mb-2 text-sm">2015 – 2016</div>
+                    </div>
+                </div>
+                <!-- IIT Madras -->
+                <div class="flex items-start gap-6">
+                    <!-- Logo removed -->
+                    <div class="education-entry">
+                        <h3 class="text-2xl font-semibold mb-1 education-degree">Bachelor of Technology - BTech, Computer Science and Engineering</h3>
+                        <div class="education-school text-rust font-semibold mb-1">Indian Institute of Technology, Madras</div>
+                        <div class="education-years text-gray-400 mb-2 text-sm">2011 – 2015</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="https://www.linkedin.com/in/ayush2991/" target="_blank" rel="noopener" class="project-btn-outline inline-block">
+                    <span class="material-icons align-middle" style="font-size:1.2em;vertical-align:middle;">open_in_new</span>
+                    View Full LinkedIn Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer id="contact" class="section-container py-12 px-8 text-center border-t-2 border-gray-800">
         <div class="max-w-4xl mx-auto">
@@ -276,20 +403,27 @@
             <p class="mb-8">
                 Feel free to connect with me for collaborations, opportunities, or just a chat about ML, Quant Finance, or Quantum Physics!
             </p>
-            <div class="flex flex-wrap justify-center gap-6 text-xl">
-                <a href="mailto:your.email@example.com" class="hover:text-rust transition duration-300">
+            <div class="flex flex-wrap justify-center gap-8 text-xl items-center mb-6">
+                <a href="mailto:your.email@example.com" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="Email">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/maildotru.svg" alt="Email" width="26" height="26" style="filter: invert(40%) sepia(80%) saturate(400%) hue-rotate(330deg);" />
                     Email
                 </a>
                 <span>|</span>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="LinkedIn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn" width="26" height="26" style="filter: invert(40%) sepia(80%) saturate(400%) hue-rotate(170deg);" />
                     LinkedIn
                 </a>
                 <span>|</span>
-                <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300">
+                <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="GitHub">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub" width="26" height="26" style="filter: invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg);" />
                     GitHub
                 </a>
             </div>
-            <p class="mt-10 text-sm">&copy; 2025 Your Name. All rights reserved.</p>
+            <p class="mt-10 text-sm flex items-center justify-center gap-2">
+                &copy; 2025 Your Name. All rights reserved.
+                <span class="material-icons align-middle" style="font-size:1.2em;color:#4285F4;">verified</span>
+                <span class="text-xs" style="color:#4285F4;">Google</span>
+            </p>
         </div>
     </footer>
 
