@@ -22,14 +22,20 @@
 </head>
 <body class="antialiased" data-theme="dark">
 
-    <!-- Subtle Google Bar (top left) -->
-    <div class="fixed top-6 left-6 z-50 flex items-center gap-2 select-none">
-        <span class="material-icons" style="color:#4285F4;font-size:2rem;">apps</span>
-        <span class="font-bold text-lg" style="color:#4285F4;letter-spacing:0.02em;">Google</span>
+    <!-- Subtle Google Branding (top left, non-interactive) -->
+    <div class="fixed top-6 left-6 z-50 flex items-center gap-2 select-none pointer-events-none" aria-hidden="true">
+        <span class="font-bold text-lg tracking-wide" style="color:#4285F4;letter-spacing:0.02em;">
+            <span style="color:#4285F4;">G</span>
+            <span style="color:#EA4335;">o</span>
+            <span style="color:#FBBC05;">o</span>
+            <span style="color:#4285F4;">g</span>
+            <span style="color:#34A853;">l</span>
+            <span style="color:#EA4335;">e</span>
+        </span>
     </div>
 
     <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="fixed top-6 right-6 z-50 px-3 py-2 rounded bg-rust text-white font-semibold shadow hover:bg-dark-rust transition" aria-label="Toggle theme">
+    <button id="theme-toggle" class="fixed top-6 right-6 z-50 px-3 py-2 rounded text-white font-semibold shadow hover:bg-dark-rust transition" aria-label="Toggle theme">
         🌙
     </button>
 
@@ -425,14 +431,6 @@
                 &copy; 2025 Your Name. All rights reserved.
                 <span class="material-icons align-middle" style="font-size:1.2em;color:#4285F4;">verified</span>
                 <span class="text-xs" style="color:#4285F4;">Google</span>
-            </p>
-        </div>
-    </footer>
-
-    <!-- Only keep script.js -->
-    <script src="script.js"></script>
-</body>
-</html>
             </p>
         </div>
     </footer>
