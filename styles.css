@@ -119,9 +119,26 @@ footer.section-container {
     overflow: hidden;
     border: 1px solid var(--color-border);
     transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    position: relative;
 }
 .project-card:hover {
     transform: scale(1.02);
+}
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    pointer-events: none;
+    border: 2px solid transparent;
+    background: linear-gradient(120deg, rgba(180,74,46,0.12) 0%, rgba(230,81,0,0.10) 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+.project-card:hover::before,
+.project-card:focus-within::before {
+    opacity: 1;
 }
 .project-img {
     width: 100%;
@@ -296,11 +313,31 @@ footer.section-container .text-gray-600 {
     box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
     border: none;
     transition: background 0.2s, color 0.2s;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 rgba(230,81,0,0.0);
+    animation: demo-glow 2.5s infinite alternate;
 }
 .project-btn-filled:hover,
 .project-btn-filled:focus {
     background-color: var(--color-accent-hover);
     color: #fff !important;
+}
+@keyframes demo-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(230,81,0,0.0);
+    }
+    60% {
+        box-shadow: 0 0 16px 4px rgba(230,81,0,0.25);
+    }
+    100% {
+        box-shadow: 0 0 24px 8px rgba(230,81,0,0.35);
+    }
+}
+
+.project-btn-filled:not([href*="streamlit.app"]):not([href*="demo"]):not([href*="Live"]) {
+    animation: none !important;
+    box-shadow: none !important;
 }
 
 .project-btn-outline {
