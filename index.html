@@ -12,57 +12,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- NEW: Design tokens and small UI improvements -->
-    <style>
-        :root{
-          --color-background:#0b0f14;
-          --color-surface:#0f1720;
-          --color-border:rgba(255,255,255,0.06);
-          --accent:#b34a2e; /* default rust */
-          --accent-rgb:179,74,46;
-          --text-primary:#e6eef6;
-        }
-        [data-theme="light"]{
-          --color-background:#f7fafc;
-          --color-surface:#ffffff;
-          --color-border:rgba(15,23,42,0.08);
-          --text-primary:#0b1220;
-        }
-        body{ background-color:var(--color-background); color:var(--text-primary); }
-        .text-rust{ color:var(--accent) !important; }
-        .bg-rust{ background-color:var(--accent) !important; }
-        .border-rust{ border-color:var(--accent) !important; }
-
-        /* Cards & hover lift */
-        .project-card, .certificate-card, .blog-card, .career-card, .education-entry{
-           background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-           border:1px solid var(--color-border);
-           border-radius:12px;
-           transition: transform .25s ease, box-shadow .25s ease;
-        }
-        .project-card:hover{ transform: translateY(-6px) scale(1.01); box-shadow: 0 12px 30px rgba(var(--accent-rgb),0.12); border-color: rgba(var(--accent-rgb),0.18); }
-
-        /* Badges */
-        .badge{
-          display:inline-block; padding:.25rem .6rem; border-radius:999px; font-weight:600; font-size:.8rem;
-          border:1px solid rgba(255,255,255,0.06); color:var(--accent);
-          background: linear-gradient(90deg, rgba(var(--accent-rgb),0.08), rgba(255,255,255,0.01));
-        }
-
-        /* Name gradient and subtle underline */
-        .name-gradient{
-           background-image: linear-gradient(90deg,#4285F4 0%, #EA4335 30%, #FBBC05 60%, #34A853 100%);
-           -webkit-background-clip: text; background-clip: text;
-           color: transparent; font-weight:800; position:relative;
-        }
-        .name-gradient::after{
-           content:''; position:absolute; left:6%; right:6%; bottom:-8px; height:6px; border-radius:999px;
-           background: linear-gradient(90deg,#4285F4 0%, #EA4335 30%, #FBBC05 60%, #34A853 100%); opacity:.12;
-        }
-
-        /* Theme toggle visual tweak */
-        #theme-toggle{ backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15)); border:1px solid rgba(255,255,255,0.06); }
-    </style>
 
     <!-- NEW: small inline script to manage accent palettes & theme toggle -->
     <script>
@@ -113,7 +62,7 @@
     <!-- Theme Toggle Button -->
     <button id="theme-toggle" class="fixed top-6 right-6 z-50 px-3 py-2 rounded text-white font-semibold shadow hover:bg-dark-rust transition flex items-center gap-2" aria-label="Toggle theme">
         <span id="theme-icon">🌙</span>
-        <span class="w-3 h-3 rounded-full" style="display:inline-block;background:var(--accent);border:1px solid rgba(255,255,255,0.08);"></span>
+        <span class="w-3 h-3 rounded-full theme-toggle-dot" aria-hidden="true"></span>
     </button>
 
     <!-- Header/Hero Section -->
@@ -149,7 +98,7 @@
     </div>
 
     <!-- Add a sticky/floating Table of Contents for quick navigation -->
-    <nav id="toc-nav" class="hidden md:flex flex-col gap-3 fixed top-1/2 right-8 z-40 bg-[var(--color-background)] border border-[var(--color-border)] rounded-lg shadow-lg px-4 py-3 transition-all" style="transform: translateY(-50%);">
+    <nav id="toc-nav" class="hidden md:flex flex-col gap-3 fixed top-1/2 right-8 z-40 bg-[var(--color-background)] border border-[var(--color-border)] rounded-lg shadow-lg px-4 py-3 transition-all">
         <a href="#about" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">About</a>
         <a href="#projects" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Projects</a>
         <a href="#certificates" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Certificates</a>
@@ -461,6 +410,57 @@
                         <div class="education-years text-gray-400 mb-2 text-sm">2015 – 2016</div>
                     </div>
                 </div>
+                <!-- IIT Madras -->
+                <div class="education-entry">
+                    <div class="p-6">
+                        <h3 class="education-degree text-2xl font-semibold mb-1">Bachelor of Technology - BTech, Computer Science and Engineering</h3>
+                        <div class="education-school text-rust font-semibold mb-1">Indian Institute of Technology, Madras</div>
+                        <div class="education-years text-gray-400 mb-2 text-sm">2011 – 2015</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="https://www.linkedin.com/in/ayush2991/" target="_blank" rel="noopener" class="project-btn-outline inline-block">
+                    <span class="material-icons align-middle" style="font-size:1.2em;vertical-align:middle;">open_in_new</span>
+                    View Full LinkedIn Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="section-container py-12 px-8 text-center border-t-2 border-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-rust">Get in Touch</h2>
+            <p class="mb-8">
+                Feel free to connect with me for collaborations, opportunities, or just a chat about ML, Quant Finance, or Quantum Physics!
+            </p>
+            <div class="flex flex-wrap justify-center gap-8 text-xl items-center mb-6">
+                <a href="mailto:ayush2991@gmail.com" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="Email">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/maildotru.svg" alt="Email" class="contact-icon icon-mail" width="26" height="26" />
+                    Email
+                </a>
+                <span>|</span>
+                <a href="https://linkedin.com/in/ayush2991" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="LinkedIn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn" class="contact-icon icon-linkedin" width="26" height="26" />
+                    LinkedIn
+                </a>
+                <span>|</span>
+                <a href="https://github.com/ayush2991" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="GitHub">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub" class="contact-icon icon-github" width="26" height="26" />
+                    GitHub
+                </a>
+            </div>
+            <p class="mt-10 text-sm flex items-center justify-center gap-2">
+                &copy; 2025 Aayush Agarwal. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Only keep script.js -->
+    <script src="script.js"></script>
+</body>
+</html>
                 <!-- IIT Madras -->
                 <div class="education-entry">
                     <div class="p-6">

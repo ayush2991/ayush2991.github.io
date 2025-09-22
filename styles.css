@@ -40,7 +40,12 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Fira Code', monospace, sans-serif;
     color: var(--color-accent);
 }
@@ -56,9 +61,11 @@ h1, h2, h3, h4, h5, h6 {
 .text-rust {
     color: var(--color-accent);
 }
+
 .bg-rust {
     background-color: var(--color-accent);
 }
+
 .hover\:bg-dark-rust:hover {
     background-color: var(--color-accent-hover);
 }
@@ -68,24 +75,28 @@ h1, h2, h3, h4, h5, h6 {
 .certificate-card:hover,
 .blog-card:hover {
     transform: scale(1.02);
-    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.18);
-    transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s cubic-bezier(.4, 0, .2, 1);
 }
 
 /* Custom scrollbar for a more "hacker" feel */
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--color-background);
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--color-accent);
     border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent-hover);
 }
+
 /* Firefox scrollbar styling */
 html {
     scrollbar-width: thin;
@@ -115,15 +126,17 @@ footer.section-container {
 .project-card {
     background-color: var(--color-background);
     border-radius: 0.75rem;
-    box-shadow: 0 10px 25px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.08);
     overflow: hidden;
     border: 1px solid var(--color-border);
-    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
     position: relative;
 }
+
 .project-card:hover {
     transform: scale(1.02);
 }
+
 .project-card::before {
     content: "";
     position: absolute;
@@ -131,21 +144,24 @@ footer.section-container {
     border-radius: 0.75rem;
     pointer-events: none;
     border: 2px solid transparent;
-    background: linear-gradient(120deg, rgba(180,74,46,0.12) 0%, rgba(230,81,0,0.10) 100%);
+    background: linear-gradient(120deg, rgba(180, 74, 46, 0.12) 0%, rgba(230, 81, 0, 0.10) 100%);
     opacity: 0;
     transition: opacity 0.3s;
     z-index: 1;
 }
+
 .project-card:hover::before,
 .project-card:focus-within::before {
     opacity: 1;
 }
+
 .project-img {
     width: 100%;
     height: 12rem;
     object-fit: cover;
     border-bottom: 1px solid var(--color-border);
 }
+
 .project-card-svg {
     width: 100%;
     height: 12rem;
@@ -155,12 +171,14 @@ footer.section-container {
     background-color: var(--color-background);
     border-bottom: 1px solid var(--color-border);
 }
+
 .project-title {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.75rem;
     color: var(--color-accent);
 }
+
 .project-desc,
 .certificate-desc,
 .blog-desc {
@@ -171,17 +189,19 @@ footer.section-container {
 .certificate-card {
     background-color: var(--color-background);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
     border: 1px solid var(--color-border);
     margin-bottom: 0.5rem;
 }
+
 .certificate-title {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--color-accent);
 }
+
 .certificate-desc {
     font-size: 0.95rem;
     margin-bottom: 1rem;
@@ -191,17 +211,19 @@ footer.section-container {
 .blog-card {
     background-color: var(--color-background);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
     border: 1px solid var(--color-border);
     margin-bottom: 0.5rem;
 }
+
 .blog-title {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--color-accent);
 }
+
 .blog-desc {
     font-size: 0.95rem;
     margin-bottom: 1rem;
@@ -209,7 +231,10 @@ footer.section-container {
 
 #code-rain {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
     opacity: 0.25;
@@ -243,6 +268,7 @@ footer.section-container {
     background-color: #f3f3f7;
     color: #222;
 }
+
 [data-theme="light"] #about .text-gray-300,
 [data-theme="light"] #about .mb-4,
 [data-theme="light"] #about p {
@@ -290,6 +316,7 @@ footer.section-container .text-gray-600 {
 #publications ul {
     list-style: disc inside;
 }
+
 #publications li {
     background: var(--color-background);
     border-radius: 0.5em;
@@ -299,7 +326,7 @@ footer.section-container .text-gray-600 {
 
 /* Download Resume Button */
 .fixed.bottom-6.right-6 a {
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.12);
 }
 
 /* Project Button Styles for Light/Dark Mode */
@@ -310,28 +337,32 @@ footer.section-container .text-gray-600 {
     font-weight: 600;
     background-color: var(--color-accent);
     color: #fff !important;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
     border: none;
     transition: background 0.2s, color 0.2s;
     position: relative;
     z-index: 2;
-    box-shadow: 0 0 0 rgba(230,81,0,0.0);
+    box-shadow: 0 0 0 rgba(230, 81, 0, 0.0);
     animation: demo-glow 2.5s infinite alternate;
 }
+
 .project-btn-filled:hover,
 .project-btn-filled:focus {
     background-color: var(--color-accent-hover);
     color: #fff !important;
 }
+
 @keyframes demo-glow {
     0% {
-        box-shadow: 0 0 0 0 rgba(230,81,0,0.0);
+        box-shadow: 0 0 0 0 rgba(230, 81, 0, 0.0);
     }
+
     60% {
-        box-shadow: 0 0 16px 4px rgba(230,81,0,0.25);
+        box-shadow: 0 0 16px 4px rgba(230, 81, 0, 0.25);
     }
+
     100% {
-        box-shadow: 0 0 24px 8px rgba(230,81,0,0.35);
+        box-shadow: 0 0 24px 8px rgba(230, 81, 0, 0.35);
     }
 }
 
@@ -348,9 +379,10 @@ footer.section-container .text-gray-600 {
     background: transparent;
     color: var(--color-accent) !important;
     border: 2px solid var(--color-accent);
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
     transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
+
 .project-btn-outline:hover,
 .project-btn-outline:focus {
     background-color: var(--color-accent);
@@ -363,16 +395,19 @@ footer.section-container .text-gray-600 {
     background-color: var(--color-accent);
     color: #fff !important;
 }
+
 [data-theme="light"] .project-btn-filled:hover,
 [data-theme="light"] .project-btn-filled:focus {
     background-color: var(--color-accent-hover);
     color: #fff !important;
 }
+
 [data-theme="light"] .project-btn-outline {
     color: var(--color-accent) !important;
     border-color: var(--color-accent);
     background: transparent;
 }
+
 [data-theme="light"] .project-btn-outline:hover,
 [data-theme="light"] .project-btn-outline:focus {
     background-color: var(--color-accent);
@@ -394,34 +429,46 @@ footer.section-container .text-gray-600 {
 .fixed.top-6.left-6 span.font-bold {
     transition: color 0.2s;
 }
+
 .fixed.top-6.left-6:hover span.material-icons,
 .fixed.top-6.left-6:hover span.font-bold {
     color: #EA4335;
 }
 
 /* Career Arc & Education Card Styles */
-.career-card, .education-entry {
+.career-card,
+.education-entry {
     background-color: var(--color-background);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
     border: 1px solid var(--color-border);
-    transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s cubic-bezier(.4, 0, .2, 1);
     margin-bottom: 0.5rem;
 }
-.career-card:hover, .education-entry:hover {
+
+.career-card:hover,
+.education-entry:hover {
     transform: scale(1.02);
-    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.18);
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.18);
 }
-.career-title, .education-degree {
+
+.career-title,
+.education-degree {
     color: var(--color-accent);
 }
-.career-company, .education-school {
+
+.career-company,
+.education-school {
     color: var(--color-accent);
 }
-.career-meta, .education-years {
+
+.career-meta,
+.education-years {
     color: var(--color-muted);
 }
-.career-desc, .education-desc {
+
+.career-desc,
+.education-desc {
     color: var(--color-muted);
 }
 
@@ -431,36 +478,147 @@ footer.section-container .text-gray-600 {
     background: #fff;
     border-color: var(--color-border-light);
 }
+
 [data-theme="light"] .career-title,
 [data-theme="light"] .education-degree,
 [data-theme="light"] .career-company,
 [data-theme="light"] .education-school {
     color: var(--color-accent);
 }
+
 [data-theme="light"] .career-meta,
 [data-theme="light"] .education-years,
 [data-theme="light"] .career-desc,
 [data-theme="light"] .education-desc {
     color: var(--color-muted);
 }
-    color: var(--color-accent);
-    text-decoration: none;
-    padding: 0.25rem 0;
-    border-radius: 0.25rem;
-    transition: background 0.15s, color 0.15s;
-}
-#toc-nav .toc-link:hover,
-#toc-nav .toc-link:focus {
-    background: var(--color-accent);
-    color: #fff;
-    text-decoration: underline;
-}
 
-/* Hide TOC on small screens */
-@media (max-width: 768px) {
-    #toc-nav {
-        display: none !important;
-    }
+/* --- Moved from index.html <style> (appended to ensure overriding) --- */
+
+/* Design tokens & small UI improvements (moved inline -> now last so it overrides where needed) */
+:root {
+    --color-background: #0b0f14;
+    --color-surface: #0f1720;
+    --color-border: rgba(255, 255, 255, 0.06);
+    --accent: #b34a2e;
+    /* default rust */
+    --accent-rgb: 179, 74, 46;
+    --text-primary: #e6eef6;
 }
 
+[data-theme="light"] {
+    --color-background: #f7fafc;
+    --color-surface: #ffffff;
+    --color-border: rgba(15, 23, 42, 0.08);
+    --text-primary: #0b1220;
+}
 
+body {
+    background-color: var(--color-background);
+    color: var(--text-primary);
+}
+
+.text-rust {
+    color: var(--accent) !important;
+}
+
+.bg-rust {
+    background-color: var(--accent) !important;
+}
+
+.border-rust {
+    border-color: var(--accent) !important;
+}
+
+/* Cards & hover lift (kept here to override earlier similar rules) */
+.project-card,
+.certificate-card,
+.blog-card,
+.career-card,
+.education-entry {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.02));
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.12);
+    border-color: rgba(var(--accent-rgb), 0.18);
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: .25rem .6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: .8rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--accent);
+    background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.08), rgba(255, 255, 255, 0.01));
+}
+
+/* Name gradient and subtle underline */
+.name-gradient {
+    background-image: linear-gradient(90deg, #4285F4 0%, #EA4335 30%, #FBBC05 60%, #34A853 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    position: relative;
+}
+
+.name-gradient::after {
+    content: '';
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: -8px;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #4285F4 0%, #EA4335 30%, #FBBC05 60%, #34A853 100%);
+    opacity: .12;
+}
+
+/* Theme toggle visual tweak */
+#theme-toggle {
+    backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Small utility class for the little accent dot in the theme toggle */
+.theme-toggle-dot {
+    display: inline-block;
+    background: var(--accent);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Keep the TOC vertically centered via CSS instead of inline style */
+#toc-nav {
+    transform: translateY(-50%);
+}
+
+/* Footer contact icon filters (moved from inline attributes) */
+.contact-icon {
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.contact-icon.icon-mail {
+    filter: invert(40%) sepia(80%) saturate(400%) hue-rotate(330deg);
+}
+
+.contact-icon.icon-linkedin {
+    filter: invert(40%) sepia(80%) saturate(400%) hue-rotate(170deg);
+}
+
+.contact-icon.icon-github {
+    filter: invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg);
+}
+
+/* --- end moved block --- */
