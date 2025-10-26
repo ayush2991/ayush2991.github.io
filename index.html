@@ -15,7 +15,7 @@
 
     <!-- NEW: small inline script to manage accent palettes & theme toggle -->
     <script>
-    (function(){
+        (function(){
       const palettes = [
         {name:'Rust', color:'#b34a2e'},
         {name:'Ocean', color:'#2a9df4'},
@@ -27,26 +27,14 @@
       const root = document.documentElement;
       root.style.setProperty('--accent', palettes[current].color);
       root.style.setProperty('--accent-rgb', hexToRgb(palettes[current].color));
-      window.__setAccent = function(idx){
-         idx = idx % palettes.length;
-         current = idx;
-         root.style.setProperty('--accent', palettes[current].color);
-         root.style.setProperty('--accent-rgb', hexToRgb(palettes[current].color));
-      };
-      window.__toggleTheme = function(){
-         const body = document.body;
-         const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-         body.setAttribute('data-theme', next);
-         const btn = document.getElementById('theme-icon');
-         if(btn) btn.textContent = next === 'dark' ? '🌙' : '☀️';
-      };
-      document.addEventListener('DOMContentLoaded', ()=>{
-         const btn = document.getElementById('theme-toggle');
-         if(!btn) return;
-         btn.title = 'Click to cycle accent — Double-click to toggle theme';
-         btn.addEventListener('click', ()=>{ __setAccent((current+1)%palettes.length); });
-         btn.addEventListener('dblclick', ()=>{ __toggleTheme(); });
-      });
+        window.__setAccent = function(idx){
+            idx = idx % palettes.length;
+            current = idx;
+            root.style.setProperty('--accent', palettes[current].color);
+            root.style.setProperty('--accent-rgb', hexToRgb(palettes[current].color));
+        };
+        // Theme switching is now handled by the user's device preference (prefers-color-scheme).
+        // The UI toggle was removed; accent cycling remains available via `__setAccent` if needed.
     })();
     </script>
     <meta name="description" content="Portfolio of Aayush Agarwal, Machine Learning Engineer at Google. Projects, blog, certificates, and more.">
@@ -57,13 +45,24 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="favicon.ico">
 </head>
-<body class="antialiased" data-theme="dark">
-
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="fixed top-6 right-6 z-50 px-3 py-2 rounded text-white font-semibold shadow hover:bg-dark-rust transition flex items-center gap-2" aria-label="Toggle theme">
-        <span id="theme-icon">🌙</span>
-        <span class="w-3 h-3 rounded-full theme-toggle-dot" aria-hidden="true"></span>
-    </button>
+<body class="antialiased">
+    <script>
+        (function(){
+            // Apply theme based on device preference (light/dark) and listen for changes.
+            function applyPrefersColorScheme(){
+                try{
+                    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.body.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                }catch(e){
+                    document.body.setAttribute('data-theme', 'light');
+                }
+            }
+            applyPrefersColorScheme();
+            if(window.matchMedia){
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyPrefersColorScheme);
+            }
+        })();
+    </script>
 
     <!-- Header/Hero Section -->
     <header class="relative min-h-screen flex items-center justify-center text-center p-8 overflow-hidden">

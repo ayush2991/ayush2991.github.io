@@ -582,19 +582,7 @@ body {
     opacity: .12;
 }
 
-/* Theme toggle visual tweak */
-#theme-toggle {
-    backdrop-filter: blur(6px);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15));
-    border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Small utility class for the little accent dot in the theme toggle */
-.theme-toggle-dot {
-    display: inline-block;
-    background: var(--accent);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
+/* (theme toggle removed) */
 
 /* Keep the TOC vertically centered via CSS instead of inline style */
 #toc-nav {

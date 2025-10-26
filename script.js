@@ -27,44 +27,9 @@ const TYPING_TYPE_SPEED_MS = 60;
 const TYPING_DELETE_SPEED_MS = 30;
 const TYPING_PAUSE_MS = 1200;
 
-// =====================
-// Theme Toggle
-// =====================
-
-/**
- * Sets the theme for the site and updates the toggle button.
- * @param {'dark'|'light'} theme
- */
-function setTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    themeToggle.textContent = theme === 'dark' ? '🌙' : '☀️';
-}
-
-/**
- * Initializes the theme based on localStorage or default.
- */
-function initTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved) setTheme(saved);
-}
-
-// Theme toggle button event listeners
-const themeToggle = document.getElementById('theme-toggle');
+// Theme is determined by the user's device preference (prefers-color-scheme).
+// No manual toggle UI — the page sets `data-theme` on <body> at load.
 const root = document.documentElement;
-if (themeToggle) {
-    themeToggle.setAttribute('tabindex', '0');
-    themeToggle.addEventListener('click', () => {
-        const current = document.body.getAttribute('data-theme');
-        setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-    themeToggle.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            themeToggle.click();
-        }
-    });
-    initTheme();
-}
 
 // =====================
 // Code Rain Animation (requestAnimationFrame version)
