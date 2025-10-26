@@ -20,8 +20,7 @@ const PROJECT_CARD_BOX_SHADOW = '0 16px 32px 0 rgba(0,0,0,0.18)';
 /** Typing animation settings */
 const TYPING_ROLES = [
     'Machine Learning Engineer @ Google',
-    'Deep Learning Enthusiast',
-    'NLP & Agentic AI Explorer',
+    'Search & NLP Specialist',
 ];
 const TYPING_TYPE_SPEED_MS = 60;
 const TYPING_DELETE_SPEED_MS = 30;
