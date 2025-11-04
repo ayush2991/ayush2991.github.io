@@ -955,3 +955,69 @@ body {
 [data-theme="light"] .featured-card-header {
     border-bottom-color: var(--accent);
 }
+
+/* Streamlit Apps Super Card */
+.streamlit-apps-super-card {
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.05) 0%, rgba(var(--accent-rgb), 0.08) 100%);
+    border: 2px solid var(--accent);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    box-shadow: 0 8px 24px 0 rgba(var(--accent-rgb), 0.15);
+    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+.streamlit-apps-super-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px 0 rgba(var(--accent-rgb), 0.25);
+}
+
+.streamlit-card-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+.streamlit-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+}
+
+.streamlit-card-content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75rem;
+}
+
+/* Desktop: 3 columns for streamlit apps */
+@media (min-width: 768px) {
+    .streamlit-apps-super-card {
+        padding: 2rem;
+    }
+    
+    .streamlit-card-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .streamlit-card-title {
+        font-size: 2rem;
+    }
+    
+    .streamlit-card-content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Light theme adjustments for streamlit card */
+[data-theme="light"] .streamlit-apps-super-card {
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.03) 0%, rgba(var(--accent-rgb), 0.05) 100%);
+    border-color: var(--accent);
+}
+
+[data-theme="light"] .streamlit-card-header {
+    border-bottom-color: var(--accent);
+}
