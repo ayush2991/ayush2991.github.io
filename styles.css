@@ -207,6 +207,82 @@ footer.section-container {
     margin-bottom: 1rem;
 }
 
+/* Machine Learning Specialization Super Card */
+.ml-specialization-super-card {
+    background: linear-gradient(135deg, rgba(179, 74, 46, 0.05) 0%, rgba(138, 58, 34, 0.08) 100%);
+    border: 2px solid var(--color-accent);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    box-shadow: 0 8px 24px 0 rgba(179, 74, 46, 0.15);
+    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+.ml-specialization-super-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px 0 rgba(179, 74, 46, 0.25);
+}
+
+.super-card-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.super-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+}
+
+.super-card-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    font-weight: 500;
+}
+
+.super-card-content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75rem;
+}
+
+/* Desktop: 3 columns with more padding */
+@media (min-width: 768px) {
+    .ml-specialization-super-card {
+        padding: 2rem;
+    }
+    
+    .super-card-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .super-card-title {
+        font-size: 2rem;
+    }
+    
+    .super-card-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .super-card-content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Light theme adjustments for super card */
+[data-theme="light"] .ml-specialization-super-card {
+    background: linear-gradient(135deg, rgba(230, 81, 0, 0.03) 0%, rgba(179, 74, 46, 0.05) 100%);
+    border-color: var(--color-accent);
+}
+
+[data-theme="light"] .super-card-header {
+    border-bottom-color: var(--color-accent);
+}
+
 /* Blog Card Styles */
 .blog-card {
     background-color: var(--color-background);
