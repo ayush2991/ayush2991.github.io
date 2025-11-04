@@ -11,6 +11,13 @@
     --color-border-light: #e0e0e0;
     --color-muted-dark: #a3a3a3;
     --color-muted-light: #444;
+    /* Additional design tokens */
+    --color-background: #0b0f14;
+    --color-surface: #0f1720;
+    --color-border: rgba(255, 255, 255, 0.06);
+    --accent: #b34a2e;
+    --accent-rgb: 179, 74, 46;
+    --text-primary: #e6eef6;
 }
 
 /* Dark Theme */
@@ -31,6 +38,8 @@
     --color-accent-hover: #b34a2e;
     --color-border: var(--color-border-light);
     --color-muted: var(--color-muted-light);
+    --color-surface: #ffffff;
+    --text-primary: #0b1220;
 }
 
 body {
@@ -392,7 +401,6 @@ footer.section-container {
         width: 280px;
         height: 280px;
     }
-}
 }
 
 .image-frame::before {
@@ -832,22 +840,6 @@ footer.section-container .text-gray-600 {
 /* --- Moved from index.html <style> (appended to ensure overriding) --- */
 
 /* Design tokens & small UI improvements (moved inline -> now last so it overrides where needed) */
-:root {
-    --color-background: #0b0f14;
-    --color-surface: #0f1720;
-    --color-border: rgba(255, 255, 255, 0.06);
-    --accent: #b34a2e;
-    /* default rust */
-    --accent-rgb: 179, 74, 46;
-    --text-primary: #e6eef6;
-}
-
-[data-theme="light"] {
-    --color-background: #f7fafc;
-    --color-surface: #ffffff;
-    --color-border: rgba(15, 23, 42, 0.08);
-    --text-primary: #0b1220;
-}
 
 body {
     background-color: var(--color-background);

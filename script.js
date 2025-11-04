@@ -156,8 +156,9 @@ function initTypingAnimation() {
                 idx = (idx + 1) % ROLE_VARIANTS.length;
             }
         }
-    const rolePart = current.slice(0, char);
-    jobTitle.textContent = rolePart + (typing ? '|' : '') + ROLE_SUFFIX;
+        const rolePart = current.slice(0, char);
+        const cursor = typing && char < current.length ? '|' : '';
+        jobTitle.textContent = rolePart + cursor + ROLE_SUFFIX;
         setTimeout(typeLoop, typing ? TYPING_TYPE_SPEED_MS : TYPING_DELETE_SPEED_MS);
     }
     setTimeout(typeLoop, 1000);
