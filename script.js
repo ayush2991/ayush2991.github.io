@@ -18,10 +18,11 @@ const PROJECT_CARD_TRANSLATE_Y = -4; // px
 const PROJECT_CARD_BOX_SHADOW = '0 16px 32px 0 rgba(0,0,0,0.18)';
 
 /** Typing animation settings */
-const TYPING_ROLES = [
-    'Machine Learning Engineer @ Google',
+const ROLE_VARIANTS = [
+    'Machine Learning Engineer',
     'Search & NLP Specialist',
 ];
+const ROLE_SUFFIX = ' @ Google';
 const TYPING_TYPE_SPEED_MS = 60;
 const TYPING_DELETE_SPEED_MS = 30;
 const TYPING_PAUSE_MS = 1200;
@@ -140,7 +141,7 @@ function initTypingAnimation() {
      * Handles the typing and deleting animation loop.
      */
     function typeLoop() {
-        const current = TYPING_ROLES[idx];
+        const current = ROLE_VARIANTS[idx];
         if (typing) {
             char++;
             if (char > current.length) {
@@ -152,10 +153,11 @@ function initTypingAnimation() {
             char--;
             if (char === 0) {
                 typing = true;
-                idx = (idx + 1) % TYPING_ROLES.length;
+                idx = (idx + 1) % ROLE_VARIANTS.length;
             }
         }
-        jobTitle.textContent = current.slice(0, char) + (typing ? '|' : '');
+    const rolePart = current.slice(0, char);
+    jobTitle.textContent = rolePart + (typing ? '|' : '') + ROLE_SUFFIX;
         setTimeout(typeLoop, typing ? TYPING_TYPE_SPEED_MS : TYPING_DELETE_SPEED_MS);
     }
     setTimeout(typeLoop, 1000);
