@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter (for general text) and Fira Code (for code-like feel) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
     <!-- Google Material Icons for subtle branding -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom CSS -->
@@ -15,29 +18,30 @@
 
     <!-- NEW: small inline script to manage accent palettes & theme toggle -->
     <script>
-        (function(){
-      const palettes = [
-        {name:'Rust', color:'#b34a2e'},
-        {name:'Ocean', color:'#2a9df4'},
-        {name:'Solar', color:'#ffd166'},
-        {name:'Mint', color:'#8ac926'}
-      ];
-      function hexToRgb(hex){ const m = hex.replace('#',''); return m.match(/.{2}/g).map(x=>parseInt(x,16)).join(','); }
-      let current = 0;
-      const root = document.documentElement;
-      root.style.setProperty('--accent', palettes[current].color);
-      root.style.setProperty('--accent-rgb', hexToRgb(palettes[current].color));
-        window.__setAccent = function(idx){
-            idx = idx % palettes.length;
-            current = idx;
+        (function () {
+            const palettes = [
+                { name: 'Rust', color: '#b34a2e' },
+                { name: 'Ocean', color: '#2a9df4' },
+                { name: 'Solar', color: '#ffd166' },
+                { name: 'Mint', color: '#8ac926' }
+            ];
+            function hexToRgb(hex) { const m = hex.replace('#', ''); return m.match(/.{2}/g).map(x => parseInt(x, 16)).join(','); }
+            let current = 0;
+            const root = document.documentElement;
             root.style.setProperty('--accent', palettes[current].color);
             root.style.setProperty('--accent-rgb', hexToRgb(palettes[current].color));
-        };
-        // Theme switching is now handled by the user's device preference (prefers-color-scheme).
-        // The UI toggle was removed; accent cycling remains available via `__setAccent` if needed.
-    })();
+            window.__setAccent = function (idx) {
+                idx = idx % palettes.length;
+                current = idx;
+                root.style.setProperty('--accent', palettes[current].color);
+                root.style.setProperty('--accent-rgb', hexToRgb(palettes[current].color));
+            };
+            // Theme switching is now handled by the user's device preference (prefers-color-scheme).
+            // The UI toggle was removed; accent cycling remains available via `__setAccent` if needed.
+        })();
     </script>
-    <meta name="description" content="Portfolio of Aayush Agarwal, Machine Learning Engineer at Google. Projects, blog, certificates, and more.">
+    <meta name="description"
+        content="Portfolio of Aayush Agarwal, Machine Learning Engineer at Google. Projects, blog, certificates, and more.">
     <meta property="og:title" content="Aayush Agarwal Portfolio">
     <meta property="og:description" content="Portfolio of Aayush Agarwal, Machine Learning Engineer at Google.">
     <meta property="og:type" content="website">
@@ -45,20 +49,21 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="apple-touch-icon" href="./profile.png">
 </head>
+
 <body class="antialiased">
     <script>
-        (function(){
+        (function () {
             // Apply theme based on device preference (light/dark) and listen for changes.
-            function applyPrefersColorScheme(){
-                try{
+            function applyPrefersColorScheme() {
+                try {
                     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                     document.body.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-                }catch(e){
+                } catch (e) {
                     document.body.setAttribute('data-theme', 'light');
                 }
             }
             applyPrefersColorScheme();
-            if(window.matchMedia){
+            if (window.matchMedia) {
                 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyPrefersColorScheme);
             }
         })();
@@ -79,18 +84,22 @@
                 Machine Learning Engineer @ Google
             </p>
             <div class="flex flex-wrap justify-center gap-3 mb-8 animate-fade-in-up delay-300">
-                <span class="px-4 py-2 bg-gradient-to-r from-rust/20 to-dark-rust/20 border border-rust/40 rounded-lg text-sm md:text-base font-semibold text-rust backdrop-blur-sm">
+                <span
+                    class="px-4 py-2 bg-gradient-to-r from-rust/20 to-dark-rust/20 border border-rust/40 rounded-lg text-sm md:text-base font-semibold text-rust backdrop-blur-sm">
                     MS, Carnegie Mellon University
                 </span>
-                <span class="px-4 py-2 bg-gradient-to-r from-rust/20 to-dark-rust/20 border border-rust/40 rounded-lg text-sm md:text-base font-semibold text-rust backdrop-blur-sm">
+                <span
+                    class="px-4 py-2 bg-gradient-to-r from-rust/20 to-dark-rust/20 border border-rust/40 rounded-lg text-sm md:text-base font-semibold text-rust backdrop-blur-sm">
                     BTech, IIT Madras
                 </span>
             </div>
             <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up delay-400">
-                <a href="#projects" class="px-6 py-3 bg-rust text-white font-semibold rounded-lg shadow-lg hover:bg-dark-rust transition duration-300 ease-in-out transform hover:scale-105">
+                <a href="#projects"
+                    class="px-6 py-3 bg-rust text-white font-semibold rounded-lg shadow-lg hover:bg-dark-rust transition duration-300 ease-in-out transform hover:scale-105">
                     View Projects
                 </a>
-                <a href="#contact" class="px-6 py-3 border-2 border-rust text-rust font-semibold rounded-lg shadow-lg hover:bg-rust hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
+                <a href="#contact"
+                    class="px-6 py-3 border-2 border-rust text-rust font-semibold rounded-lg shadow-lg hover:bg-rust hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
                     Get in Touch
                 </a>
             </div>
@@ -99,16 +108,21 @@
 
     <!-- Download Resume Button -->
     <div class="fixed bottom-6 right-6 z-50">
-        <a href="Aayush_Agarwal_Resume.pdf" download class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition" aria-label="Download Resume">
+        <a href="Aayush_Agarwal_Resume.pdf" download
+            class="px-4 py-2 bg-rust text-white font-semibold rounded shadow hover:bg-dark-rust transition"
+            aria-label="Download Resume">
             Download Resume
         </a>
     </div>
 
     <!-- Add a sticky/floating Table of Contents for quick navigation -->
-    <nav id="toc-nav" class="hidden md:flex flex-col gap-3 fixed top-1/2 right-8 z-40 bg-[var(--color-background)] border border-[var(--color-border)] rounded-lg shadow-lg px-4 py-3 transition-all">
+    <nav id="toc-nav"
+        class="hidden md:flex flex-col gap-3 fixed top-1/2 right-8 z-40 bg-[var(--color-background)] border border-[var(--color-border)] rounded-lg shadow-lg px-4 py-3 transition-all">
         <a href="#about" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">About</a>
-        <a href="#projects" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Projects</a>
-        <a href="#certificates" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Certificates</a>
+        <a href="#projects"
+            class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Projects</a>
+        <a href="#certificates"
+            class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Certificates</a>
         <a href="#blog" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Blog</a>
         <a href="#career" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Career</a>
         <a href="#contact" class="toc-link text-sm font-semibold text-rust hover:underline focus:underline">Contact</a>
@@ -120,50 +134,64 @@
             <h2 class="text-4xl font-bold mb-12 text-center">About Me</h2>
             <div class="about-content-wrapper">
                 <div class="about-image-container">
-                    <div class="image-frame animate-pulse" style="box-shadow:0 0 0 6px var(--accent),0 0 32px 0 rgba(179,74,46,0.12);">
+                    <div class="image-frame animate-pulse"
+                        style="box-shadow:0 0 0 6px var(--accent),0 0 32px 0 rgba(179,74,46,0.12);">
                         <img src="./profile.png" alt="Aayush Agarwal" class="profile-image">
                     </div>
                     <div class="about-stats">
                         <div class="stat-item">
-                            <span class="material-icons" style="font-size:2em;color:var(--color-accent);">trending_up</span>
+                            <span class="material-icons"
+                                style="font-size:2em;color:var(--color-accent);">trending_up</span>
                             <div class="stat-number">8+</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
                         <div class="stat-item">
-                            <span class="material-icons" style="font-size:2em;color:var(--color-accent);">psychology</span>
+                            <span class="material-icons"
+                                style="font-size:2em;color:var(--color-accent);">psychology</span>
                             <div class="stat-number">6</div>
                             <div class="stat-label">ML Projects</div>
                         </div>
                         <div class="stat-item">
-                            <span class="material-icons" style="font-size:2em;color:var(--color-accent);">business_center</span>
+                            <span class="material-icons"
+                                style="font-size:2em;color:var(--color-accent);">business_center</span>
                             <div class="stat-number">3</div>
                             <div class="stat-label">Tech Giants</div>
                         </div>
                     </div>
-                    <div class="fun-fact-card mt-6 p-4 rounded-xl shadow-lg border border-[var(--color-border)] bg-gradient-to-r from-[rgba(179,74,46,0.08)] to-[rgba(230,81,0,0.05)] text-center">
-                        <span class="material-icons align-middle" style="font-size:1.3em;color:var(--color-accent);vertical-align:middle;">emoji_objects</span>
+                    <div
+                        class="fun-fact-card mt-6 p-4 rounded-xl shadow-lg border border-[var(--color-border)] bg-gradient-to-r from-[rgba(179,74,46,0.08)] to-[rgba(230,81,0,0.05)] text-center">
+                        <span class="material-icons align-middle"
+                            style="font-size:1.3em;color:var(--color-accent);vertical-align:middle;">emoji_objects</span>
                         <span class="font-semibold text-rust ml-2">Fun Fact:</span>
-                        <span class="ml-2 text-base text-[var(--color-muted)]">I once built a neural network to predict cricket match outcomes for fun!</span>
+                        <span class="ml-2 text-base text-[var(--color-muted)]">I once built a neural network to predict
+                            cricket match outcomes for fun!</span>
                     </div>
                 </div>
                 <div class="about-text-container">
                     <div class="about-intro">
                         <span class="intro-badge">ML Engineer @ Google</span>
                         <p class="intro-text">
-                            I'm a machine learning engineer with 8+ years of experience designing & building intelligent systems at scale. I've worked cross-functionally with product, engineering, research and data science teams on various projects spanning machine learning, natural language understanding and software development domains.
+                            I'm a machine learning engineer with 8+ years of experience designing & building intelligent
+                            systems at scale. I've worked cross-functionally with product, engineering, research and
+                            data science teams on various projects spanning machine learning, natural language
+                            understanding and software development domains.
                         </p>
                     </div>
                     <div class="about-philosophy">
                         <h3 class="philosophy-title">My Philosophy</h3>
                         <p class="philosophy-text">
-                            I like to think about products holistically and believe that finding the right balance between quality (research), performance (engineering), complexity (product) and ease of use (UX) is the key to building good products that delight users around the world.
+                            I like to think about products holistically and believe that finding the right balance
+                            between quality (research), performance (engineering), complexity (product) and ease of use
+                            (UX) is the key to building good products that delight users around the world.
                         </p>
                     </div>
                     <div class="about-passion">
                         <h3 class="passion-title">Teaching & Writing</h3>
                         <p class="passion-text">
-                            I am passionate about making confusing data science concepts understandable for beginners. My articles on 
-                            <a href="https://medium.com/@ayush2991" target="_blank" rel="noopener noreferrer" class="medium-link">medium.com</a> 
+                            I am passionate about making confusing data science concepts understandable for beginners.
+                            My articles on
+                            <a href="https://medium.com/@ayush2991" target="_blank" rel="noopener noreferrer"
+                                class="medium-link">medium.com</a>
                             aim to explain complex concepts using simple and highly intuitive examples.
                         </p>
                     </div>
@@ -176,7 +204,7 @@
     <section id="projects" class="section-container border-b-2 border-gray-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl font-bold mb-12 text-center">My Projects</h2>
-            
+
             <!-- Featured Projects Super Card -->
             <div class="featured-projects-super-card mb-10">
                 <div class="featured-card-header">
@@ -187,7 +215,8 @@
                     <div class="project-card flex flex-col h-full">
                         <div class="flex-1 flex flex-col justify-between p-6">
                             <div>
-                                <h3 class="project-title mb-2">AI-Powered Web App for Suraj Agarwal &amp; Associates</h3>
+                                <h3 class="project-title mb-2">AI-Powered Web App for Suraj Agarwal &amp; Associates
+                                </h3>
                                 <div class="flex flex-wrap gap-2 mb-2">
                                     <span class="badge">AI</span>
                                     <span class="badge">Gemini</span>
@@ -198,12 +227,18 @@
                                     <span class="badge">Small Business</span>
                                 </div>
                                 <p class="project-desc mb-4">
-                                    A modern web app powering a real small business, with a production‑ready AI assistant built in. The agent uses Google Gemini with the Google Search tool to provide current, trustworthy answers. It gives clients immediate value by answering non‑complex queries instantly; for complex or sensitive cases, it asks users to book a consultation with the firm.
+                                    A modern web app powering a real small business, with a production‑ready AI
+                                    assistant built in. The agent uses Google Gemini with the Google Search tool to
+                                    provide current, trustworthy answers. It gives clients immediate value by answering
+                                    non‑complex queries instantly; for complex or sensitive cases, it asks users to book
+                                    a consultation with the firm.
                                 </p>
                             </div>
                             <div class="flex gap-3 mt-4">
-                                <a href="https://github.com/ayush2991/suraj_agarwal_and_associates" target="_blank" class="project-btn-outline">GitHub</a>
-                                <a href="https://suraj-agarwal-associates-ca.web.app/" target="_blank" class="project-btn-filled">Live Demo</a>
+                                <a href="https://github.com/ayush2991/suraj_agarwal_and_associates" target="_blank"
+                                    class="project-btn-outline">GitHub</a>
+                                <a href="https://suraj-agarwal-associates-ca.web.app/" target="_blank"
+                                    class="project-btn-filled">Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -219,17 +254,21 @@
                                     <span class="badge">Retrieval Augmented Generation</span>
                                     <span class="badge">Vector DB</span>
                                 </div>
-                                <p class="project-desc mb-4">An agentic RAG (Retrieval-Augmented Generation) system that can answer any question about Harry Potter! It even cites its sources and rewrites queries if necessary.</p>
+                                <p class="project-desc mb-4">An agentic RAG (Retrieval-Augmented Generation) system that
+                                    can answer any question about Harry Potter! It even cites its sources and rewrites
+                                    queries if necessary.</p>
                             </div>
                             <div class="flex gap-3 mt-4">
-                                <a href="https://github.com/ayush2991/agentic-rag/" target="_blank" class="project-btn-outline">GitHub</a>
-                                <a href="https://ayush2991-agentic-rag.streamlit.app/" target="_blank" class="project-btn-filled">Live Demo</a>
+                                <a href="https://github.com/ayush2991/agentic-rag/" target="_blank"
+                                    class="project-btn-outline">GitHub</a>
+                                <a href="https://ayush2991-agentic-rag.streamlit.app/" target="_blank"
+                                    class="project-btn-filled">Live Demo</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Streamlit Apps Super Card -->
             <div class="streamlit-apps-super-card mb-10">
                 <div class="streamlit-card-header">
@@ -246,11 +285,15 @@
                                     <span class="badge">News API</span>
                                     <span class="badge">Embeddings</span>
                                 </div>
-                                <p class="project-desc mb-4">Your daily news, but with a dose of positivity! This app uses a sentiment analysis model to prioritize positive news articles over anxiety-inducing ones. Filter by topic and country.</p>
+                                <p class="project-desc mb-4">Your daily news, but with a dose of positivity! This app
+                                    uses a sentiment analysis model to prioritize positive news articles over
+                                    anxiety-inducing ones. Filter by topic and country.</p>
                             </div>
                             <div class="flex gap-3 mt-4">
-                                <a href="https://github.com/ayush2991/some-good-news/" target="_blank" class="project-btn-outline">GitHub</a>
-                                <a href="https://some-good-news-ayush2991.streamlit.app/" target="_blank" class="project-btn-filled">Live Demo</a>
+                                <a href="https://github.com/ayush2991/some-good-news/" target="_blank"
+                                    class="project-btn-outline">GitHub</a>
+                                <a href="https://some-good-news-ayush2991.streamlit.app/" target="_blank"
+                                    class="project-btn-filled">Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -264,11 +307,15 @@
                                     <span class="badge">Pytorch</span>
                                     <span class="badge">Neural Networks</span>
                                 </div>
-                                <p class="project-desc mb-4">An interactive dashboard for visualizing the training of a neural network using Pytorch. You can play with the hyperparameters and see how they affect the training process.</p>
+                                <p class="project-desc mb-4">An interactive dashboard for visualizing the training of a
+                                    neural network using Pytorch. You can play with the hyperparameters and see how they
+                                    affect the training process.</p>
                             </div>
                             <div class="flex gap-3 mt-4">
-                                <a href="https://github.com/ayush2991/pytorch-playground/" target="_blank" class="project-btn-outline">GitHub</a>
-                                <a href="https://ayush2991-pytorch-playground-app-rimmmd.streamlit.app/" target="_blank" class="project-btn-filled">Live Demo</a>
+                                <a href="https://github.com/ayush2991/pytorch-playground/" target="_blank"
+                                    class="project-btn-outline">GitHub</a>
+                                <a href="https://ayush2991-pytorch-playground-app-rimmmd.streamlit.app/" target="_blank"
+                                    class="project-btn-filled">Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -282,17 +329,22 @@
                                     <span class="badge">Streamlit</span>
                                     <span class="badge">Data Visualization</span>
                                 </div>
-                                <p class="project-desc mb-4">It's not easy to guess the nutritional value of Indian dishes you want to eat. This app helps you predict the nutritional value of a dish based on the closest match from a database of Indian meals. Or compare two dishes easily with visualizations.</p>
+                                <p class="project-desc mb-4">It's not easy to guess the nutritional value of Indian
+                                    dishes you want to eat. This app helps you predict the nutritional value of a dish
+                                    based on the closest match from a database of Indian meals. Or compare two dishes
+                                    easily with visualizations.</p>
                             </div>
                             <div class="flex gap-3 mt-4">
-                                <a href="https://github.com/ayush2991/nutrition-in-indian-meals/" target="_blank" class="project-btn-outline">GitHub</a>
-                                <a href="https://nutrition-in-indian-meals-ayush2991.streamlit.app/" target="_blank" class="project-btn-filled">Live Demo</a>
+                                <a href="https://github.com/ayush2991/nutrition-in-indian-meals/" target="_blank"
+                                    class="project-btn-outline">GitHub</a>
+                                <a href="https://nutrition-in-indian-meals-ayush2991.streamlit.app/" target="_blank"
+                                    class="project-btn-filled">Live Demo</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Other Projects Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Project Card Example (repeat for each project) -->
@@ -306,11 +358,15 @@
                                 <span class="badge">Embeddings</span>
                                 <span class="badge">Pandas</span>
                             </div>
-                            <p class="project-desc mb-4">LLMs are great at generating text, but they can make mistakes. This project leverages web search to locate sources that can corroborate claims made by LLMs.</p>
+                            <p class="project-desc mb-4">LLMs are great at generating text, but they can make mistakes.
+                                This project leverages web search to locate sources that can corroborate claims made by
+                                LLMs.</p>
                         </div>
                         <div class="flex gap-3 mt-4">
-                            <a href="https://github.com/ayush2991/grounding-llms-with-search/" target="_blank" class="project-btn-outline">GitHub</a>
-                            <a href="https://ayush2991-grounding-llms-with-web-search.streamlit.app/" target="_blank" class="project-btn-filled">Live Demo</a>
+                            <a href="https://github.com/ayush2991/grounding-llms-with-search/" target="_blank"
+                                class="project-btn-outline">GitHub</a>
+                            <a href="https://ayush2991-grounding-llms-with-web-search.streamlit.app/" target="_blank"
+                                class="project-btn-filled">Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -325,12 +381,16 @@
                                 <span class="badge">Pytorch</span>
                             </div>
                             <p class="project-desc mb-4">
-                                An interactive app for classifying images using state-of-the-art deep learning models. You can also visualize an attention map over the image to see what the transformer model is focusing on.
+                                An interactive app for classifying images using state-of-the-art deep learning models.
+                                You can also visualize an attention map over the image to see what the transformer model
+                                is focusing on.
                             </p>
                         </div>
                         <div class="flex gap-3 mt-4">
-                            <a href="https://github.com/ayush2991/ai-powered-image-classification" target="_blank" class="project-btn-outline">GitHub</a>
-                            <a href="https://ayush2991-ai-powered-image-classification.streamlit.app/" target="_blank" class="project-btn-filled">Live Demo</a>
+                            <a href="https://github.com/ayush2991/ai-powered-image-classification" target="_blank"
+                                class="project-btn-outline">GitHub</a>
+                            <a href="https://ayush2991-ai-powered-image-classification.streamlit.app/" target="_blank"
+                                class="project-btn-filled">Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -342,7 +402,7 @@
     <section id="certificates" class="section-container border-b-2 border-gray-800">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl font-bold mb-12 text-center">Certificates & Courses</h2>
-            
+
             <!-- Machine Learning Specialization Super Card -->
             <div class="ml-specialization-super-card mb-10">
                 <div class="super-card-header">
@@ -352,21 +412,30 @@
                 <div class="super-card-content">
                     <div class="certificate-card flex flex-col h-full">
                         <h3 class="certificate-title">Regression and Classification</h3>
-                        <p class="text-gray-400 mb-3">Course 1 of 3 • <span class="font-medium text-gray-300">DeepLearning.AI</span></p>
-                        <p class="certificate-desc">Build and train supervised machine learning models for prediction and binary classification tasks, including linear regression & logistic regression.</p>
-                        <a href="https://coursera.org/share/1d59919dfa1734cc49ec92f5e00f50e7" target="_blank" rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
+                        <p class="text-gray-400 mb-3">Course 1 of 3 • <span
+                                class="font-medium text-gray-300">DeepLearning.AI</span></p>
+                        <p class="certificate-desc">Build and train supervised machine learning models for prediction
+                            and binary classification tasks, including linear regression & logistic regression.</p>
+                        <a href="https://coursera.org/share/1d59919dfa1734cc49ec92f5e00f50e7" target="_blank"
+                            rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
                     </div>
                     <div class="certificate-card flex flex-col h-full">
                         <h3 class="certificate-title">Advanced Learning Algorithms</h3>
-                        <p class="text-gray-400 mb-3">Course 2 of 3 • <span class="font-medium text-gray-300">DeepLearning.AI</span></p>
-                        <p class="certificate-desc">Build and train advanced machine learning models for complex tasks, including neural networks and tree-based models.</p>
-                        <a href="https://coursera.org/share/4d435cfba442cdbe260637c701119e6c" target="_blank" rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
+                        <p class="text-gray-400 mb-3">Course 2 of 3 • <span
+                                class="font-medium text-gray-300">DeepLearning.AI</span></p>
+                        <p class="certificate-desc">Build and train advanced machine learning models for complex tasks,
+                            including neural networks and tree-based models.</p>
+                        <a href="https://coursera.org/share/4d435cfba442cdbe260637c701119e6c" target="_blank"
+                            rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
                     </div>
                     <div class="certificate-card flex flex-col h-full">
                         <h3 class="certificate-title">Unsupervised Learning, Recommenders, Reinforcement Learning</h3>
-                        <p class="text-gray-400 mb-3">Course 3 of 3 • <span class="font-medium text-gray-300">DeepLearning.AI</span></p>
-                        <p class="certificate-desc">Applied techniques in clustering, anomaly detection, recommendation systems and reinforcement learning.</p>
-                        <a href="https://coursera.org/share/dd2fd55c19c66b9aff6ab8d7dcac543c" target="_blank" rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
+                        <p class="text-gray-400 mb-3">Course 3 of 3 • <span
+                                class="font-medium text-gray-300">DeepLearning.AI</span></p>
+                        <p class="certificate-desc">Applied techniques in clustering, anomaly detection, recommendation
+                            systems and reinforcement learning.</p>
+                        <a href="https://coursera.org/share/dd2fd55c19c66b9aff6ab8d7dcac543c" target="_blank"
+                            rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -375,21 +444,31 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div class="certificate-card flex flex-col h-full">
                     <h3 class="certificate-title">Agentic AI: by Andrew Ng</h3>
-                    <p class="text-gray-400 mb-3">Issued by <span class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
-                    <p class="certificate-desc">Build agentic systems that can take actions in the world, including planning, decision-making, and learning from feedback.</p>
-                    <a href="https://learn.deeplearning.ai/certificates/b3692246-49bf-4fa1-aef3-a0e4aadb0c77?usp=sharing" target="_blank" rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
+                    <p class="text-gray-400 mb-3">Issued by <span
+                            class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
+                    <p class="certificate-desc">Build agentic systems that can take actions in the world, including
+                        planning, decision-making, and learning from feedback.</p>
+                    <a href="https://learn.deeplearning.ai/certificates/b3692246-49bf-4fa1-aef3-a0e4aadb0c77?usp=sharing"
+                        target="_blank" rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate
+                        &rarr;</a>
                 </div>
                 <div class="certificate-card flex flex-col h-full">
                     <h3 class="certificate-title">Generative AI with Large Language Models</h3>
-                    <p class="text-gray-400 mb-3">Issued by <span class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
-                    <p class="certificate-desc">In-depth exploration of generative AI techniques using large language models, including practical applications and ethical considerations.</p>
-                    <a href="https://coursera.org/share/506fa8931f7b4e1231657220c8d026ca" target="_blank" rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
+                    <p class="text-gray-400 mb-3">Issued by <span
+                            class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
+                    <p class="certificate-desc">In-depth exploration of generative AI techniques using large language
+                        models, including practical applications and ethical considerations.</p>
+                    <a href="https://coursera.org/share/506fa8931f7b4e1231657220c8d026ca" target="_blank"
+                        rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
                 </div>
                 <div class="certificate-card flex flex-col h-full">
                     <h3 class="certificate-title">NLP Specialization: Classification & Vector Spaces</h3>
-                    <p class="text-gray-400 mb-3">Issued by <span class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
-                    <p class="certificate-desc">Use logistic regression, naïve Bayes, and word vectors to implement sentiment analysis, complete analogies & translate words.</p>
-                    <a href="https://coursera.org/share/e8d5dfe1f7d7d144d12f09a02a673fd8" target="_blank" rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
+                    <p class="text-gray-400 mb-3">Issued by <span
+                            class="font-medium text-gray-300">DeepLearning.AI</span> on Coursera</p>
+                    <p class="certificate-desc">Use logistic regression, naïve Bayes, and word vectors to implement
+                        sentiment analysis, complete analogies & translate words.</p>
+                    <a href="https://coursera.org/share/e8d5dfe1f7d7d144d12f09a02a673fd8" target="_blank"
+                        rel="noopener noreferrer" class="certificate-link mt-auto">View Certificate &rarr;</a>
                 </div>
             </div>
         </div>
@@ -406,22 +485,26 @@
                     <h3 class="blog-title">An Intuitive Guide To Entropy</h3>
                     <p class="text-gray-400 mb-2 text-sm">Published: April 29, 2022</p>
                     <p class="blog-desc">Understanding why entropy is a measure of chaos.</p>
-                    <a href="https://medium.com/data-science/understanding-entropy-2ee52b387f8c" class="blog-link">Read More &rarr;</a>
+                    <a href="https://medium.com/data-science/understanding-entropy-2ee52b387f8c" class="blog-link">Read
+                        More &rarr;</a>
                 </div>
 
                 <div class="blog-card">
                     <h3 class="blog-title">An Intuitive Guide To Cross Entropy</h3>
                     <p class="text-gray-400 mb-2 text-sm">Published: Feb 09, 2024</p>
                     <p class="blog-desc">Understanding the role of cross entropy in ML applications.</p>
-                    <a href="https://medium.com/@ayush2991/understanding-cross-entropy-kl-divergence-d6b99f770f37" class="blog-link">Read More &rarr;</a>
+                    <a href="https://medium.com/@ayush2991/understanding-cross-entropy-kl-divergence-d6b99f770f37"
+                        class="blog-link">Read More &rarr;</a>
                 </div>
 
                 <div class="blog-card">
                     <h3 class="blog-title">Understanding Moving Average Models</h3>
                     <p class="text-gray-400 mb-2 text-sm">Published: May 13, 2022</p>
-                    <p class="blog-desc">An intuitive guide to the mathematics of moving average models in the ARIMA family.</p>
-                    <a href="https://medium.com/@ayush2991/understanding-moving-average-models-34993b7c0d31" class="blog-link">Read More &rarr;</a>
-                </div> 
+                    <p class="blog-desc">An intuitive guide to the mathematics of moving average models in the ARIMA
+                        family.</p>
+                    <a href="https://medium.com/@ayush2991/understanding-moving-average-models-34993b7c0d31"
+                        class="blog-link">Read More &rarr;</a>
+                </div>
 
             </div>
         </div>
@@ -439,7 +522,8 @@
                         <div class="career-company text-rust font-semibold mb-1">Google</div>
                         <div class="career-meta text-gray-400 mb-2 text-sm">Feb 2022 – Present · New York City, NY</div>
                         <ul class="list-disc ml-5 text-base career-desc">
-                            <li>Architected and delivered generative AI solutions that power next-generation Google Search experiences.</li>
+                            <li>Architected and delivered generative AI solutions that power next-generation Google
+                                Search experiences.</li>
                             <li>Enhanced answer accuracy and trustworthiness for billions of users worldwide.</li>
                             <li>Championed initiatives to amplify diverse human perspectives in search results.</li>
                         </ul>
@@ -450,10 +534,13 @@
                     <div class="p-6">
                         <h3 class="career-title">Machine Learning Engineer</h3>
                         <div class="career-company text-rust font-semibold mb-1">Google</div>
-                        <div class="career-meta text-gray-400 mb-2 text-sm">Mar 2019 – Feb 2022 · New York City, NY</div>
+                        <div class="career-meta text-gray-400 mb-2 text-sm">Mar 2019 – Feb 2022 · New York City, NY
+                        </div>
                         <ul class="list-disc ml-5 text-base career-desc">
-                            <li>Developed and deployed intelligent assistive features for Google Docs and Slides, impacting millions of enterprise users.</li>
-                            <li>Led cross-functional efforts to launch new G Suite AI capabilities, streamlining business workflows.</li>
+                            <li>Developed and deployed intelligent assistive features for Google Docs and Slides,
+                                impacting millions of enterprise users.</li>
+                            <li>Led cross-functional efforts to launch new G Suite AI capabilities, streamlining
+                                business workflows.</li>
                         </ul>
                     </div>
                 </div>
@@ -464,7 +551,8 @@
                         <div class="career-company text-rust font-semibold mb-1">Microsoft</div>
                         <div class="career-meta text-gray-400 mb-2 text-sm">Mar 2017 – Mar 2019 · Bellevue, WA</div>
                         <ul class="list-disc ml-5 text-base career-desc">
-                            <li>Designed and implemented ML/NLP models to answer real-time news queries on Bing.com.</li>
+                            <li>Designed and implemented ML/NLP models to answer real-time news queries on Bing.com.
+                            </li>
                             <li>Improved search relevance and user engagement through data-driven experimentation.</li>
                         </ul>
                     </div>
@@ -476,7 +564,8 @@
                         <div class="career-company text-rust font-semibold mb-1">Carnegie Mellon University</div>
                         <div class="career-meta text-gray-400 mb-2 text-sm">May 2016 – Aug 2016 · Pittsburgh, PA</div>
                         <ul class="list-disc ml-5 text-base career-desc">
-                            <li>Pioneered deep learning approaches for machine reading comprehension (SQuAD dataset).</li>
+                            <li>Pioneered deep learning approaches for machine reading comprehension (SQuAD dataset).
+                            </li>
                             <li>Advanced the state-of-the-art in question answering systems.</li>
                         </ul>
                     </div>
@@ -509,7 +598,8 @@
                 <!-- CMU -->
                 <div class="education-entry">
                     <div class="p-6">
-                        <h3 class="education-degree text-2xl font-semibold mb-1">Master’s Degree, Computational Data Science</h3>
+                        <h3 class="education-degree text-2xl font-semibold mb-1">Master’s Degree, Computational Data
+                            Science</h3>
                         <div class="education-school text-rust font-semibold mb-1">Carnegie Mellon University</div>
                         <div class="education-years text-gray-400 mb-2 text-sm">2015 – 2016</div>
                     </div>
@@ -517,15 +607,19 @@
                 <!-- IIT Madras -->
                 <div class="education-entry">
                     <div class="p-6">
-                        <h3 class="education-degree text-2xl font-semibold mb-1">Bachelor of Technology - BTech, Computer Science and Engineering</h3>
-                        <div class="education-school text-rust font-semibold mb-1">Indian Institute of Technology, Madras</div>
+                        <h3 class="education-degree text-2xl font-semibold mb-1">Bachelor of Technology - BTech,
+                            Computer Science and Engineering</h3>
+                        <div class="education-school text-rust font-semibold mb-1">Indian Institute of Technology,
+                            Madras</div>
                         <div class="education-years text-gray-400 mb-2 text-sm">2011 – 2015</div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-12">
-                <a href="https://www.linkedin.com/in/ayush2991/" target="_blank" rel="noopener" class="project-btn-outline inline-block">
-                    <span class="material-icons align-middle" style="font-size:1.2em;vertical-align:middle;">open_in_new</span>
+                <a href="https://www.linkedin.com/in/ayush2991/" target="_blank" rel="noopener"
+                    class="project-btn-outline inline-block">
+                    <span class="material-icons align-middle"
+                        style="font-size:1.2em;vertical-align:middle;">open_in_new</span>
                     View Full LinkedIn Profile
                 </a>
             </div>
@@ -537,21 +631,28 @@
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold mb-6 text-rust">Get in Touch</h2>
             <p class="mb-8">
-                Feel free to connect with me for collaborations, opportunities, or just a chat about ML, Quant Finance, or Quantum Physics!
+                Feel free to connect with me for collaborations, opportunities, or just a chat about ML, Quant Finance,
+                or Quantum Physics!
             </p>
             <div class="flex flex-wrap justify-center gap-8 text-xl items-center mb-6">
-                <a href="mailto:ayush2991@gmail.com" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="Email">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/maildotru.svg" alt="Email" class="contact-icon icon-mail" width="26" height="26" />
+                <a href="mailto:ayush2991@gmail.com"
+                    class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="Email">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/maildotru.svg" alt="Email"
+                        class="contact-icon icon-mail" width="26" height="26" />
                     Email
                 </a>
                 <span>|</span>
-                <a href="https://linkedin.com/in/ayush2991" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="LinkedIn">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn" class="contact-icon icon-linkedin" width="26" height="26" />
+                <a href="https://linkedin.com/in/ayush2991" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="LinkedIn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn"
+                        class="contact-icon icon-linkedin" width="26" height="26" />
                     LinkedIn
                 </a>
                 <span>|</span>
-                <a href="https://github.com/ayush2991" target="_blank" rel="noopener noreferrer" class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="GitHub">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub" class="contact-icon icon-github" width="26" height="26" />
+                <a href="https://github.com/ayush2991" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-rust transition duration-300 flex items-center gap-2" aria-label="GitHub">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub"
+                        class="contact-icon icon-github" width="26" height="26" />
                     GitHub
                 </a>
             </div>
@@ -564,4 +665,5 @@
     <!-- Only keep script.js -->
     <script src="script.js"></script>
 </body>
+
 </html>
