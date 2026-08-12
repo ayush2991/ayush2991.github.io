@@ -51,19 +51,32 @@ a {
 /* theme toggle */
 .theme-toggle {
   position: fixed;
-  top: 26px;
+  top: 24px;
   right: 48px;
   z-index: 10;
-  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
   padding: 0;
   border: 0;
+  border-radius: 50%;
   background: transparent;
   color: var(--color-muted);
-  font-size: 13px;
-  font-family: inherit;
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.theme-toggle:hover {
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-text) 6%, transparent);
+}
+
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+  display: block;
 }
 
 /* nav */
@@ -115,7 +128,7 @@ a {
 }
 
 .eyebrow {
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -123,27 +136,43 @@ a {
 }
 
 .label {
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 14px;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--color-muted-body);
 }
 
 .contact-list a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   text-decoration: none;
   color: var(--color-muted-body);
 }
 
 .contact-list a:hover {
+  color: var(--color-accent);
+}
+
+.contact-icon {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color: var(--color-muted);
+}
+
+.contact-list a:hover .contact-icon {
   color: var(--color-accent);
 }
 
@@ -159,9 +188,9 @@ a {
 }
 
 .tag {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  padding: 4px 12px;
+  padding: 5px 13px;
   border-radius: 999px;
   border: 1px solid var(--color-accent);
   color: var(--color-accent);
@@ -182,12 +211,12 @@ a {
 }
 
 .edu-degree {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
 }
 
 .edu-meta {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--color-muted);
   margin-top: 3px;
 }
