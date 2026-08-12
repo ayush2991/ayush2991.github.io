@@ -16,11 +16,4 @@
     localStorage.setItem('theme', next);
     applyTheme(next);
   });
-
-  document.querySelectorAll('.role-head').forEach(function (head) {
-    head.addEventListener('click', function () {
-      const expanded = head.getAttribute('aria-expanded') === 'true';
-      head.setAttribute('aria-expanded', String(!expanded));
-    });
-  });
 })();

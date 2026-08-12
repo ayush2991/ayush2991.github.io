@@ -11,6 +11,7 @@
 
   --measure: 56ch;
   --row-pad: 20px;
+  --shadow-overlay: 0 16px 40px rgba(32, 31, 29, 0.16), 0 2px 8px rgba(32, 31, 29, 0.1);
 }
 
 :root[data-theme="dark"] {
@@ -20,6 +21,7 @@
   --color-muted-body: #bab6b6;
   --color-accent: #e1ad66;
   --color-divider: #444141;
+  --shadow-overlay: 0 16px 40px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -207,8 +209,9 @@ section {
   flex-direction: column;
 }
 
-/* career roles (accordion) */
+/* career roles (hover-to-reveal overlay) */
 .role {
+  position: relative;
   border-top: 1px solid var(--color-divider);
 }
 
@@ -222,30 +225,16 @@ section {
   justify-content: space-between;
   align-items: baseline;
   padding: var(--row-pad) 0;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
   font: inherit;
   color: inherit;
   text-align: left;
+  border-radius: 4px;
+  outline: none;
 }
 
-.role-head-left {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-
-.chevron {
-  flex: none;
-  position: relative;
-  top: 1px;
-  color: var(--color-accent);
-  transition: transform 0.15s;
-}
-
-.role-head[aria-expanded="true"] .chevron {
-  transform: rotate(90deg);
+.role-head:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .role-title {
@@ -280,13 +269,33 @@ section {
   opacity: 0.8;
 }
 
+/* Overlay: floats over the content below rather than pushing it down,
+   so hovering a card never shifts the rest of the page. */
 .role-body {
-  display: none;
-  padding: 0 0 22px 22px;
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-height: min(420px, 60vh);
+  overflow-y: auto;
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: 10px;
+  box-shadow: var(--shadow-overlay);
+  padding: 20px 22px 22px;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
-.role-head[aria-expanded="true"] + .role-body {
-  display: block;
+.role:hover .role-body,
+.role-head:focus-visible + .role-body,
+.role-body:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .highlights-label {
@@ -339,6 +348,15 @@ section {
 }
 
 .row-link:hover {
+  text-decoration: underline;
+}
+
+.row-item-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.row-item-link:hover .row-title {
   text-decoration: underline;
 }
 
@@ -413,5 +431,21 @@ section {
   .role-head-right {
     text-align: left;
     padding-left: 0;
+  }
+
+  /* Hover doesn't work reliably on touch — show highlights inline instead
+     of as a floating overlay. */
+  .role-body {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 0 22px;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 }

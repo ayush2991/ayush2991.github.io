@@ -100,23 +100,17 @@
         <div class="row-list">
 
           <div class="role">
-            <button class="role-head" type="button" aria-expanded="false">
-              <div class="role-head-left">
-                <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.5">
-                  <polyline points="9 6 15 12 9 18"></polyline>
-                </svg>
-                <div>
-                  <div class="role-title">Senior LLM Research Engineer</div>
-                  <div class="role-desc">Leading research on domain-adapted language models for financial text —
-                    earnings analysis, document retrieval, and structured extraction at scale.</div>
-                </div>
+            <div class="role-head" tabindex="0">
+              <div>
+                <div class="role-title">Senior LLM Research Engineer</div>
+                <div class="role-desc">Leading research on domain-adapted language models for financial text —
+                  earnings analysis, document retrieval, and structured extraction at scale.</div>
               </div>
               <div class="role-head-right">
                 <div class="role-company">Bloomberg</div>
                 <div class="role-years">2026 — Present</div>
               </div>
-            </button>
+            </div>
             <div class="role-body">
               <div class="highlights-label">Highlights</div>
               <div class="highlight">— Shipped a retrieval-augmented earnings-call analyzer used by 40+ analysts</div>
@@ -125,22 +119,16 @@
           </div>
 
           <div class="role role-last">
-            <button class="role-head" type="button" aria-expanded="false">
-              <div class="role-head-left">
-                <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.5">
-                  <polyline points="9 6 15 12 9 18"></polyline>
-                </svg>
-                <div>
-                  <div class="role-title">Machine Learning Engineer</div>
-                  <div class="role-desc"></div>
-                </div>
+            <div class="role-head" tabindex="0">
+              <div>
+                <div class="role-title">Machine Learning Engineer</div>
+                <div class="role-desc"></div>
               </div>
               <div class="role-head-right">
                 <div class="role-company">Google</div>
                 <div class="role-years">2019 — 2026</div>
               </div>
-            </button>
+            </div>
             <div class="role-body">
               <div class="highlights-label">Highlights</div>
               <div class="highlight">
@@ -165,85 +153,89 @@
             </div>
           </div>
         </div>
+      </section>
 
-  </div>
-  </section>
+      <section id="projects">
+        <div class="section-label">Projects</div>
+        <div class="row-list">
 
-  <section id="projects">
-    <div class="section-label">Projects</div>
-    <div class="row-list">
+          <div class="row-item">
+            <div>
+              <div class="row-title">Marginalia</div>
+              <div class="row-blurb">A small tool for annotating long PDFs with an LLM copilot — surfaces
+                definitions, cross-references and counterarguments inline as you read. Built solo over a few
+                weekends; now used by a couple hundred people.</div>
+            </div>
+            <a href="#" class="row-link">View project →</a>
+          </div>
 
-      <div class="row-item">
-        <div>
-          <div class="row-title">Marginalia</div>
-          <div class="row-blurb">A small tool for annotating long PDFs with an LLM copilot — surfaces definitions,
-            cross-references and counterarguments inline as you read. Built solo over a few weekends; now used by a
-            couple hundred people.</div>
+          <div class="row-item">
+            <div>
+              <div class="row-title">Fieldnotes</div>
+              <div class="row-blurb">An open-source evaluation harness for comparing LLM outputs across prompt
+                variants, with a focus on financial and legal domains. A few contributors beyond me now.</div>
+            </div>
+            <a href="#" class="row-link">View project →</a>
+          </div>
+
+          <div class="row-item">
+            <div>
+              <div class="row-title">Ledger CLI</div>
+              <div class="row-blurb">A command-line expense tracker in Rust, built to learn the language properly.
+              </div>
+            </div>
+            <a href="#" class="row-link">View project →</a>
+          </div>
+
+          <div class="row-item row-item-last">
+            <div>
+              <div class="row-title">Slow Reader</div>
+              <div class="row-blurb">A Chrome extension that rate-limits infinite scroll.</div>
+            </div>
+            <a href="#" class="row-link">View project →</a>
+          </div>
+
         </div>
-        <a href="#" class="row-link">View project →</a>
-      </div>
+      </section>
 
-      <div class="row-item">
-        <div>
-          <div class="row-title">Fieldnotes</div>
-          <div class="row-blurb">An open-source evaluation harness for comparing LLM outputs across prompt variants,
-            with a focus on financial and legal domains. A few contributors beyond me now.</div>
+      <section id="writing">
+        <div class="section-label">Writing</div>
+        <div class="row-list">
+
+          <a class="row-item row-item-link" href="https://medium.com/data-science/understanding-entropy-2ee52b387f8c"
+            target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="row-title">An Intuitive Guide To Entropy</div>
+              <div class="row-blurb">Understanding why entropy is a measure of chaos.</div>
+            </div>
+            <span class="row-date">Apr 2022</span>
+          </a>
+
+          <a class="row-item row-item-link"
+            href="https://medium.com/@ayush2991/understanding-moving-average-models-34993b7c0d31" target="_blank"
+            rel="noopener noreferrer">
+            <div>
+              <div class="row-title">Understanding Moving-Average Models</div>
+              <div class="row-blurb">What does the MA(q) in ARIMA(p, q) models measure?</div>
+            </div>
+            <span class="row-date">May 2022</span>
+          </a>
+
+          <a class="row-item row-item-link row-item-last"
+            href="https://medium.com/@ayush2991/build-an-agentic-quant-advisor-from-scratch-part-1-dbafcd809007"
+            target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="row-title">Build An Agentic Quant Advisor From Scratch: Part 1</div>
+              <div class="row-blurb">A step-by-step guide to building agentic workflows with GPT-5.</div>
+            </div>
+            <span class="row-date">Feb 2026</span>
+          </a>
+
         </div>
-        <a href="#" class="row-link">View project →</a>
-      </div>
+        <div class="all-posts"><a href="#">All posts →</a></div>
+      </section>
 
-      <div class="row-item">
-        <div>
-          <div class="row-title">Ledger CLI</div>
-          <div class="row-blurb">A command-line expense tracker in Rust, built to learn the language properly.</div>
-        </div>
-        <a href="#" class="row-link">View project →</a>
-      </div>
-
-      <div class="row-item row-item-last">
-        <div>
-          <div class="row-title">Slow Reader</div>
-          <div class="row-blurb">A Chrome extension that rate-limits infinite scroll.</div>
-        </div>
-        <a href="#" class="row-link">View project →</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="writing">
-    <div class="section-label">Writing</div>
-    <div class="row-list">
-
-      <div class="row-item">
-        <div>
-          <div class="row-title">An Intuitive Guide To Entropy</div>
-          <div class="row-blurb">Understanding why entropy is a measure of chaos.</div>
-        </div>
-        <span class="row-date">Apr 2022</span>
-      </div>
-
-      <div class="row-item">
-        <div>
-          <div class="row-title">Understanding Moving-Average Models</div>
-          <div class="row-blurb">What does the MA(q) in ARIMA(p, q) models measure?</div>
-        </div>
-        <span class="row-date">May 2022</span>
-      </div>
-
-      <div class="row-item row-item-last">
-        <div>
-          <div class="row-title">Build An Agentic Quant Advisor From Scratch: Part 1</div>
-          <div class="row-blurb">A step-by-step guide to building agentic workflows with GPT-5.</div>
-        </div>
-        <span class="row-date">Feb 2026</span>
-      </div>
-
-    </div>
-    <div class="all-posts"><a href="#">All posts →</a></div>
-  </section>
-
-  </main>
+    </main>
   </div>
 
   <script src="script.js"></script>
