@@ -25,6 +25,30 @@
 
   <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode"></button>
 
+  <header class="mobile-header">
+    <div>
+      <div class="mobile-header-name">Aayush Agarwal</div>
+      <div class="mobile-header-role">Senior LLM Research Engineer, Bloomberg</div>
+    </div>
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false"
+      aria-controls="mobile-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <a href="#career">Career</a>
+    <a href="#projects">Projects</a>
+    <a href="#writing">Writing</a>
+    <a href="https://github.com/ayush2991">GitHub</a>
+    <a href="#">Résumé</a>
+  </div>
+
   <nav class="nav">
     <div class="nav-group">
       <a href="#career">Career</a>
@@ -40,7 +64,7 @@
   <div class="layout">
 
     <aside class="sidebar">
-      <div>
+      <div class="sidebar-identity">
         <h1>Aayush Agarwal</h1>
         <div class="eyebrow">Senior LLM Research Engineer, Bloomberg</div>
       </div>
@@ -88,7 +112,7 @@
         </div>
       </div>
 
-      <div class="sidebar-block">
+      <div class="sidebar-block sidebar-block--half">
         <div class="label">Education</div>
         <div class="edu-item">
           <div class="edu-degree">MS Computational Data Science</div>
@@ -100,7 +124,7 @@
         </div>
       </div>
 
-      <div class="sidebar-block">
+      <div class="sidebar-block sidebar-block--half">
         <div class="label">Certifications</div>
         <div class="edu-item">
           <div class="edu-degree cert-name">Machine Learning Specialization</div>
@@ -117,13 +141,13 @@
       </div>
     </aside>
 
-    <main>
-      <section class="intro">
-        <div class="section-label">About</div>
-        <p>Formerly a machine learning engineer at Google. This site collects my work and a few things I've built on the
-          side.</p>
-      </section>
+    <section class="intro">
+      <div class="section-label">About</div>
+      <p>Formerly a machine learning engineer at Google. This site collects my work and a few things I've built on the
+        side.</p>
+    </section>
 
+    <main>
       <section id="career">
         <div class="section-label">Career</div>
         <div class="row-list">
@@ -134,15 +158,13 @@
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="9 6 15 12 9 18"></polyline>
               </svg>
-              <div class="role-head-main">
-                <div class="role-title">Senior LLM Research Engineer</div>
-                <div class="role-desc">Leading research on domain-adapted language models for financial text —
-                  earnings analysis, document retrieval, and structured extraction at scale.</div>
-              </div>
-              <div class="role-head-right">
+              <div class="role-title">Senior LLM Research Engineer</div>
+              <div class="role-meta">
                 <div class="role-company">Bloomberg</div>
                 <div class="role-years">2026 — Present</div>
               </div>
+              <div class="role-desc">Leading research on domain-adapted language models for financial text —
+                  earnings analysis, document retrieval, and structured extraction at scale.</div>
             </button>
             <div class="role-body">
               <div class="role-body-inner">
@@ -159,16 +181,14 @@
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="9 6 15 12 9 18"></polyline>
               </svg>
-              <div class="role-head-main">
-                <div class="role-title">Machine Learning Engineer</div>
-                <div class="role-desc">Built and shipped large-scale ML systems across Google Search and Workspace —
-                  from LLM grounding infrastructure to ranking classifiers and intelligent writing features used by
-                  billions.</div>
-              </div>
-              <div class="role-head-right">
+              <div class="role-title">Machine Learning Engineer</div>
+              <div class="role-meta">
                 <div class="role-company">Google</div>
                 <div class="role-years">2019 — 2026</div>
               </div>
+              <div class="role-desc">Built and shipped large-scale ML systems across Google Search and Workspace —
+                  from LLM grounding infrastructure to ranking classifiers and intelligent writing features used by
+                  billions.</div>
             </button>
             <div class="role-body">
               <div class="role-body-inner">
@@ -246,31 +266,37 @@
 
           <a class="row-item row-item-link" href="https://medium.com/data-science/understanding-entropy-2ee52b387f8c"
             target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="row-title">An Intuitive Guide To Entropy</div>
+            <div class="row-main">
+              <div class="row-head">
+                <div class="row-title">An Intuitive Guide To Entropy</div>
+                <span class="row-date">Apr 2022</span>
+              </div>
               <div class="row-blurb">Understanding why entropy is a measure of chaos.</div>
             </div>
-            <span class="row-date">Apr 2022</span>
           </a>
 
           <a class="row-item row-item-link"
             href="https://medium.com/@ayush2991/understanding-moving-average-models-34993b7c0d31" target="_blank"
             rel="noopener noreferrer">
-            <div>
-              <div class="row-title">Understanding Moving-Average Models</div>
+            <div class="row-main">
+              <div class="row-head">
+                <div class="row-title">Understanding Moving-Average Models</div>
+                <span class="row-date">May 2022</span>
+              </div>
               <div class="row-blurb">What does the MA(q) in ARIMA(p, q) models measure?</div>
             </div>
-            <span class="row-date">May 2022</span>
           </a>
 
           <a class="row-item row-item-link row-item-last"
             href="https://medium.com/@ayush2991/build-an-agentic-quant-advisor-from-scratch-part-1-dbafcd809007"
             target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="row-title">Build An Agentic Quant Advisor From Scratch: Part 1</div>
+            <div class="row-main">
+              <div class="row-head">
+                <div class="row-title">Build An Agentic Quant Advisor From Scratch: Part 1</div>
+                <span class="row-date">Feb 2026</span>
+              </div>
               <div class="row-blurb">A step-by-step guide to building agentic workflows with GPT-5.</div>
             </div>
-            <span class="row-date">Feb 2026</span>
           </a>
 
         </div>

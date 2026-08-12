@@ -114,6 +114,68 @@ a {
   display: block;
 }
 
+/* mobile header — replaces the nav bar once the layout stacks. Carries the name,
+   so the sidebar's identity block is hidden at the same breakpoint. */
+.mobile-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: 18px var(--sp-4);
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-bg);
+}
+
+.mobile-header-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-display);
+  line-height: 1.1;
+  letter-spacing: -0.45px;
+  margin-bottom: var(--sp-1);
+}
+
+.mobile-header-role {
+  font-family: var(--font-body);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.menu-toggle {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: 1px solid var(--color-divider);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.menu-toggle svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  padding: var(--sp-2) var(--sp-4) var(--sp-3);
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 15px;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
 /* nav */
 /* The 28px item gap sits between --sp-5 and --sp-6 and is deliberate: it
    matches the design's flat nav rhythm. Using the same value within and
@@ -153,8 +215,27 @@ a {
   padding: 0 48px 80px;
   display: grid;
   grid-template-columns: 320px 1fr;
-  gap: var(--sp-9);
+  /* The intro is a sibling of <main> rather than its first child so the mobile
+     layout can lead with it, above the sidebar's contact/skills/education. */
+  grid-template-areas:
+    "sidebar intro"
+    "sidebar main";
+  column-gap: var(--sp-9);
+  row-gap: 0;
   align-items: start;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.intro {
+  grid-area: intro;
+}
+
+main {
+  grid-area: main;
+  min-width: 0;
 }
 
 .sidebar {
@@ -321,9 +402,14 @@ section {
 
 .role-head {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "chevron title meta"
+    ".       desc  meta";
+  column-gap: 10px;
+  row-gap: 4px;
   align-items: baseline;
-  gap: 10px;
   margin: 0 calc(-1 * var(--sp-3));
   padding: var(--row-pad) var(--sp-3);
   background: transparent;
@@ -336,17 +422,21 @@ section {
   transition: background 0.15s ease;
 }
 
-.role-head:hover,
-.role-head:focus-visible {
-  background: color-mix(in srgb, var(--color-text) 5%, transparent);
+/* Hover-only so the tint can't stick to a tapped row on touch. */
+@media (hover: hover) {
+  .role-head:hover {
+    background: color-mix(in srgb, var(--color-text) 5%, transparent);
+  }
 }
 
 .role-head:focus-visible {
+  background: color-mix(in srgb, var(--color-text) 5%, transparent);
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
 }
 
 .role-chevron {
+  grid-area: chevron;
   flex: none;
   width: 12px;
   height: 12px;
@@ -360,26 +450,23 @@ section {
   transform: rotate(90deg);
 }
 
-.role-head-main {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
 .role-title {
+  grid-area: title;
   font-weight: 600;
   font-size: var(--fs-heading);
   color: var(--color-text);
 }
 
 .role-desc {
+  grid-area: desc;
   font-size: var(--fs-sub);
-  margin-top: 4px;
   color: var(--color-muted-body);
   max-width: var(--measure);
 }
 
-.role-head-right {
-  flex: none;
+.role-meta {
+  grid-area: meta;
+  align-self: start;
   text-align: right;
   white-space: nowrap;
   padding-left: var(--sp-4);
@@ -462,13 +549,32 @@ section {
   transition: background 0.15s ease;
 }
 
-.row-item:hover::before,
+@media (hover: hover) {
+  .row-item:hover::before {
+    background: color-mix(in srgb, var(--color-text) 5%, transparent);
+  }
+}
+
 .row-item:focus-within::before {
   background: color-mix(in srgb, var(--color-text) 5%, transparent);
 }
 
 .row-item-last {
   border-bottom: 1px solid var(--color-divider);
+}
+
+.row-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Writing rows keep the date on the title's line so it never reads as part of
+   the row below once the layout stacks. */
+.row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-3);
 }
 
 .row-title {
@@ -525,17 +631,19 @@ section {
 }
 
 /* responsive */
+
+/* Stacked layout. The nav bar gives way to the mobile header's menu. */
 @media (max-width: 860px) {
   .nav {
-    flex-direction: column;
-    padding: var(--sp-4) var(--sp-6);
-    gap: var(--sp-2);
+    display: none;
   }
 
-  .nav-group {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--sp-4);
+  .mobile-header {
+    display: flex;
+  }
+
+  .mobile-menu:not([hidden]) {
+    display: flex;
   }
 
   .theme-toggle {
@@ -546,20 +654,56 @@ section {
 
   .layout {
     grid-template-columns: 1fr;
-    padding: 0 var(--sp-6) 60px;
-    gap: var(--sp-6);
+    grid-template-areas:
+      "intro"
+      "sidebar"
+      "main";
+    padding: var(--sp-5) var(--sp-6) 60px;
+    row-gap: var(--sp-6);
   }
 
+  /* Education and Certifications sit side by side; everything else spans. */
   .sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--sp-4);
+    row-gap: var(--sp-6);
     border-right: none;
     border-bottom: 1px solid var(--color-divider);
     padding: 0 0 var(--sp-6);
     position: static;
   }
 
+  .sidebar > :not(.sidebar-block--half) {
+    grid-column: 1 / -1;
+  }
+
+  .sidebar-identity {
+    display: none;
+  }
+
+  .intro {
+    padding: 0;
+  }
+
+  /* Company and years move above the description, indented under the title. */
+  .role-head {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "chevron title"
+      ".       meta"
+      ".       desc";
+    row-gap: 6px;
+  }
+
+  .role-meta {
+    text-align: left;
+    padding-left: 0;
+  }
+
   .row-item {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--sp-2);
   }
 
@@ -568,14 +712,36 @@ section {
     padding-left: 0;
   }
 
-  /* Stack the meta under the title, indented to the chevron's text column. */
-  .role-head {
-    flex-wrap: wrap;
+  .row-link {
+    align-self: flex-start;
+  }
+}
+
+/* Phone: one step down the type scale, tighter gutters. */
+@media (max-width: 560px) {
+  :root {
+    --fs-display: 28px;
+    --fs-heading: 16px;
+    --fs-sub: 13px;
+    --row-pad: 18px;
   }
 
-  .role-head-right {
-    width: 100%;
-    text-align: left;
-    padding-left: 22px;
+  .mobile-header,
+  .mobile-menu {
+    padding-left: var(--sp-4);
+    padding-right: var(--sp-4);
+  }
+
+  .layout {
+    padding-left: var(--sp-4);
+    padding-right: var(--sp-4);
+  }
+
+  .theme-toggle {
+    right: var(--sp-4);
+  }
+
+  .section-label {
+    margin-bottom: 18px;
   }
 }

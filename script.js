@@ -40,3 +40,23 @@
     });
   });
 })();
+
+/* Mobile menu: the nav links, behind the header's hamburger. */
+(function () {
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  function setOpen(open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.hidden = !open;
+  }
+
+  toggle.addEventListener('click', function () {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  menu.addEventListener('click', function (event) {
+    // Jumping to a section should close the menu behind it.
+    if (event.target.closest('a')) setOpen(false);
+  });
+})();
