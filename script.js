@@ -24,3 +24,19 @@
     applyTheme(next);
   });
 })();
+
+/* Career accordion: click a role to expand its highlights inline. */
+(function () {
+  const heads = document.querySelectorAll('.role-head');
+
+  heads.forEach(function (head) {
+    const role = head.closest('.role');
+    role.dataset.open = 'false';
+
+    head.addEventListener('click', function () {
+      const open = head.getAttribute('aria-expanded') === 'true';
+      head.setAttribute('aria-expanded', String(!open));
+      role.dataset.open = String(!open);
+    });
+  });
+})();

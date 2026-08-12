@@ -13,7 +13,6 @@
 
   --measure: 56ch;
   --row-pad: 20px;
-  --shadow-overlay: 0 16px 40px rgba(32, 31, 29, 0.16), 0 2px 8px rgba(32, 31, 29, 0.1);
 
   /* type scale — every font-size in the page maps to one of these six steps.
      Six rather than five: the original five-step scale forced sidebar detail
@@ -55,7 +54,6 @@
   --color-accent: #e1ad66;
   --color-accent-2: #cf9a52;
   --color-divider: #444141;
-  --shadow-overlay: 0 16px 40px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -64,6 +62,11 @@
 
 body {
   margin: 0;
+  font-size: var(--fs-body);
+  /* The design sets a 1.55 body leading globally. Without it, browser-default
+     line boxes made descriptions read tighter (and so visually darker) than
+     the mock, and squeezed the gap under row titles. */
+  line-height: 1.55;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
@@ -307,9 +310,8 @@ section {
   flex-direction: column;
 }
 
-/* career roles (hover-to-reveal overlay) */
+/* career roles (click-to-expand accordion, per the design) */
 .role {
-  position: relative;
   border-top: 1px solid var(--color-divider);
 }
 
@@ -320,19 +322,21 @@ section {
 .role-head {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  gap: 10px;
   margin: 0 calc(-1 * var(--sp-3));
   padding: var(--row-pad) var(--sp-3);
+  background: transparent;
+  border: 0;
   font: inherit;
   color: inherit;
   text-align: left;
   border-radius: 8px;
-  outline: none;
+  cursor: pointer;
   transition: background 0.15s ease;
 }
 
-.role:hover .role-head,
+.role-head:hover,
 .role-head:focus-visible {
   background: color-mix(in srgb, var(--color-text) 5%, transparent);
 }
@@ -342,6 +346,25 @@ section {
   outline-offset: 4px;
 }
 
+.role-chevron {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 1px;
+  color: var(--color-accent);
+  transition: transform 0.15s ease;
+}
+
+.role-head[aria-expanded="true"] .role-chevron {
+  transform: rotate(90deg);
+}
+
+.role-head-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .role-title {
   font-weight: 600;
   font-size: var(--fs-heading);
@@ -349,13 +372,14 @@ section {
 }
 
 .role-desc {
-  font-size: var(--fs-body);
+  font-size: var(--fs-sub);
   margin-top: 4px;
   color: var(--color-muted-body);
   max-width: var(--measure);
 }
 
 .role-head-right {
+  flex: none;
   text-align: right;
   white-space: nowrap;
   padding-left: var(--sp-4);
@@ -374,33 +398,32 @@ section {
   opacity: 0.8;
 }
 
-/* Overlay: floats over the content below rather than pushing it down,
-   so hovering a card never shifts the rest of the page. */
+/* Accordion panel: collapsed by default, height animated via a grid row so
+   the content can size itself instead of needing a hard-coded max-height. */
 .role-body {
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 0;
-  right: 0;
-  z-index: 20;
-  max-height: min(420px, 60vh);
-  overflow-y: auto;
-  background: var(--color-bg);
-  border: 1px solid var(--color-divider);
-  border-radius: 10px;
-  box-shadow: var(--shadow-overlay);
-  padding: var(--sp-4) var(--sp-5) var(--sp-5);
-  opacity: 0;
-  transform: translateY(-6px);
-  pointer-events: none;
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.22s ease;
 }
 
-.role:hover .role-body,
-.role-head:focus-visible + .role-body,
-.role-body:hover {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+.role[data-open="true"] .role-body {
+  grid-template-rows: 1fr;
+}
+
+.role-body-inner {
+  overflow: hidden;
+  padding-left: 22px;
+}
+
+.role[data-open="true"] .role-body-inner {
+  padding-bottom: 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role-body,
+  .role-chevron {
+    transition: none;
+  }
 }
 
 .highlights-label {
@@ -412,7 +435,7 @@ section {
 }
 
 .highlight {
-  font-size: var(--fs-body);
+  font-size: var(--fs-sub);
   color: var(--color-muted-body);
   padding: var(--sp-1) 0;
   max-width: var(--measure);
@@ -455,7 +478,7 @@ section {
 }
 
 .row-blurb {
-  font-size: var(--fs-body);
+  font-size: var(--fs-sub);
   margin-top: 4px;
   color: var(--color-muted-body);
   max-width: var(--measure);
@@ -545,30 +568,14 @@ section {
     padding-left: 0;
   }
 
+  /* Stack the meta under the title, indented to the chevron's text column. */
   .role-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--sp-2);
+    flex-wrap: wrap;
   }
 
   .role-head-right {
+    width: 100%;
     text-align: left;
-    padding-left: 0;
-  }
-
-  /* Hover doesn't work reliably on touch — show highlights inline instead
-     of as a floating overlay. */
-  .role-body {
-    position: static;
-    max-height: none;
-    overflow-y: visible;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0 0 22px;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
+    padding-left: 22px;
   }
 }
