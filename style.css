@@ -13,6 +13,18 @@
   --measure: 56ch;
   --row-pad: 20px;
   --shadow-overlay: 0 16px 40px rgba(32, 31, 29, 0.16), 0 2px 8px rgba(32, 31, 29, 0.1);
+
+  /* type scale — every font-size in the page maps to one of these five steps */
+  --fs-display: 32px;
+  /* sidebar name */
+  --fs-heading: 19px;
+  /* section labels, role/row titles */
+  --fs-body: 15px;
+  /* paragraphs, descriptions, contact list, tags */
+  --fs-small: 13px;
+  /* uppercase labels, meta text, nav */
+  --fs-micro: 11px;
+  /* dates, years, badges */
 }
 
 :root[data-theme="dark"] {
@@ -88,7 +100,7 @@ a {
   padding: 24px 120px 24px 48px;
   max-width: 1400px;
   margin: 0 auto;
-  font-size: 14px;
+  font-size: var(--fs-small);
 }
 
 .nav a {
@@ -122,13 +134,13 @@ a {
 }
 
 .sidebar h1 {
-  font-size: 30px;
+  font-size: var(--fs-display);
   line-height: 1.1;
   margin-bottom: 8px;
 }
 
 .eyebrow {
-  font-size: 15px;
+  font-size: var(--fs-small);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -136,7 +148,7 @@ a {
 }
 
 .label {
-  font-size: 14px;
+  font-size: var(--fs-small);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -148,7 +160,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 15px;
+  font-size: var(--fs-body);
   font-weight: 500;
   color: var(--color-muted-body);
 }
@@ -188,7 +200,7 @@ a {
 }
 
 .tag {
-  font-size: 14px;
+  font-size: var(--fs-body);
   font-weight: 500;
   padding: 5px 13px;
   border-radius: 999px;
@@ -211,12 +223,12 @@ a {
 }
 
 .edu-degree {
-  font-size: 15px;
+  font-size: var(--fs-body);
   font-weight: 600;
 }
 
 .edu-meta {
-  font-size: 14px;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   margin-top: 3px;
 }
@@ -226,13 +238,13 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 16px;
-  min-width: 16px;
-  padding: 0 5px;
+  height: 20px;
+  min-width: 20px;
+  padding: 0 7px;
   margin-right: 6px;
-  border-radius: 4px;
+  border-radius: 5px;
   font-family: var(--font-body);
-  font-size: 9px;
+  font-size: var(--fs-micro);
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #fff;
@@ -265,7 +277,7 @@ a {
 }
 
 .intro p {
-  font-size: 16px;
+  font-size: var(--fs-body);
   line-height: 1.65;
   max-width: var(--measure);
   color: var(--color-muted-body);
@@ -278,7 +290,7 @@ section {
 
 .section-label {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: var(--fs-heading);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -320,12 +332,12 @@ section {
 
 .role-title {
   font-weight: 600;
-  font-size: 18px;
+  font-size: var(--fs-heading);
   color: var(--color-text);
 }
 
 .role-desc {
-  font-size: 14px;
+  font-size: var(--fs-body);
   margin-top: 4px;
   color: var(--color-muted-body);
   max-width: var(--measure);
@@ -339,12 +351,12 @@ section {
 
 .role-company {
   color: var(--color-muted);
-  font-size: 14px;
+  font-size: var(--fs-small);
 }
 
 .role-years {
   color: var(--color-muted);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   font-variant-numeric: tabular-nums;
   margin-top: 2px;
   opacity: 0.8;
@@ -380,7 +392,7 @@ section {
 }
 
 .highlights-label {
-  font-size: 13px;
+  font-size: var(--fs-small);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -388,7 +400,7 @@ section {
 }
 
 .highlight {
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: var(--color-muted-body);
   padding: 3px 0;
   max-width: var(--measure);
@@ -409,19 +421,19 @@ section {
 
 .row-title {
   font-weight: 600;
-  font-size: 18px;
+  font-size: var(--fs-heading);
   color: var(--color-text);
 }
 
 .row-blurb {
-  font-size: 14px;
+  font-size: var(--fs-body);
   margin-top: 4px;
   color: var(--color-muted-body);
   max-width: var(--measure);
 }
 
 .row-link {
-  font-size: 14px;
+  font-size: var(--fs-small);
   color: var(--color-accent);
   white-space: nowrap;
   padding-left: 20px;
@@ -442,7 +454,7 @@ section {
 }
 
 .row-date {
-  font-size: 12px;
+  font-size: var(--fs-micro);
   color: var(--color-muted);
   white-space: nowrap;
   padding-left: 20px;
@@ -454,7 +466,7 @@ section {
 }
 
 .all-posts a {
-  font-size: 13px;
+  font-size: var(--fs-small);
   color: var(--color-accent);
   font-weight: 600;
   text-decoration: none;
