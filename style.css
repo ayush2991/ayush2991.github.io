@@ -37,13 +37,6 @@
   --sp-7: 40px;
   --sp-8: 56px;
   --sp-9: 64px;
-
-  /* badge palette — desaturated so brand chips read as part of the page,
-     not stickers, while staying distinguishable from one another */
-  --badge-bloomberg: #4a4744;
-  --badge-google: #5c7a9e;
-  --badge-cmu: #9c5050;
-  --badge-iit: #445c78;
 }
 
 :root[data-theme="dark"] {
@@ -263,43 +256,6 @@ a {
   font-size: var(--fs-small);
   color: var(--color-muted);
   margin-top: var(--sp-1);
-}
-
-/* brand badges — small inline chips before institution/company names */
-.brand-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  min-width: 20px;
-  padding: 0 var(--sp-2);
-  margin-right: var(--sp-2);
-  border-radius: 5px;
-  font-family: var(--font-body);
-  font-size: var(--fs-micro);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #fff;
-  line-height: 1;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
-}
-
-.brand-badge--bloomberg {
-  background: var(--badge-bloomberg);
-}
-
-.brand-badge--google {
-  background: var(--badge-google);
-}
-
-.brand-badge--cmu {
-  background: var(--badge-cmu);
-}
-
-.brand-badge--iit {
-  background: var(--badge-iit);
 }
 
 /* main content */
