@@ -129,8 +129,12 @@
         <div class="row-list">
 
           <div class="role">
-            <div class="role-head" tabindex="0">
-              <div>
+            <button class="role-head" type="button" aria-expanded="false">
+              <svg class="role-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+              <div class="role-head-main">
                 <div class="role-title">Senior LLM Research Engineer</div>
                 <div class="role-desc">Leading research on domain-adapted language models for financial text —
                   earnings analysis, document retrieval, and structured extraction at scale.</div>
@@ -139,17 +143,23 @@
                 <div class="role-company">Bloomberg</div>
                 <div class="role-years">2026 — Present</div>
               </div>
-            </div>
+            </button>
             <div class="role-body">
-              <div class="highlights-label">Highlights</div>
-              <div class="highlight">— Shipped a retrieval-augmented earnings-call analyzer used by 40+ analysts</div>
-              <div class="highlight">— Cut structured-extraction error rate by 30% via a fine-tuned adapter stack</div>
+              <div class="role-body-inner">
+                <div class="highlights-label">Highlights</div>
+                <div class="highlight">— Shipped a retrieval-augmented earnings-call analyzer used by 40+ analysts</div>
+                <div class="highlight">— Cut structured-extraction error rate by 30% via a fine-tuned adapter stack</div>
+              </div>
             </div>
           </div>
 
           <div class="role role-last">
-            <div class="role-head" tabindex="0">
-              <div>
+            <button class="role-head" type="button" aria-expanded="false">
+              <svg class="role-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+              <div class="role-head-main">
                 <div class="role-title">Machine Learning Engineer</div>
                 <div class="role-desc">Built and shipped large-scale ML systems across Google Search and Workspace —
                   from LLM grounding infrastructure to ranking classifiers and intelligent writing features used by
@@ -159,27 +169,28 @@
                 <div class="role-company">Google</div>
                 <div class="role-years">2019 — 2026</div>
               </div>
-            </div>
+            </button>
             <div class="role-body">
-              <div class="highlights-label">Highlights</div>
-              <div class="highlight">
-                <p><b>GenAI Reliability & Grounding:</b> Solved the LLM hallucination problem for Search AI by building
-                  a real-time cross-verification engine with Knowledge Graph structured data; reduced contradictory
-                  answers by 90% across 100+ countries and 20+ languages while deploying large-scale caching to manage
-                  high-concurrency latency and compute costs.</p>
-              </div>
-              <div class="highlight">
-                <p><b>Search Ranking & Ecosystem Expansion:</b> High-quality creator content was getting buried by
-                  corporate SEO, so I built custom ML classifiers that cut brand noise 10x and scaled index/retrieval
-                  support across multi-platform feeds (X, Facebook, LinkedIn) by 3x, surfacing 2M+ authentic creators
-                  across 100M+ queries.</p>
-              </div>
-              <div class="highlight">
-                <p><b>AI & Intelligent Workflows:</b> Replaced legacy heuristic link recommendations in Google Docs by
-                  architecting a production Two-Tower neural network (increasing CTR by 40%+) and engineered the
-                  end-to-end distributed ML training/inference pipeline for Smart Compose, expanding it into 4 new
-                  global
-                  languages.</p>
+              <div class="role-body-inner">
+                <div class="highlights-label">Highlights</div>
+                <div class="highlight">
+                  <p><b>GenAI Reliability & Grounding:</b> Solved the LLM hallucination problem for Search AI by building
+                    a real-time cross-verification engine with Knowledge Graph structured data; reduced contradictory
+                    answers by 90% across 100+ countries and 20+ languages while deploying large-scale caching to manage
+                    high-concurrency latency and compute costs.</p>
+                </div>
+                <div class="highlight">
+                  <p><b>Search Ranking & Ecosystem Expansion:</b> High-quality creator content was getting buried by
+                    corporate SEO, so I built custom ML classifiers that cut brand noise 10x and scaled index/retrieval
+                    support across multi-platform feeds (X, Facebook, LinkedIn) by 3x, surfacing 2M+ authentic creators
+                    across 100M+ queries.</p>
+                </div>
+                <div class="highlight">
+                  <p><b>AI & Intelligent Workflows:</b> Replaced legacy heuristic link recommendations in Google Docs by
+                    architecting a production Two-Tower neural network (increasing CTR by 40%+) and engineered the
+                    end-to-end distributed ML training/inference pipeline for Smart Compose, expanding it into 4 new
+                    global languages.</p>
+                </div>
               </div>
             </div>
           </div>
