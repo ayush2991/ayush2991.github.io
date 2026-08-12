@@ -4,6 +4,7 @@
   --color-muted: rgba(32, 31, 29, 0.68);
   --color-muted-body: rgba(32, 31, 29, 0.85);
   --color-accent: #7d5411;
+  --color-accent-2: #47707d;
   --color-divider: rgba(32, 31, 29, 0.16);
 
   --font-heading: "Cormorant Garamond", Georgia, serif;
@@ -20,6 +21,7 @@
   --color-muted: #9b9797;
   --color-muted-body: #bab6b6;
   --color-accent: #e1ad66;
+  --color-accent-2: #7fb0bf;
   --color-divider: #444141;
   --shadow-overlay: 0 16px 40px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -113,10 +115,11 @@ a {
 }
 
 .eyebrow {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-accent);
+  line-height: 1.5;
 }
 
 .label {
@@ -130,8 +133,8 @@ a {
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  font-size: 13px;
+  gap: 8px;
+  font-size: 14px;
   color: var(--color-muted-body);
 }
 
@@ -156,26 +159,75 @@ a {
 }
 
 .tag {
-  font-size: 12px;
-  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 12px;
   border-radius: 999px;
   border: 1px solid var(--color-accent);
   color: var(--color-accent);
 }
 
+.tag--ml {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.tag--tools {
+  border-color: var(--color-accent-2);
+  color: var(--color-accent-2);
+}
+
 .edu-item {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .edu-degree {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .edu-meta {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--color-muted);
-  margin-top: 2px;
+  margin-top: 3px;
+}
+
+/* brand badges — small inline chips before institution/company names */
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  min-width: 16px;
+  padding: 0 5px;
+  margin-right: 6px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  line-height: 1;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.brand-badge--bloomberg {
+  background: #201f1d;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.brand-badge--google {
+  background: #3f6fbf;
+}
+
+.brand-badge--cmu {
+  background: #a6192e;
+}
+
+.brand-badge--iit {
+  background: #1c3f78;
 }
 
 /* main content */
