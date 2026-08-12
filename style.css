@@ -4,7 +4,6 @@
   --color-muted: rgba(32, 31, 29, 0.68);
   --color-muted-body: rgba(32, 31, 29, 0.85);
   --color-accent: #7d5411;
-  --color-accent-2: #b6752f;
   --color-divider: rgba(32, 31, 29, 0.16);
 
   --font-heading: "Cormorant Garamond", Georgia, serif;
@@ -52,7 +51,6 @@
   --color-muted: #9b9797;
   --color-muted-body: #bab6b6;
   --color-accent: #e1ad66;
-  --color-accent-2: #cf9a52;
   --color-divider: #444141;
 }
 
@@ -325,16 +323,6 @@ main {
   border-radius: 3px;
   border: 1px solid var(--color-accent);
   color: var(--color-accent);
-}
-
-.tag--ml {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-.tag--tools {
-  border-color: var(--color-accent-2);
-  color: var(--color-accent-2);
 }
 
 .edu-item {
