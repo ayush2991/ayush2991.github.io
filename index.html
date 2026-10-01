@@ -42,18 +42,18 @@
   </header>
 
   <div id="mobile-menu" class="mobile-menu" hidden>
-    <a href="#career">Career</a>
-    <a href="#projects">Projects</a>
     <a href="#writing">Writing</a>
+    <a href="#projects">Projects</a>
+    <a href="#career">Career</a>
     <a href="https://github.com/ayush2991">GitHub</a>
     <a href="#">Résumé</a>
   </div>
 
   <nav class="nav">
     <div class="nav-group">
-      <a href="#career">Career</a>
-      <a href="#projects">Projects</a>
       <a href="#writing">Writing</a>
+      <a href="#projects">Projects</a>
+      <a href="#career">Career</a>
     </div>
     <div class="nav-group">
       <a href="https://github.com/ayush2991">GitHub</a>
@@ -143,13 +143,137 @@
 
     <section class="intro">
       <div class="section-label">About</div>
-      <p>Formerly a machine learning engineer at Google. This site collects my work and a few things I've built on the
-        side.</p>
+      <p>I'm a research engineer working on large language models and reasoning systems—currently at Bloomberg,
+        previously at Google and Microsoft. Outside of work, I write essays at <em>Intuition First</em> to break down
+        complex math and physics concepts into intuitive, learnable building blocks, and build software experiments on
+        the side.</p>
     </section>
 
     <main>
+      <!-- Dual Pillar Grid: Writings & Projects Cards -->
+      <div class="dual-pillar-grid">
+
+        <!-- Pillar 1: Writing Card (Featured Publication) -->
+        <section id="writing" class="pillar-card featured-writer">
+          <div class="pillar-main">
+            <div class="pillar-header">
+              <div class="pillar-kicker">Explorable Explanations · 4 essays</div>
+              <h2 class="pillar-title">Intuition <em>First</em></h2>
+            </div>
+            <p class="pillar-content">
+              Deep ideas in physics, mathematics, and computation built from visual geometry and interactive simulations.
+            </p>
+            <div class="pillar-list-container">
+              <ul class="pillar-list">
+                <li class="pillar-list-item">
+                  <div class="pillar-item-head">
+                    <a href="https://ayush2991.github.io/intuition-first/posts/01-motion-and-time.html"
+                      target="_blank" rel="noopener noreferrer">01. Motion & Time</a>
+                    <span class="pillar-meta">7 Sims</span>
+                  </div>
+                  <div class="pillar-item-blurb">Why motion through space affects time, built from geometric thought experiments.</div>
+                </li>
+                <li class="pillar-list-item">
+                  <div class="pillar-item-head">
+                    <a href="https://ayush2991.github.io/intuition-first/posts/02-light-cone.html"
+                      target="_blank" rel="noopener noreferrer">02. The Cosmic Light Cone</a>
+                    <span class="pillar-meta">Simulator</span>
+                  </div>
+                  <div class="pillar-item-blurb">Interactive mapping of past, future, and causality in spacetime geometry.</div>
+                </li>
+                <li class="pillar-list-item">
+                  <div class="pillar-item-head">
+                    <a href="https://ayush2991.github.io/intuition-first/posts/03-spacetime-loaf.html"
+                      target="_blank" rel="noopener noreferrer">03. The Spacetime Loaf</a>
+                    <span class="pillar-meta">8 Sims</span>
+                  </div>
+                  <div class="pillar-item-blurb">The relativity of simultaneity, the block universe, and length contraction.</div>
+                </li>
+                <li class="pillar-list-item">
+                  <div class="pillar-item-head">
+                    <a href="https://ayush2991.github.io/intuition-first/posts/04-understanding-entropy.html"
+                      target="_blank" rel="noopener noreferrer">04. Guide to Entropy</a>
+                    <span class="pillar-meta">4 Sims</span>
+                  </div>
+                  <div class="pillar-item-blurb">Understanding why entropy is a measure of chaos and missing information.</div>
+                </li>
+              </ul>
+              <button class="pillar-scroll-cue" type="button" aria-label="Scroll to view more essays" title="Scroll to view more">
+                <span class="scroll-cue-text">+1 more</span>
+                <svg class="scroll-cue-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="pillar-footer">
+            <a href="https://ayush2991.github.io/intuition-first/" target="_blank" rel="noopener noreferrer" class="pillar-link">
+              Explore all essays on Intuition First →
+            </a>
+          </div>
+        </section>
+
+        <!-- Pillar 2: Projects Card (Software & Systems) -->
+        <section id="projects" class="pillar-card card-engineering">
+          <div class="pillar-main">
+            <div class="pillar-header">
+              <div class="pillar-kicker">Engineering & Code · 4 projects</div>
+              <h2 class="pillar-title">Software & Systems</h2>
+            </div>
+            <p class="pillar-content">
+              Web apps, mobile tools, and software experiments built on the side.
+            </p>
+            <div class="pillar-list-container">
+              <ul class="pillar-list">
+                <li class="pillar-list-item">
+                  <div class="pillar-item-head">
+                    <a href="https://github.com/ayush2991/fiducia" target="_blank" rel="noopener noreferrer">Fiducia</a>
+                    <span class="pillar-meta">React Native</span>
+                  </div>
+                  <div class="pillar-item-blurb">A mobile application built with Expo and TypeScript for tracking and comparing investment portfolios.</div>
+                </li>
+                <li class="pillar-list-item">
+                  <div class="pillar-item-head">
+                    <a href="https://github.com/ayush2991/PactPal" target="_blank" rel="noopener noreferrer">PactPal</a>
+                    <span class="pillar-meta">TypeScript</span>
+                  </div>
+                  <div class="pillar-item-blurb">An accountability-driven task planner designed to curb procrastination through binding daily pacts.</div>
+                </li>
+                <li class="pillar-list-item">
+                  <div class="pillar-item-head">
+                    <a href="https://github.com/ayush2991/flash-cards" target="_blank" rel="noopener noreferrer">Flash Cards</a>
+                    <span class="pillar-meta">Web App</span>
+                  </div>
+                  <div class="pillar-item-blurb">An interactive web application featuring curated flashcard decks for staff engineer interview preparation.</div>
+                </li>
+                <li class="pillar-list-item">
+                  <div class="pillar-item-head">
+                    <a href="https://github.com/ayush2991/culinary-canvas" target="_blank" rel="noopener noreferrer">Culinary Canvas</a>
+                    <span class="pillar-meta">JavaScript</span>
+                  </div>
+                  <div class="pillar-item-blurb">A modern recipe gallery application with modular single-source definitions and modal views.</div>
+                </li>
+              </ul>
+              <button class="pillar-scroll-cue" type="button" aria-label="Scroll to view more projects" title="Scroll to view more">
+                <span class="scroll-cue-text">+1 more</span>
+                <svg class="scroll-cue-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="pillar-footer">
+            <a href="https://github.com/ayush2991" target="_blank" rel="noopener noreferrer" class="pillar-link">
+              View GitHub profile →
+            </a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Career Trajectory Section -->
       <section id="career">
-        <div class="section-label">Career</div>
+        <div class="section-label">Career Trajectory</div>
         <div class="row-list">
 
           <div class="role">
@@ -175,7 +299,7 @@
             </div>
           </div>
 
-          <div class="role role-last">
+          <div class="role">
             <button class="role-head" type="button" aria-expanded="false">
               <svg class="role-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -214,93 +338,36 @@
               </div>
             </div>
           </div>
+
+          <div class="role role-last">
+            <button class="role-head" type="button" aria-expanded="false">
+              <svg class="role-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+              <div class="role-title">Data Scientist</div>
+              <div class="role-meta">
+                <div class="role-company">Microsoft</div>
+                <div class="role-years">Feb 2017 — Mar 2019</div>
+              </div>
+              <div class="role-desc">Developed NLP models and real-time streaming systems on the Bing Knowledge Graph and NLP team — extracting answers from breaking news on unfolding events and detecting trending entities at scale.</div>
+            </button>
+            <div class="role-body">
+              <div class="role-body-inner">
+                <div class="highlights-label">Highlights</div>
+                <div class="highlight">
+                  <p><b>Real-Time Event Question Answering:</b> Engineered neural NLP extraction models to answer high-volume Bing queries on live, unfolding events by mining and synthesizing breaking news articles in real time, surfacing direct answers on the search results page.</p>
+                </div>
+                <div class="highlight">
+                  <p><b>Trending Entity Detection:</b> Architected near real-time streaming pipelines over Bing query streams and news feeds to detect trending and breakout entities within minutes, powering dynamic discovery across Bing.com.</p>
+                </div>
+                <div class="highlight">
+                  <p><b>Knowledge Graph Semantic Grounding:</b> Linked dynamic event and entity extractions into the Bing Knowledge Graph, establishing semantic entity resolution and structured answer cards for timely, high-velocity topics.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-
-      <section id="projects">
-        <div class="section-label">Projects</div>
-        <div class="row-list">
-
-          <div class="row-item">
-            <div>
-              <div class="row-title">Marginalia</div>
-              <div class="row-blurb">A small tool for annotating long PDFs with an LLM copilot — surfaces
-                definitions, cross-references and counterarguments inline as you read. Built solo over a few
-                weekends; now used by a couple hundred people.</div>
-            </div>
-            <a href="#" class="row-link">View project →</a>
-          </div>
-
-          <div class="row-item">
-            <div>
-              <div class="row-title">Fieldnotes</div>
-              <div class="row-blurb">An open-source evaluation harness for comparing LLM outputs across prompt
-                variants, with a focus on financial and legal domains. A few contributors beyond me now.</div>
-            </div>
-            <a href="#" class="row-link">View project →</a>
-          </div>
-
-          <div class="row-item">
-            <div>
-              <div class="row-title">Ledger CLI</div>
-              <div class="row-blurb">A command-line expense tracker in Rust, built to learn the language properly.
-              </div>
-            </div>
-            <a href="#" class="row-link">View project →</a>
-          </div>
-
-          <div class="row-item row-item-last">
-            <div>
-              <div class="row-title">Slow Reader</div>
-              <div class="row-blurb">A Chrome extension that rate-limits infinite scroll.</div>
-            </div>
-            <a href="#" class="row-link">View project →</a>
-          </div>
-
-        </div>
-      </section>
-
-      <section id="writing">
-        <div class="section-label">Writing</div>
-        <div class="row-list">
-
-          <a class="row-item row-item-link" href="https://medium.com/data-science/understanding-entropy-2ee52b387f8c"
-            target="_blank" rel="noopener noreferrer">
-            <div class="row-main">
-              <div class="row-head">
-                <div class="row-title">An Intuitive Guide To Entropy</div>
-                <span class="row-date">Apr 2022</span>
-              </div>
-              <div class="row-blurb">Understanding why entropy is a measure of chaos.</div>
-            </div>
-          </a>
-
-          <a class="row-item row-item-link"
-            href="https://medium.com/@ayush2991/understanding-moving-average-models-34993b7c0d31" target="_blank"
-            rel="noopener noreferrer">
-            <div class="row-main">
-              <div class="row-head">
-                <div class="row-title">Understanding Moving-Average Models</div>
-                <span class="row-date">May 2022</span>
-              </div>
-              <div class="row-blurb">What does the MA(q) in ARIMA(p, q) models measure?</div>
-            </div>
-          </a>
-
-          <a class="row-item row-item-link row-item-last"
-            href="https://medium.com/@ayush2991/build-an-agentic-quant-advisor-from-scratch-part-1-dbafcd809007"
-            target="_blank" rel="noopener noreferrer">
-            <div class="row-main">
-              <div class="row-head">
-                <div class="row-title">Build An Agentic Quant Advisor From Scratch: Part 1</div>
-                <span class="row-date">Feb 2026</span>
-              </div>
-              <div class="row-blurb">A step-by-step guide to building agentic workflows with GPT-5.</div>
-            </div>
-          </a>
-
-        </div>
-        <div class="all-posts"><a href="#">All posts →</a></div>
       </section>
 
     </main>

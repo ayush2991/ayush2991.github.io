@@ -60,3 +60,32 @@
     if (event.target.closest('a')) setOpen(false);
   });
 })();
+
+/* Pillar card scroll cue: hides indicator when scrolled to bottom, clicks to scroll */
+(function () {
+  const containers = document.querySelectorAll('.pillar-list-container');
+
+  containers.forEach(function (container) {
+    const list = container.querySelector('.pillar-list');
+    const cue = container.querySelector('.pillar-scroll-cue');
+    if (!list || !cue) return;
+
+    function checkScroll() {
+      if (list.scrollHeight <= list.clientHeight + 4) {
+        container.dataset.atBottom = 'true';
+        return;
+      }
+      const atBottom = list.scrollHeight - list.scrollTop - list.clientHeight <= 14;
+      container.dataset.atBottom = String(atBottom);
+    }
+
+    list.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    checkScroll();
+
+    cue.addEventListener('click', function () {
+      list.scrollTo({ top: list.scrollHeight, behavior: 'smooth' });
+    });
+  });
+})();
+
