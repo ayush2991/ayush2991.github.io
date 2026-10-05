@@ -7,22 +7,62 @@
   const MOON =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
 
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-    // Icon shown is the action, not the current state — clicking it switches to that mode.
-    toggle.innerHTML = theme === 'dark' ? SUN : MOON;
-    toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  function getSystemTheme() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
   }
 
-  const stored = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(stored || (prefersDark ? 'dark' : 'light'));
+  function getInitialTheme() {
+    try {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark' || stored === 'light') return stored;
+    } catch (_) {}
+    return getSystemTheme();
+  }
 
-  toggle.addEventListener('click', function () {
-    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', next);
-    applyTheme(next);
-  });
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    if (toggle) {
+      // Icon shown is the action, not the current state — clicking it switches to that mode.
+      toggle.innerHTML = theme === 'dark' ? SUN : MOON;
+      toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  }
+
+  applyTheme(getInitialTheme());
+
+  const mediaQuery = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+  if (mediaQuery) {
+    const handleMediaChange = function (e) {
+      try {
+        const stored = localStorage.getItem('theme');
+        // If the user hasn't set an explicit override in localStorage, dynamically follow system changes
+        if (!stored) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      } catch (_) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    };
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleMediaChange);
+    } else if (mediaQuery.addListener) {
+      mediaQuery.addListener(handleMediaChange);
+    }
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme') || getInitialTheme();
+      const next = current === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem('theme', next);
+      } catch (_) {}
+      applyTheme(next);
+    });
+  }
 })();
 
 /* Career accordion: click a role to expand its highlights inline. */
